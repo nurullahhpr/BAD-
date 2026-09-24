@@ -98,10 +98,8 @@ export const dashboardTabs: DashboardTab[] = [
     breakdown: {
       title: "Platform bazında harcama",
       items: [
-        lira("Meta", 186_000),
-        lira("Google", 142_000),
-        lira("Trendyol Reklam", 58_000),
-        lira("TikTok", 26_000),
+        lira("Meta Ads", 236_000),
+        lira("Google Ads", 176_000),
       ],
     },
   },

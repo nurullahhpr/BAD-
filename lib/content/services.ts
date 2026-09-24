@@ -3,12 +3,19 @@ import { pillars, type Pillar, type PillarId } from "@/lib/content/home";
 // Detail pages under /hizmetler/[pillar]. Service titles and one-line bodies come from
 // the approved `pillars` copy; everything added here is marked DRAFT until approved.
 
+export type ServiceTool = {
+  name: "Meta Ads" | "Google Ads";
+  /** What the platform does inside this specific service. */
+  use: string;
+};
+
 export type ServiceDetail = {
   /** Anchor id inside the pillar page. */
   slug: string;
   whatWeDo: string[];
   process: string[];
-  tools: string[];
+  /** Only the ad platforms BADİ actually uses, and only where they do real work. */
+  tools: ServiceTool[];
 };
 
 export type PillarPage = {
@@ -23,7 +30,8 @@ type PillarDetail = {
   services: ServiceDetail[];
 };
 
-// DRAFT: intros, "ne yapıyoruz", "nasıl çalışıyoruz" and tool lists await client approval.
+// DRAFT: intros, "ne yapıyoruz" and "nasıl çalışıyoruz" await client approval.
+// Tools are limited to Meta Ads and Google Ads (confirmed) and shown only where relevant.
 const details: Record<PillarId, PillarDetail> = {
   administration: {
     intro:
@@ -42,7 +50,7 @@ const details: Record<PillarId, PillarDetail> = {
           "Düzenleme: listeleri, fiyatları ve kampanyaları yeniden kurarız.",
           "Takip: satış ve sıralamayı düzenli ölçer, aksiyon alırız.",
         ],
-        tools: ["Trendyol Satıcı Paneli", "Hepsiburada Satıcı Paneli", "Amazon Seller Central", "Google Merchant Center"],
+        tools: [],
       },
       {
         slug: "crm-musteri-operasyonu",
@@ -56,7 +64,7 @@ const details: Record<PillarId, PillarDetail> = {
           "Kurgu: segmentleri ve otomatik akışları kurarız.",
           "Ölçüm: tekrar satın alma oranını takip ederiz.",
         ],
-        tools: ["Klaviyo", "Insider", "HubSpot", "WhatsApp Business"],
+        tools: [],
       },
       {
         slug: "ticari-strateji-raporlama",
@@ -70,7 +78,7 @@ const details: Record<PillarId, PillarDetail> = {
           "Analiz: stok ve satış verisini birlikte okuruz.",
           "Rapor: sonuçları ve sonraki adımları düzenli paylaşırız.",
         ],
-        tools: ["BADİ Dashboard", "Looker Studio", "Google Sheets", "ERP raporları"],
+        tools: [],
       },
     ],
   },
@@ -90,7 +98,10 @@ const details: Record<PillarId, PillarDetail> = {
           "Test: kitle, kreatif ve teklif stratejilerini deneriz.",
           "Ölçekleme: kazanan kampanyalara bütçe kaydırırız.",
         ],
-        tools: ["Meta Ads", "Google Ads", "TikTok Ads", "Google Tag Manager", "Google Analytics 4"],
+        tools: [
+          { name: "Meta Ads", use: "Satış odaklı kampanyalar ve kreatif testleri" },
+          { name: "Google Ads", use: "Arama ve alışveriş kampanyaları" },
+        ],
       },
       {
         slug: "arama-motoru-icerik",
@@ -104,7 +115,7 @@ const details: Record<PillarId, PillarDetail> = {
           "Önceliklendirme: etkisi en yüksek işleri sıraya koyarız.",
           "Test: değişiklikleri A/B testleriyle ölçeriz.",
         ],
-        tools: ["Google Search Console", "Ahrefs", "Klaviyo", "Microsoft Clarity", "Hotjar"],
+        tools: [],
       },
       {
         slug: "pazar-genisletme",
@@ -118,7 +129,10 @@ const details: Record<PillarId, PillarDetail> = {
           "Test: küçük bütçeli kampanyalarla talebi ölçeriz.",
           "Açılış: kanıtlanan pazara kanal ve bütçe açarız.",
         ],
-        tools: ["Google Trends", "Similarweb", "Amazon Global Selling", "Google Merchant Center"],
+        tools: [
+          { name: "Meta Ads", use: "Yeni kitle ve pazar testleri" },
+          { name: "Google Ads", use: "Yeni pazarda arama talebinin ölçülmesi" },
+        ],
       },
     ],
   },
@@ -138,7 +152,7 @@ const details: Record<PillarId, PillarDetail> = {
           "Kurulum: siteyi kurar, varsa veriyi taşırız.",
           "Yayın: test eder, yayına alır, izlemeye başlarız.",
         ],
-        tools: ["Shopify", "ikas", "Ticimax", "WooCommerce"],
+        tools: [],
       },
       {
         slug: "entegrasyonlar",
@@ -152,7 +166,7 @@ const details: Record<PillarId, PillarDetail> = {
           "Bağlantı: entegrasyonları kurar, test ederiz.",
           "İzleme: hataları takip eder, akışı canlı tutarız.",
         ],
-        tools: ["Logo", "Mikro", "Paraşüt", "iyzico", "PayTR", "Pazar yeri API'leri"],
+        tools: [],
       },
       {
         slug: "badi-dashboard",
@@ -166,7 +180,10 @@ const details: Record<PillarId, PillarDetail> = {
           "Tanım: takip edilecek metrikleri birlikte seçeriz.",
           "Kullanım: ekibiniz her gün aynı ekrana bakar.",
         ],
-        tools: ["BADİ Dashboard", "BigQuery", "Looker Studio", "Pazar yeri ve reklam API'leri"],
+        tools: [
+          { name: "Meta Ads", use: "Harcama, ROAS ve CPA verisi panele akar" },
+          { name: "Google Ads", use: "Harcama, ROAS ve CPA verisi panele akar" },
+        ],
       },
     ],
   },

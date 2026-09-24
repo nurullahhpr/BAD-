@@ -70,20 +70,22 @@ export function ServiceDetail({ pillarId, service, index }: ServiceDetailProps) 
             </ol>
           </RevealItem>
 
-          <RevealItem className="py-8">
-            <h3 className={blockLabel}>Araçlar</h3>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {service.tools.map((tool) => (
-                <li
-                  key={tool}
-                  className="flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-sm text-fg"
-                >
-                  <span aria-hidden="true" className={`size-1.5 rounded-full ${tone.dot}`} />
-                  {tool}
-                </li>
-              ))}
-            </ul>
-          </RevealItem>
+          {service.tools.length > 0 && (
+            <RevealItem className="py-8">
+              <h3 className={blockLabel}>Araçlar</h3>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.tools.map((tool) => (
+                  <li key={tool.name} className="rounded-xl border border-line bg-surface p-4">
+                    <p className="flex items-center gap-2 text-sm font-medium text-fg">
+                      <span aria-hidden="true" className={`size-1.5 rounded-full ${tone.dot}`} />
+                      {tool.name}
+                    </p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">{tool.use}</p>
+                  </li>
+                ))}
+              </ul>
+            </RevealItem>
+          )}
         </RevealGroup>
       </Container>
     </Section>
