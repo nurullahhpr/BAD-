@@ -18,6 +18,7 @@
 - Rakamlar Türkçe biçimde: `%24`, `1.250.000 ₺`, `2,4x`. Kodda `Intl.NumberFormat("tr-TR")` kullan.
 - Uydurma rakam, müşteri adı veya referans yazma. Veri yoksa placeholder bırak.
 - Placeholder rakamlar kodda `// PLACEHOLDER` yorumuyla işaretlenir. Yayından önce doğrulanmış veriyle değiştirilir.
+- Müşteri onayı bekleyen taslak metinler `// DRAFT` yorumuyla işaretlenir.
 
 ## BADİ Mimarisi
 

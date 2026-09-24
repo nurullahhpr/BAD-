@@ -79,7 +79,7 @@ export function UnifiedDiagram({
                 <p className="text-sm font-medium text-fg">{pillar.name}</p>
                 <p className="mt-0.5 text-xs text-fg-muted">{pillar.scope}</p>
                 <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 sm:mt-4 sm:flex-col sm:gap-y-2">
-                  {pillar.items.map((item) => (
+                  {pillar.tags.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-xs text-fg-subtle">
                       <span aria-hidden="true" className="size-1 rounded-full bg-accent/70" />
                       {item}

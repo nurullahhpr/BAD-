@@ -21,6 +21,18 @@ export const growDown: Variants = {
   visible: { scaleY: 1 },
 };
 
+/** Horizontal line that grows out from its center. */
+export const growX: Variants = {
+  hidden: { scaleX: 0 },
+  visible: { scaleX: 1 },
+};
+
+/** SVG stroke that draws itself in. Works on path, rect, circle and line. */
+export const draw: Variants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: { pathLength: 1, opacity: 1 },
+};
+
 /** Parent variant that reveals its children one after another. */
 export function stagger(gap = 0.12, delay = 0): Variants {
   return {
