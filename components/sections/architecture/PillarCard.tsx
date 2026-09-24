@@ -12,14 +12,14 @@ type PillarCardProps = {
 };
 
 // Entrance comes from the parent RevealGroup; hover lifts the card.
-// lg: the card spans four subgrid rows so descriptions and service lists line up across cards.
+// lg: the card spans three subgrid rows so headers and service lists line up across cards.
 export function PillarCard({ pillar, index }: PillarCardProps) {
   return (
     <motion.article
       variants={fadeUp}
       transition={baseTransition}
       whileHover={{ y: -6, transition: { duration: 0.3, ease: easeOutExpo } }}
-      className="flex flex-col rounded-card border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/30 sm:p-8 lg:row-span-4 lg:grid lg:grid-rows-subgrid"
+      className="flex flex-col rounded-card border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/30 sm:p-8 lg:row-span-3 lg:grid lg:grid-rows-subgrid"
     >
       <div className="h-28 overflow-hidden rounded-xl border border-line bg-canvas px-4 py-3">
         <PillarGlyph id={pillar.id} />
@@ -36,13 +36,14 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
           {pillar.scope}
         </p>
       </div>
-      <p className="mt-4 leading-relaxed text-fg-muted">{pillar.description}</p>
-
-      <ul className="mt-6 space-y-3 border-t border-line pt-6">
+      <ul className="mt-6 space-y-5 border-t border-line pt-6">
         {pillar.services.map((service) => (
-          <li key={service} className="flex gap-3 text-sm text-fg">
-            <CheckIcon className="mt-0.5 shrink-0 text-accent" />
-            {service}
+          <li key={service.title} className="flex gap-3">
+            <CheckIcon className="mt-1 shrink-0 text-accent" />
+            <div>
+              <h4 className="text-sm font-medium text-fg">{service.title}</h4>
+              <p className="mt-1 text-sm leading-relaxed text-fg-muted">{service.body}</p>
+            </div>
           </li>
         ))}
       </ul>

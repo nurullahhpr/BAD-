@@ -101,14 +101,6 @@ export function ProgramTimeline({ phases, totalDays }: ProgramTimelineProps) {
                 </p>
                 <h3 className="mt-3 text-xl font-medium tracking-tight text-fg">{phase.name}</h3>
                 <p className="mt-3 leading-relaxed text-fg-muted">{phase.summary}</p>
-                <ul className="mt-6 space-y-2.5">
-                  {phase.deliverables.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-fg">
-                      <span aria-hidden="true" className="mt-2 size-1 shrink-0 rounded-full bg-accent" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             </li>
           );

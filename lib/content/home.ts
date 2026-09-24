@@ -21,15 +21,16 @@ export type PainPoint = {
 
 export type PillarId = "administration" | "development" | "infrastructure";
 
+export type PillarService = {
+  title: string;
+  body: string;
+};
+
 export type Pillar = {
   id: PillarId;
   name: string;
   scope: string;
-  description: string;
-  /** Short labels for compact views such as the problem/solution diagram. */
-  tags: string[];
-  /** Full sub-service list for the architecture cards. */
-  services: string[];
+  services: PillarService[];
 };
 
 export type ComparisonRow = {
@@ -38,45 +39,62 @@ export type ComparisonRow = {
   badi: string;
 };
 
-// DRAFT: descriptions and services are placeholders until the client's original copy arrives.
 export const pillars: Pillar[] = [
   {
     id: "administration",
     name: "Administration",
-    scope: "Operasyon",
-    description: "Satışın arka planını yönetir. Siparişten teslimata her adım takip edilir.",
-    tags: ["Pazar yerleri", "Sipariş ve stok", "Müşteri hizmetleri"],
+    scope: "Ticari Yönetim & Operasyon",
     services: [
-      "Pazar yeri yönetimi",
-      "Sipariş ve stok yönetimi",
-      "Kargo ve iade süreçleri",
-      "Müşteri hizmetleri",
+      {
+        title: "Pazar Yeri Yönetimi",
+        body: "Trendyol, Hepsiburada, Amazon gibi kanallarda mağaza kurulumu, liste optimizasyonu, satış stratejileri.",
+      },
+      {
+        title: "CRM & Müşteri Operasyonu",
+        body: "Müşteri sadakati oluşturma, tekrarlayan satış kurguları, sipariş süreçlerinin takibi.",
+      },
+      {
+        title: "Ticari Strateji & Raporlama",
+        body: "Büyüme hedeflerine uygun iş geliştirme, stok-satış analizi, düzenli şeffaf raporlama.",
+      },
     ],
   },
   {
     id: "development",
     name: "Development",
-    scope: "Pazarlama / Büyüme",
-    description: "Trafiği satışa, satışı tekrar eden müşteriye çevirir.",
-    tags: ["Reklam", "CRM", "İçerik"],
+    scope: "Pazarlama & Büyüme",
     services: [
-      "Performans reklamları",
-      "CRM ve e-posta pazarlaması",
-      "İçerik ve sosyal medya",
-      "Dönüşüm oranı optimizasyonu",
+      {
+        title: "Performans Pazarlaması",
+        body: "Meta ve Google Ads hesaplarının satışa dönüşecek şekilde kurgulanması ve yönetimi.",
+      },
+      {
+        title: "Arama Motoru & İçerik",
+        body: "SEO, e-posta/SMS pazarlama otomasyonları, dönüşüm odaklı kampanya kurguları (CRO).",
+      },
+      {
+        title: "Pazar Genişletme",
+        body: "Yeni müşteri kitlelerinin tespiti, marka konumlandırması, e-ihracat stratejileri.",
+      },
     ],
   },
   {
     id: "infrastructure",
     name: "Infrastructure",
-    scope: "Teknoloji / Altyapı",
-    description: "Satışın üzerinde durduğu zemini kurar ve ayakta tutar.",
-    tags: ["Web sitesi", "Entegrasyonlar", "Veri"],
+    scope: "Teknoloji & Altyapı",
     services: [
-      "E-ticaret sitesi kurulumu ve geliştirme",
-      "Pazar yeri ve ERP entegrasyonları",
-      "Veri, raporlama ve dashboard",
-      "Hız, güvenlik ve bakım",
+      {
+        title: "E-Ticaret Sistemleri",
+        body: "Yüksek dönüşüm oranlı modern web sitesi ve e-ticaret altyapısı kurulumu.",
+      },
+      {
+        title: "Entegrasyonlar",
+        body: "ERP, CRM, ödeme sistemleri, kargo ve pazar yeri API entegrasyonları.",
+      },
+      {
+        title: "Merkezi Kontrol Paneli (BADİ Dashboard)",
+        body: "Tüm satış kanallarının, reklam harcamalarının (ROAS/CPA) ve stok durumunun tek ekrandan takibi.",
+      },
     ],
   },
 ];
@@ -141,29 +159,28 @@ export const comparison = {
   eyebrow: "Karşılaştırma",
   title: "Neden Geleneksel Ajanslar Değil de BADİ?",
   criterionLabel: "Kriter",
-  traditionalLabel: "Geleneksel ajans",
+  traditionalLabel: "Geleneksel Ajanslar",
   badiLabel: "BADİ",
-  // DRAFT: cell copy is a placeholder until the client's original table arrives.
   rows: [
     {
       criterion: "Sorumluluk Alanı",
-      traditional: "Tek bir alan. Ya reklam ya yazılım.",
-      badi: "Uçtan uca. Operasyon, pazarlama ve altyapı tek ekipte.",
+      traditional: "Sadece web sitesi yapar veya reklam yayınlar",
+      badi: "Tüm dijital ticaret departmanınızı uçtan uca yönetir",
     },
     {
       criterion: "Odak Noktası",
-      traditional: "Tıklama, gösterim ve teslim edilen iş.",
-      badi: "Ciro, kârlılık ve büyüme hızı.",
+      traditional: "Tıklama, gösterim ve soyut raporlar",
+      badi: "Net Satış, Ciro Artışı ve Sürdürülebilir Büyüme",
     },
     {
       criterion: "Teknoloji & Operasyon",
-      traditional: "Kapsam dışı. Başka tedarikçiye bırakılır.",
-      badi: "Kendi ekibimiz kurar, entegre eder ve işletir.",
+      traditional: "Altyapı ve pazar yeri sorunlarına karışmaz",
+      badi: "Entegrasyon, ERP, pazar yeri ve yazılım altyapısını çözer",
     },
     {
       criterion: "İş Ortaklığı Modeli",
-      traditional: "Hizmet sağlayıcı. İş teslim edilir, sonuç müşteride kalır.",
-      badi: "Dışarıdan departman. Ortak hedef, tek rapor, tek muhatap.",
+      traditional: "Müşteri-Tedarikçi ilişkisi",
+      badi: "Büyümeden pay alan, aynı hedef için çalışan stratejik ortak",
     },
   ] satisfies ComparisonRow[],
 };
@@ -173,7 +190,6 @@ export type ProgramPhase = {
   startDay: number;
   endDay: number;
   summary: string;
-  deliverables: string[];
 };
 
 export const program = {
@@ -181,28 +197,27 @@ export const program = {
   title: "90 Günlük Program",
   body: "Üç faz, net çıktılar. Her fazın sonunda neyin değiştiğini rakamla görürsünüz.",
   totalDays: 90,
-  // DRAFT: summaries and deliverables await the client's original copy.
   phases: [
     {
       name: "Analiz & Teşhis",
       startDay: 0,
       endDay: 30,
-      summary: "Mevcut durumu rakamlarla çıkarırız. Nerede para kaybettiğinizi netleştiririz.",
-      deliverables: ["Dijital Röntgen raporu", "Kanal ve maliyet analizi", "90 günlük hedefler ve KPI'lar"],
+      summary:
+        "İşletmenin dijital röntgenini çekme; web altyapısı, veri takip kodları, reklam hesapları ve satış kanallarının eksiksiz kurulumu.",
     },
     {
       name: "Aktivasyon & Satış",
       startDay: 30,
       endDay: 60,
-      summary: "Planı sahaya indiririz. İlk satış etkisi bu fazda görülür.",
-      deliverables: ["Reklam ve kampanya kurulumu", "Site ve pazar yeri düzenlemeleri", "Performans takibinin başlaması"],
+      summary:
+        "Performans pazarlamasını ve satış kanallarını devreye alarak ilk ciro sıçramasını gerçekleştirme.",
     },
     {
       name: "Optimizasyon & Scale",
       startDay: 60,
       endDay: 90,
-      summary: "Çalışanı büyütür, çalışmayanı keseriz. Bütçe sonuca göre yeniden dağılır.",
-      deliverables: ["Bütçe ve kanal optimizasyonu", "Dönüşüm testleri", "Ölçekleme planı"],
+      summary:
+        "Verilerle sistemi optimize etme; pazar yerleri, entegrasyonlar ve otomasyonlarla ölçeklenebilir satış makinesine dönüştürme.",
     },
   ] satisfies ProgramPhase[],
 };

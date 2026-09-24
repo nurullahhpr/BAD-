@@ -22,13 +22,13 @@
 
 ## BADİ Mimarisi
 
-Hizmetler üç sütundan oluşur:
+Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home.ts` içindeki `pillars`'ta.
 
 | Sütun | Kapsam |
 | --- | --- |
-| **Administration** | Operasyon |
-| **Development** | Pazarlama / Büyüme |
-| **Infrastructure** | Teknoloji / Altyapı |
+| **Administration** | Ticari Yönetim & Operasyon |
+| **Development** | Pazarlama & Büyüme |
+| **Infrastructure** | Teknoloji & Altyapı |
 
 - Bölüm başlığı her yerde **"BADİ Mimarisi"**. "B-D-İ" veya "A-D-İ" gibi kısaltma kullanılmaz.
 - Sütunların baş harfleri marka adını birebir karşılamaz. Harfleri sütunlarla eşleştirme. "B = …, A = …" gibi açılım yazma.
