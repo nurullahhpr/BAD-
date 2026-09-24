@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/ui/Container";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { NavDropdown } from "@/components/layout/NavDropdown";
 import { mainNav } from "@/lib/site";
 
 export function Header() {
@@ -14,12 +15,16 @@ export function Header() {
           <ul className="flex items-center gap-8">
             {mainNav.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-sm text-fg-muted transition-colors duration-200 hover:text-fg"
-                >
-                  {item.label}
-                </Link>
+                {item.children ? (
+                  <NavDropdown label={item.label} href={item.href} items={item.children} />
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-sm text-fg-muted transition-colors duration-200 hover:text-fg"
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

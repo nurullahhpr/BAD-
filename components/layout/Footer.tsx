@@ -3,6 +3,7 @@ import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/ui/Container";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 import { pillars } from "@/lib/content/home";
+import { pillarHref } from "@/lib/content/services";
 import { mainNav, siteConfig } from "@/lib/site";
 
 const linkClass = "text-sm text-fg-muted transition-colors hover:text-fg";
@@ -53,7 +54,7 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {pillars.map((pillar) => (
               <li key={pillar.id}>
-                <Link href="/#hizmetler" className={linkClass}>
+                <Link href={pillarHref(pillar.id)} className={linkClass}>
                   {pillar.name}
                   <span className="text-fg-subtle"> · {pillar.scope}</span>
                 </Link>

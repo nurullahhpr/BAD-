@@ -38,6 +38,8 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 - Referans: Linear, Ramp, Stripe, Vercel seviyesinde sadelik ve motion kalitesi.
 - Koyu tema ağırlıklı. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
 - Vurgu azla kullanılır (CTA, kritik rakam, aktif durum).
+- Sütun tonları `lib/pillarTheme.ts`'de: Administration `accent-300`, Development `accent`, Infrastructure `accent-500`. Ton, aynı vurgunun basamağıdır; yeni renk değildir.
+- Sütun ikon setleri çerçeveyle ayrılır: Administration kare, Development daire, Infrastructure altıgen (`ServiceIcon`).
 - Font: Geist (sans) ve Geist Mono (rakam, etiket, kod). Rakam sütunlarında `tabular-nums`.
 - Token'lar `tailwind.config.ts` içinde. Sabit hex kodu komponente yazılmaz; token kullanılır.
   - Arka plan: `canvas` → `surface` → `surface-raised` → `surface-overlay`
@@ -61,7 +63,7 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 ## Klasör yapısı
 
 ```
-app/          Route'lar, layout, global CSS
+app/          Route'lar, layout, global CSS (`/hizmetler/[pillar]` sütun sayfaları)
 components/
   brand/      Logo ve marka öğeleri
   layout/     Header, Footer, navigasyon

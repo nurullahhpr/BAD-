@@ -1,6 +1,18 @@
+import { pillars } from "@/lib/content/home";
+import { pillarTheme } from "@/lib/pillarTheme";
+
+export type NavChild = {
+  label: string;
+  href: string;
+  description: string;
+  /** Tone dot class shown next to the label. */
+  dot: string;
+};
+
 export type NavItem = {
   label: string;
   href: string;
+  children?: NavChild[];
 };
 
 export type SocialNetwork = "linkedin" | "instagram" | "x" | "youtube";
@@ -36,9 +48,18 @@ export const siteConfig = {
   ] satisfies readonly SocialLink[],
 } as const;
 
-// Homepage section anchors for now. Switch to routes once the pages exist.
+// Homepage section anchors, plus the service detail pages under Hizmetler.
 export const mainNav: NavItem[] = [
-  { label: "Hizmetler", href: "/#hizmetler" },
+  {
+    label: "Hizmetler",
+    href: "/#hizmetler",
+    children: pillars.map((pillar) => ({
+      label: pillar.name,
+      href: `/hizmetler/${pillar.id}`,
+      description: pillar.scope,
+      dot: pillarTheme[pillar.id].dot,
+    })),
+  },
   { label: "Nasıl Çalışıyoruz", href: "/#nasil-calisiyoruz" },
   { label: "Sonuçlar", href: "/#sonuclar" },
   { label: "Dashboard", href: "/#dashboard" },

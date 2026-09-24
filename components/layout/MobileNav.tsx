@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useId, useState } from "react";
+import { cn } from "@/lib/cn";
 import { easeOutExpo } from "@/lib/motion";
 import type { NavItem } from "@/lib/site";
 
@@ -47,7 +48,7 @@ export function MobileNav({ items }: MobileNavProps) {
             transition={{ duration: 0.25, ease: easeOutExpo }}
             className="absolute inset-x-0 top-16 border-b border-line bg-canvas"
           >
-            <ul className="mx-auto flex max-w-content flex-col px-4 py-4 sm:px-6">
+            <ul className="mx-auto flex max-h-[calc(100dvh-4rem)] max-w-content flex-col overflow-y-auto px-4 py-4 sm:px-6">
               {items.map((item) => (
                 <li key={item.href}>
                   <Link
@@ -57,6 +58,23 @@ export function MobileNav({ items }: MobileNavProps) {
                   >
                     {item.label}
                   </Link>
+                  {item.children && (
+                    <ul className="mb-2 ml-1 space-y-1 border-l border-line pl-4">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            onClick={() => setOpen(false)}
+                            className="flex items-center gap-3 py-2 text-sm text-fg-muted transition-colors hover:text-fg"
+                          >
+                            <span aria-hidden="true" className={cn("size-1.5 rounded-full", child.dot)} />
+                            {child.label}
+                            <span className="text-xs text-fg-subtle">{child.description}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
