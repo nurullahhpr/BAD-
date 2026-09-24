@@ -18,7 +18,9 @@
 - Rakamlar Türkçe biçimde: `%24`, `1.250.000 ₺`, `2,4x`. Kodda `Intl.NumberFormat("tr-TR")` kullan.
 - Uydurma rakam, müşteri adı veya referans yazma. Veri yoksa placeholder bırak.
 
-## Hizmet mimarisi (B-D-İ)
+## BADİ Mimarisi
+
+Hizmetler üç sütundan oluşur:
 
 | Sütun | Kapsam |
 | --- | --- |
@@ -26,10 +28,14 @@
 | **Development** | Pazarlama / Büyüme |
 | **Infrastructure** | Teknoloji / Altyapı |
 
+- Bölüm başlığı her yerde **"BADİ Mimarisi"**. "B-D-İ" veya "A-D-İ" gibi kısaltma kullanılmaz.
+- Sütunların baş harfleri marka adını birebir karşılamaz. Harfleri sütunlarla eşleştirme. "B = …, A = …" gibi açılım yazma.
+
 ## Tasarım
 
 - Referans: Linear, Ramp, Stripe, Vercel seviyesinde sadelik ve motion kalitesi.
-- Koyu tema ağırlıklı. Tek güçlü vurgu rengi: `accent`. Vurgu azla kullanılır (CTA, kritik rakam, aktif durum).
+- Koyu tema ağırlıklı. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
+- Vurgu azla kullanılır (CTA, kritik rakam, aktif durum).
 - Font: Geist (sans) ve Geist Mono (rakam, etiket, kod). Rakam sütunlarında `tabular-nums`.
 - Token'lar `tailwind.config.ts` içinde. Sabit hex kodu komponente yazılmaz; token kullanılır.
   - Arka plan: `canvas` → `surface` → `surface-raised` → `surface-overlay`

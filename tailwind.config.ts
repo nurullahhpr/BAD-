@@ -7,43 +7,22 @@ import type { Config } from "tailwindcss";
  * Loaded by Tailwind v4 through `@config` in app/globals.css.
  */
 
-// Accent candidates. Only one is used on the site; swap `accent` below to change it.
-const accentPalettes = {
-  // Electric green — growth, conversion, "positive delta" on numbers. (Recommended)
-  electricGreen: {
-    50: "#EAFFF3",
-    100: "#CCFFE3",
-    200: "#9CFDC9",
-    300: "#5FF8A8",
-    400: "#2EF08A",
-    500: "#12D673",
-    600: "#07AE5C",
-    700: "#0A884B",
-    800: "#0E6B3E",
-    900: "#0E5835",
-    950: "#01321B",
-    DEFAULT: "#2EF08A",
-    foreground: "#04140B",
-  },
-  // Electric blue — trust, infrastructure, fintech feel.
-  electricBlue: {
-    50: "#EEF4FF",
-    100: "#D9E6FF",
-    200: "#BBD2FF",
-    300: "#8CB4FF",
-    400: "#5A8CFF",
-    500: "#3D6BFF",
-    600: "#2447F5",
-    700: "#1C35E1",
-    800: "#1D2EB6",
-    900: "#1E2E8F",
-    950: "#161D57",
-    DEFAULT: "#3D6BFF",
-    foreground: "#FFFFFF",
-  },
+// Electric green — growth, conversion, "positive delta" on numbers. Approved brand accent.
+const accent = {
+  50: "#EAFFF3",
+  100: "#CCFFE3",
+  200: "#9CFDC9",
+  300: "#5FF8A8",
+  400: "#2EF08A",
+  500: "#12D673",
+  600: "#07AE5C",
+  700: "#0A884B",
+  800: "#0E6B3E",
+  900: "#0E5835",
+  950: "#01321B",
+  DEFAULT: "#2EF08A",
+  foreground: "#04140B",
 } as const;
-
-const accent = accentPalettes.electricGreen;
 
 const config: Config = {
   content: [
