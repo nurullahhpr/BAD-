@@ -1,5 +1,11 @@
-import { HeroPlaceholder } from "@/components/sections/HeroPlaceholder";
+import { Hero } from "@/components/sections/hero/Hero";
+import { ProblemSolution } from "@/components/sections/problem/ProblemSolution";
 
 export default function HomePage() {
-  return <HeroPlaceholder />;
+  return (
+    <>
+      <Hero />
+      <ProblemSolution />
+    </>
+  );
 }

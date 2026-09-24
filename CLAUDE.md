@@ -17,6 +17,7 @@
   - ✓ "[süre] içinde dönüşüm oranı %[x]'ten %[y]'ye." (yalnızca doğrulanmış verilerle)
 - Rakamlar Türkçe biçimde: `%24`, `1.250.000 ₺`, `2,4x`. Kodda `Intl.NumberFormat("tr-TR")` kullan.
 - Uydurma rakam, müşteri adı veya referans yazma. Veri yoksa placeholder bırak.
+- Placeholder rakamlar kodda `// PLACEHOLDER` yorumuyla işaretlenir. Yayından önce doğrulanmış veriyle değiştirilir.
 
 ## BADİ Mimarisi
 
@@ -66,6 +67,7 @@ components/
   sections/   Sayfa bölümleri (Hero, Hizmetler...)
   ui/         Temel yapı taşları (Container, Button...)
 lib/          Site ayarları, yardımcılar, motion preset'leri
+  content/    Sayfa bölümlerinin metinleri ve rakamları (Türkçe)
 public/       Statik dosyalar
 ```
 

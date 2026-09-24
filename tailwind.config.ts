@@ -24,6 +24,11 @@ const accent = {
   foreground: "#04140B",
 } as const;
 
+const line = {
+  DEFAULT: "#1E2228",
+  strong: "#2B3038",
+} as const;
+
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx,mdx}",
@@ -41,10 +46,7 @@ const config: Config = {
           overlay: "#181C21",
         },
         // Borders and dividers.
-        line: {
-          DEFAULT: "#1E2228",
-          strong: "#2B3038",
-        },
+        line,
         // Text.
         fg: {
           DEFAULT: "#F4F5F7",
@@ -79,6 +81,12 @@ const config: Config = {
       },
       borderRadius: {
         card: "1rem",
+      },
+      backgroundImage: {
+        // Hairline grid used behind hero-style sections. Pair with `bg-size-[4rem_4rem]`
+        // (Tailwind v4 does not read `backgroundSize` from this config).
+        grid: `linear-gradient(to right, ${line.DEFAULT} 1px, transparent 1px), linear-gradient(to bottom, ${line.DEFAULT} 1px, transparent 1px)`,
+        "accent-glow": `radial-gradient(closest-side, color-mix(in srgb, ${accent.DEFAULT} 18%, transparent), transparent)`,
       },
       boxShadow: {
         glow: `0 0 0 1px color-mix(in srgb, ${accent.DEFAULT} 25%, transparent), 0 8px 40px -8px color-mix(in srgb, ${accent.DEFAULT} 35%, transparent)`,
