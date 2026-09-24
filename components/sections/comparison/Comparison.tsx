@@ -1,7 +1,6 @@
-import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { comparison } from "@/lib/content/home";
 import { ComparisonTable } from "./ComparisonTable";
 
@@ -9,19 +8,11 @@ export function Comparison() {
   const { eyebrow, title, criterionLabel, traditionalLabel, badiLabel, rows } = comparison;
 
   return (
-    <Section id="neden-badi" aria-labelledby="comparison-title" className="border-t border-line/60">
+    <Section id="neden-badi" aria-labelledby="comparison-title">
       <Container>
-        <Reveal className="max-w-2xl">
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <h2
-            id="comparison-title"
-            className="mt-5 text-balance text-3xl font-medium tracking-tight text-fg sm:text-4xl"
-          >
-            {title}
-          </h2>
-        </Reveal>
+        <SectionHeader eyebrow={eyebrow} title={title} titleId="comparison-title" />
 
-        <div className="mt-12 md:mt-10">
+        <div className="mt-12 sm:mt-16">
           <ComparisonTable
             label={title}
             criterionLabel={criterionLabel}

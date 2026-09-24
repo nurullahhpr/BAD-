@@ -36,20 +36,9 @@ function StatItem({ stat, delay }: StatItemProps) {
       <dt className="text-sm text-fg-muted">{stat.label}</dt>
       <dd className="flex items-baseline gap-1.5 font-semibold tracking-tight text-fg">
         <span className="sr-only">{unit ? `${finalText} ${unit}` : finalText}</span>
-        <span aria-hidden="true" className="text-4xl tabular-nums lg:text-5xl">
+        <span aria-hidden="true" className="text-4xl lg:text-5xl">
           {prefix}
-          {/* The invisible copy reserves the final width so the unit does not shift. */}
-          <span className="inline-grid">
-            <span className="invisible col-start-1 row-start-1">
-              {formatNumber(value, decimals)}
-            </span>
-            <CountUp
-              value={value}
-              decimals={decimals}
-              delay={delay}
-              className="col-start-1 row-start-1"
-            />
-          </span>
+          <CountUp value={value} decimals={decimals} delay={delay} />
         </span>
         {unit && (
           <span aria-hidden="true" className="text-base font-medium text-fg-muted">

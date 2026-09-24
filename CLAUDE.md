@@ -51,6 +51,7 @@ Hizmetler üç sütundan oluşur:
 
 - Next.js (App Router) + TypeScript `strict`. `any` yok.
 - Komponentler küçük ve tekrar kullanılabilir. Bir dosya, bir sorumluluk.
+- Her sayfa bölümü `Section` + `SectionHeader` ile kurulur. Başlık ile içerik arası `mt-12 sm:mt-16`.
 - Varsayılan Server Component. `"use client"` sadece etkileşim veya animasyon gereken yaprak komponentte.
 - Tüm görseller `next/image` ile. `<img>` kullanılmaz.
 - Tüm animasyonlar Framer Motion ile. Ortak ayarlar `lib/motion.ts`'de.

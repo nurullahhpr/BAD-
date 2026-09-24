@@ -14,7 +14,7 @@ export function Hero() {
     <ScrollScene aria-labelledby="hero-title" className="relative overflow-hidden">
       <HeroBackdrop />
 
-      <Container className="relative grid gap-14 pt-16 pb-12 sm:pt-24 sm:pb-24 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-center lg:gap-16 lg:pt-32 lg:pb-36">
+      <Container className="relative grid gap-14 pt-16 pb-12 sm:pt-24 sm:pb-24 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-center lg:gap-16 lg:pt-32 lg:pb-28">
         <Parallax y={-80} fade>
           <Reveal>
             <Eyebrow>{hero.eyebrow}</Eyebrow>

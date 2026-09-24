@@ -81,6 +81,7 @@ const config: Config = {
       },
       borderRadius: {
         card: "1rem",
+        panel: "1.5rem",
       },
       backgroundImage: {
         // Hairline grid used behind hero-style sections. Pair with `bg-size-[4rem_4rem]`
@@ -89,6 +90,8 @@ const config: Config = {
         "accent-glow": `radial-gradient(closest-side, color-mix(in srgb, ${accent.DEFAULT} 18%, transparent), transparent)`,
       },
       boxShadow: {
+        // Deep drop shadow for floating product UI (dashboard window).
+        window: "0 40px 120px -40px rgb(0 0 0 / 0.8)",
         glow: `0 0 0 1px color-mix(in srgb, ${accent.DEFAULT} 25%, transparent), 0 8px 40px -8px color-mix(in srgb, ${accent.DEFAULT} 35%, transparent)`,
       },
       transitionTimingFunction: {
