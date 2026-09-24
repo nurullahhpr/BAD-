@@ -48,7 +48,7 @@ export const siteConfig = {
   ] satisfies readonly SocialLink[],
 } as const;
 
-// Homepage section anchors, plus the service detail pages under Hizmetler.
+// Pages where they exist, homepage section anchors for the rest.
 export const mainNav: NavItem[] = [
   {
     label: "Hizmetler",
@@ -60,8 +60,8 @@ export const mainNav: NavItem[] = [
       dot: pillarTheme[pillar.id].dot,
     })),
   },
-  { label: "Nasıl Çalışıyoruz", href: "/#nasil-calisiyoruz" },
-  { label: "Sonuçlar", href: "/#sonuclar" },
+  { label: "Nasıl Çalışıyoruz", href: "/nasil-calisiyoruz" },
+  { label: "Sonuçlar", href: "/sonuclar" },
   { label: "Dashboard", href: "/#dashboard" },
   { label: "Hakkımızda", href: "/#hakkimizda" },
   { label: "İletişim", href: "/#iletisim" },

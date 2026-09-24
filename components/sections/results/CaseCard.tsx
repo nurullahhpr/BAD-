@@ -1,22 +1,27 @@
+import Link from "next/link";
 import { CountUp } from "@/components/motion/CountUp";
-import { RevealItem } from "@/components/motion/RevealGroup";
 import { TrendIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
-import type { CaseMetric, CaseStudy } from "@/lib/content/home";
+import { caseHref, type CaseMetric, type CaseStudy } from "@/lib/content/cases";
 import { formatNumber, formatSignedPercent } from "@/lib/format";
 import { CompareBars } from "./CompareBars";
 
 type CaseCardProps = {
   study: CaseStudy;
+  /** Heading level inside the page outline. */
+  headingLevel?: "h2" | "h3";
 };
 
-// sm–lg: story left, metrics right. lg+: stacked, metrics pinned to the bottom
-// so they line up across the three cards.
-export function CaseCard({ study }: CaseCardProps) {
+// The whole card links to the case detail page. The parent decides the list item and motion.
+// sm–lg: story left, metrics right. lg+: stacked, metrics pinned to the bottom so they
+// line up across cards in a row.
+export function CaseCard({ study, headingLevel = "h3" }: CaseCardProps) {
+  const Heading = headingLevel;
+
   return (
-    <RevealItem
-      as="li"
-      className="flex flex-col rounded-card border border-line bg-surface p-6 sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:gap-x-10 sm:p-8 lg:flex"
+    <Link
+      href={caseHref(study.slug)}
+      className="group flex h-full flex-col rounded-card border border-line bg-surface p-6 transition-colors duration-300 hover:border-line-strong sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:gap-x-10 sm:p-8 lg:flex"
     >
       <div className="lg:flex-1">
         <div className="flex items-center justify-between gap-4">
@@ -33,9 +38,12 @@ export function CaseCard({ study }: CaseCardProps) {
         <p className="mt-6 text-sm text-fg-subtle">
           {study.client} · {study.period}
         </p>
-        <h3 className="mt-2 text-balance text-lg font-medium tracking-tight text-fg">
+        <Heading className="mt-2 text-balance text-lg font-medium tracking-tight text-fg">
           {study.title}
-        </h3>
+        </Heading>
+        <p className="mt-4 inline-flex items-center gap-2 text-sm text-fg-muted transition-colors group-hover:text-fg">
+          Vakayı incele <span aria-hidden="true">→</span>
+        </p>
       </div>
 
       <div className="mt-8 space-y-7 border-t border-line pt-6 sm:mt-0 sm:border-t-0 sm:pt-0 lg:mt-8 lg:border-t lg:pt-6">
@@ -43,11 +51,11 @@ export function CaseCard({ study }: CaseCardProps) {
           <MetricRow key={metric.label} metric={metric} />
         ))}
       </div>
-    </RevealItem>
+    </Link>
   );
 }
 
-function MetricRow({ metric }: { metric: CaseMetric }) {
+export function MetricRow({ metric }: { metric: CaseMetric }) {
   const { label, before, after, decimals = 0, prefix = "", suffix = "", better } = metric;
   const change = ((after - before) / before) * 100;
   const improved = better === "higher" ? change > 0 : change < 0;

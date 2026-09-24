@@ -1,3 +1,5 @@
+import { cases } from "@/lib/content/cases";
+
 // User-facing copy for the home page. Turkish only.
 
 export type Headline = {
@@ -222,62 +224,14 @@ export const program = {
   ] satisfies ProgramPhase[],
 };
 
-export type CaseMetric = {
-  label: string;
-  before: number;
-  after: number;
-  decimals?: number;
-  prefix?: string;
-  suffix?: string;
-  /** Which direction counts as an improvement. */
-  better: "higher" | "lower";
-};
-
-export type CaseStudy = {
-  client: string;
-  sector: string;
-  title: string;
-  period: string;
-  metrics: CaseMetric[];
-};
-
 export const results = {
   eyebrow: "Sonuçlar",
   title: "Önce ve sonra, rakamlarla.",
   body: "Her vaka aynı soruyu cevaplar: 90 günün sonunda ne değişti?",
-  // PLACEHOLDER: client names and every figure are examples until real cases are provided.
-  cases: [
-    {
-      client: "Müşteri A",
-      sector: "Moda & Giyim",
-      title: "ROAS 2,3 katına çıktı.",
-      period: "90 gün",
-      metrics: [
-        { label: "ROAS", before: 1.8, after: 4.2, decimals: 1, suffix: "x", better: "higher" },
-        { label: "Aylık sipariş", before: 1240, after: 3180, better: "higher" },
-      ],
-    },
-    {
-      client: "Müşteri B",
-      sector: "Kozmetik",
-      title: "Dönüşüm oranı iki katını geçti.",
-      period: "90 gün",
-      metrics: [
-        { label: "Dönüşüm oranı", before: 1.2, after: 2.7, decimals: 1, prefix: "%", better: "higher" },
-        { label: "Sepet ortalaması", before: 420, after: 585, suffix: " ₺", better: "higher" },
-      ],
-    },
-    {
-      client: "Müşteri C",
-      sector: "Ev & Yaşam",
-      title: "Sipariş başı reklam maliyeti yarıya indi.",
-      period: "90 gün",
-      metrics: [
-        { label: "Sipariş başı maliyet", before: 142, after: 68, suffix: " ₺", better: "lower" },
-        { label: "Aktif satış kanalı", before: 1, after: 4, better: "higher" },
-      ],
-    },
-  ] satisfies CaseStudy[],
+  // PLACEHOLDER cases live in lib/content/cases.ts; the home page shows the first three.
+  cases: cases.slice(0, 3),
+  allLabel: "Tüm vaka çalışmaları",
+  allHref: "/sonuclar",
 };
 
 export const dashboardShowcase = {

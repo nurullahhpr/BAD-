@@ -1,3 +1,4 @@
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -13,6 +14,11 @@ export function Program() {
         <SectionHeader eyebrow={eyebrow} title={title} titleId="program-title" body={body} />
         <div className="mt-12 sm:mt-16">
           <ProgramTimeline phases={phases} totalDays={totalDays} />
+        </div>
+        <div className="mt-12 flex justify-center">
+          <ButtonLink href="/nasil-calisiyoruz" variant="secondary" withArrow>
+            Programın detayları
+          </ButtonLink>
         </div>
       </Container>
     </Section>
