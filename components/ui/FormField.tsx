@@ -32,7 +32,7 @@ export function controlClass(invalid: boolean, muted = false) {
     "focus:outline-none focus-visible:outline-none focus:ring-2",
     invalid
       ? "border-negative/70 focus:border-negative focus:ring-negative/25"
-      : "border-line-strong hover:border-fg-subtle focus:border-accent focus:ring-accent/25",
+      : "border-line hover:border-line-strong focus:border-accent focus:ring-accent/25",
   );
 }
 

@@ -20,7 +20,7 @@ export function KpiTile({ kpi }: { kpi: Kpi }) {
   const good = kpi.better === "neutral" ? null : (kpi.better === "higher") === value > 0;
 
   return (
-    <div className="rounded-xl border border-line bg-surface p-4">
+    <div className="rounded-xl bg-surface p-4">
       <p className="text-xs text-fg-muted">{kpi.label}</p>
       <p className="mt-2 text-xl font-semibold tracking-tight text-fg sm:text-2xl">{kpi.display}</p>
       <div className="mt-2 flex items-end justify-between gap-3">

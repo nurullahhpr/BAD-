@@ -41,10 +41,8 @@ export function CaseFilter({ cases, sectors, label, allLabel }: CaseFilterProps)
               aria-pressed={pressed}
               onClick={() => setChoice(option.value)}
               className={cn(
-                "flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors",
-                pressed
-                  ? "border-accent/40 bg-accent/10 text-fg"
-                  : "border-line text-fg-muted hover:border-line-strong hover:text-fg",
+                "flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors",
+                pressed ? "bg-accent/15 text-fg" : "bg-surface text-fg-muted hover:bg-surface-raised hover:text-fg",
               )}
             >
               {option.label}

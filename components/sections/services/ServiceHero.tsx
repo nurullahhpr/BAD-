@@ -3,7 +3,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import { PillarGlyph } from "@/components/sections/architecture/PillarGlyph";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { pillars } from "@/lib/content/home";
 import type { PillarPage } from "@/lib/content/services";
 import { pillarTheme } from "@/lib/pillarTheme";
@@ -15,7 +14,6 @@ export function ServiceHero({ page }: { page: PillarPage }) {
 
   return (
     <section aria-labelledby="service-hero-title" className="relative overflow-hidden">
-      <GridBackdrop from="top" />
       <Container className="relative grid gap-12 pt-12 pb-20 sm:pt-16 sm:pb-24 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16 lg:pt-20">
         <div>
           <nav aria-label="Sayfa konumu">
@@ -41,7 +39,7 @@ export function ServiceHero({ page }: { page: PillarPage }) {
             <Eyebrow tone={tone.text}>{pillar.scope}</Eyebrow>
             <h1
               id="service-hero-title"
-              className="mt-5 text-display-sm font-medium text-fg sm:text-display-md xl:text-display-lg"
+              className="mt-5 text-display-sm font-semibold text-fg sm:text-display-md xl:text-display-lg"
             >
               {pillar.name}
             </h1>
@@ -54,9 +52,9 @@ export function ServiceHero({ page }: { page: PillarPage }) {
                 <li key={service.slug}>
                   <a
                     href={`#${service.slug}`}
-                    className="flex items-center gap-2 rounded-full border border-line bg-surface/70 py-1.5 pr-4 pl-1.5 text-sm text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+                    className="flex items-center gap-2.5 rounded-xl bg-surface py-1.5 pr-4 pl-1.5 text-sm text-fg-muted transition-colors hover:bg-surface-raised hover:text-fg"
                   >
-                    <ServiceIcon pillar={pillar.id} service={service.slug} className="size-7" />
+                    <ServiceIcon pillar={pillar.id} service={service.slug} size="sm" />
                     {service.title}
                   </a>
                 </li>
@@ -66,14 +64,14 @@ export function ServiceHero({ page }: { page: PillarPage }) {
         </div>
 
         <Reveal delay={0.12}>
-          <div className="rounded-panel border border-line bg-surface/80 p-5 backdrop-blur-sm">
+          <div className="rounded-panel bg-surface p-5">
             <div className="flex items-center justify-between font-mono text-xs text-fg-subtle">
               <span>BADİ Mimarisi</span>
               <span>
                 {String(index + 1).padStart(2, "0")} / {String(pillars.length).padStart(2, "0")}
               </span>
             </div>
-            <div className="mt-4 h-40 rounded-xl border border-line bg-canvas px-4 py-3">
+            <div className="mt-4 h-40 rounded-xl bg-canvas px-4 py-3">
               <PillarGlyph id={pillar.id} standalone />
             </div>
           </div>

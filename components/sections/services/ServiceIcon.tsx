@@ -1,11 +1,10 @@
 import type { ReactNode } from "react";
-import { cn } from "@/lib/cn";
+import { IconChip } from "@/components/ui/IconChip";
 import type { PillarId } from "@/lib/content/home";
-import { pillarTheme } from "@/lib/pillarTheme";
 
-// One icon set per pillar: the frame shape tells the pillar apart
-// (square = Administration, circle = Development, hexagon = Infrastructure),
-// the inner mark names the service and takes the pillar's tone.
+// Pillar and service icons, each in a chip tinted with the pillar tone.
+// A pillar on its own shows its shape (square = Administration, circle = Development,
+// hexagon = Infrastructure); a service shows its own mark.
 
 const frames: Record<PillarId, ReactNode> = {
   administration: <rect x="3" y="3" width="18" height="18" rx="4" />,
@@ -37,24 +36,25 @@ const marks: Record<string, ReactNode> = {
 
 type ServiceIconProps = {
   pillar: PillarId;
-  /** Service slug; omit for a frame-only pillar mark. */
+  /** Service slug; omit for the pillar's shape mark. */
   service?: string;
+  size?: "sm" | "md" | "lg";
   className?: string;
 };
 
-export function ServiceIcon({ pillar, service, className }: ServiceIconProps) {
+export function ServiceIcon({ pillar, service, size = "md", className }: ServiceIconProps) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={cn("size-10 shrink-0", className)}
-    >
-      <g className="stroke-line-strong">{frames[pillar]}</g>
-      {service && <g className={pillarTheme[pillar].stroke}>{marks[service]}</g>}
-    </svg>
+    <IconChip tone={pillar} size={size} className={className}>
+      {service ? (
+        // Service marks are drawn in the centre 12×12 of the old 24×24 frame.
+        <svg viewBox="6 6 12 12" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+          {marks[service]}
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          {frames[pillar]}
+        </svg>
+      )}
+    </IconChip>
   );
 }

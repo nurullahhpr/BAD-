@@ -3,7 +3,6 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { CtaPanel } from "@/components/ui/CtaPanel";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { dashboardPage, demoRequestHref, PANEL_ID } from "@/lib/content/dashboard-page";
@@ -19,14 +18,13 @@ export function DashboardPage() {
   return (
     <DashboardTabProvider>
       <section aria-labelledby="page-title" className="relative overflow-hidden">
-        <GridBackdrop from="top" />
         <Container className="relative pt-16 pb-24 sm:pt-24 sm:pb-32">
           {/* Hero text is the LCP element: visible at first paint, no entrance fade. */}
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>{hero.eyebrow}</Eyebrow>
             <h1
               id="page-title"
-              className="mt-6 text-balance text-display-sm font-medium text-fg sm:text-display-md xl:text-display-lg"
+              className="mt-6 text-balance text-display-sm font-semibold text-fg sm:text-display-md xl:text-display-lg"
             >
               {hero.title}
             </h1>
@@ -47,15 +45,7 @@ export function DashboardPage() {
             <h2 className="sr-only">{dashboardPage.panelHeading}</h2>
             <Reveal delay={0.15}>
               <p className="mb-4 text-center text-xs text-fg-subtle">{hero.hint}</p>
-              <div className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-[10%] -top-10 h-48 bg-accent-glow opacity-70 blur-2xl"
-                />
-                <div className="relative">
-                  <DashboardApp />
-                </div>
-              </div>
+              <DashboardApp />
             </Reveal>
           </div>
         </Container>

@@ -8,7 +8,7 @@ import { mainNav, siteConfig } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line/60 bg-canvas/75 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line/60 bg-canvas">
       <Container className="flex h-16 items-center justify-between">
         <Logo />
 

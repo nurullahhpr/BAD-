@@ -1,7 +1,7 @@
 /**
  * BADİ colour tokens: the single source for Tailwind (tailwind.config.ts) and for
  * places that cannot use classes (share images, the browser theme colour).
- * Dark-first palette with a single strong accent.
+ * Dark-first navy-violet palette with a single strong accent.
  */
 
 // Electric green — growth, conversion, "positive delta" on numbers. Approved brand accent.
@@ -22,26 +22,28 @@ export const accent = {
 } as const;
 
 export const line = {
-  DEFAULT: "#1E2228",
-  strong: "#2B3038",
+  // Hairlines one step above the surfaces: dividers stay visible, card edges nearly vanish.
+  DEFAULT: "#2A2842",
+  strong: "#3A3854",
 } as const;
 
 export const colors = {
-  // Page and layer backgrounds, darkest to lightest.
-  canvas: "#07080A",
+  // Page and layer backgrounds, darkest to lightest. Navy-violet neutrals, not pure black:
+  // layers are told apart by tone, borders are secondary.
+  canvas: "#171628",
   surface: {
-    DEFAULT: "#0C0E11",
-    raised: "#121519",
-    overlay: "#181C21",
+    DEFAULT: "#1F1D33",
+    raised: "#27253D",
+    overlay: "#302E48",
   },
   // Borders and dividers.
   line,
-  // Text.
+  // Text, cool lavender-grey to match the surfaces.
   fg: {
-    DEFAULT: "#F4F5F7",
-    muted: "#A1A8B3",
-    // ≥4.5:1 on every background layer (canvas 5.5, surface-overlay 4.7).
-    subtle: "#7F8793",
+    DEFAULT: "#F5F5FA",
+    muted: "#B4B3C9",
+    // ≥4.5:1 on every background layer (canvas 6.1, surface-overlay 4.5).
+    subtle: "#9896B2",
   },
   // Occasional light sections.
   paper: "#F6F7F9",
@@ -49,6 +51,6 @@ export const colors = {
   accent,
   // Data states for metrics and dashboards.
   positive: "#2EF08A",
-  negative: "#FF5C5C",
+  negative: "#FF6B6B",
   warning: "#FFB547",
 } as const;

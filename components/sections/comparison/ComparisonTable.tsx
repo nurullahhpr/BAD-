@@ -29,7 +29,7 @@ export function ComparisonTable({
       className="relative space-y-4 md:grid md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)_minmax(0,1fr)] md:space-y-0"
     >
       {/* BADİ column highlight. Width matches the 1fr of a 2.8fr grid with no column gap. */}
-      <Reveal className="pointer-events-none absolute inset-y-0 right-0 hidden w-[calc(100%/2.8)] rounded-card border border-accent/30 bg-accent/[0.05] shadow-glow md:block" />
+      <Reveal className="pointer-events-none absolute inset-y-0 right-0 hidden w-[calc(100%/2.8)] rounded-card bg-accent/[0.06] md:block" />
 
       <div role="row" className="relative hidden md:col-span-3 md:grid md:grid-cols-subgrid">
         <div role="columnheader" className="px-6 pt-8 pb-5">
@@ -51,7 +51,7 @@ export function ComparisonTable({
           key={row.criterion}
           role="row"
           delay={index * 0.1}
-          className="relative rounded-card border border-line bg-surface p-5 md:col-span-3 md:grid md:grid-cols-subgrid md:rounded-none md:border-0 md:bg-transparent md:p-0"
+          className="relative rounded-card bg-surface p-5 md:col-span-3 md:grid md:grid-cols-subgrid md:rounded-none md:border-0 md:bg-transparent md:p-0"
         >
           <div
             role="rowheader"
@@ -64,7 +64,7 @@ export function ComparisonTable({
             role="cell"
             className="mt-4 md:mt-0 md:border-t md:border-line md:px-6 md:py-6"
           >
-            <p className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-fg-subtle md:hidden">
+            <p className="mb-1.5 text-[11px] uppercase tracking-wider font-medium text-fg-subtle md:hidden">
               {traditionalLabel}
             </p>
             <p className="flex gap-3 text-sm leading-relaxed text-fg-subtle">
@@ -75,9 +75,9 @@ export function ComparisonTable({
 
           <div
             role="cell"
-            className="mt-3 rounded-xl border border-accent/30 bg-accent/[0.06] p-4 md:mt-0 md:rounded-none md:border-0 md:border-t md:border-accent/15 md:bg-transparent md:px-6 md:py-6"
+            className="mt-3 rounded-xl bg-accent/[0.07] p-4 md:mt-0 md:rounded-none md:border-t md:border-accent/15 md:bg-transparent md:px-6 md:py-6"
           >
-            <p className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-accent md:hidden">
+            <p className="mb-1.5 text-[11px] uppercase tracking-wider font-medium text-accent md:hidden">
               {badiLabel}
             </p>
             <p className="flex gap-3 text-sm leading-relaxed text-fg">

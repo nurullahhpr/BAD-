@@ -20,12 +20,12 @@ export function OtherPillars({ currentId }: { currentId: PillarId }) {
             <RevealItem as="li" key={pillar.id}>
               <Link
                 href={pillarHref(pillar.id)}
-                className="group flex h-full items-start gap-5 rounded-card border border-line bg-surface p-6 transition-colors hover:border-line-strong sm:p-8"
+                className="group flex h-full items-start gap-5 rounded-card bg-surface p-6 transition-colors hover:bg-surface-raised sm:p-8"
               >
                 <ServiceIcon pillar={pillar.id} />
                 <div className="flex-1">
                   <p className="text-xl font-medium tracking-tight text-fg">{pillar.name}</p>
-                  <p className={`mt-1 font-mono text-xs uppercase tracking-[0.15em] ${pillarTheme[pillar.id].text}`}>
+                  <p className={`mt-1 text-xs uppercase tracking-wider font-medium ${pillarTheme[pillar.id].text}`}>
                     {pillar.scope}
                   </p>
                   <p className="mt-4 text-sm text-fg-muted">

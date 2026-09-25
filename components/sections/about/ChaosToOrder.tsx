@@ -91,7 +91,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
   const fade = { duration: reduceMotion ? 0 : 0.4, delay: ordered && !reduceMotion ? 0.6 : 0 };
 
   return (
-    <div className="rounded-panel border border-line bg-surface p-4 sm:p-6">
+    <div className="rounded-panel bg-surface p-4 sm:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p aria-live="polite" className="text-sm text-fg-muted">
           {captions[mode]}
@@ -110,7 +110,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
         />
       </div>
 
-      <div ref={ref} className="mt-4 rounded-xl border border-line bg-canvas">
+      <div ref={ref} className="mt-4 rounded-xl bg-canvas">
         {width > 0 && (
           <svg viewBox={`0 0 ${layout.width} ${layout.height}`} role="img" aria-label={description} className="block w-full">
             {/* Hub and pillar headers exist only in the ordered state. */}
@@ -130,8 +130,8 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
                 y={layout.hub[1] - 16}
                 width={104}
                 height={32}
-                rx={16}
-                className="fill-surface stroke-accent/60"
+                rx={8}
+                className="fill-accent/15"
               />
               <text
                 x={layout.hub[0]}
@@ -139,7 +139,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
                 dy="0.35em"
                 textAnchor="middle"
                 fontSize={layout.font}
-                className="fill-fg font-semibold"
+                className="fill-accent font-semibold"
               >
                 BADİ
               </text>
@@ -151,8 +151,8 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
                   dy="0.35em"
                   textAnchor="middle"
                   fontSize={layout.font}
-                  className={cn("font-mono", pillarTheme[pillars[k]!.id].fill)}
-                  letterSpacing="0.08em"
+                  className={cn("font-semibold", pillarTheme[pillars[k]!.id].fill)}
+                  letterSpacing="0.04em"
                 >
                   {/* English names: uppercase them outside the Turkish locale (no dotted İ). */}
                   {pillars[k]!.name.toLocaleUpperCase("en-US")}

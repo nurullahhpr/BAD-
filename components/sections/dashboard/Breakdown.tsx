@@ -16,7 +16,7 @@ export function Breakdown({ title, items }: BreakdownProps) {
   const total = items.reduce((sum, item) => sum + item.value, 0);
 
   return (
-    <div className="flex flex-col rounded-xl border border-line bg-surface p-4 sm:p-5">
+    <div className="flex flex-col rounded-xl bg-surface p-4 sm:p-5">
       <p className="text-sm font-medium text-fg">{title}</p>
       <ul className="mt-5 space-y-4">
         {items.map((item, index) => (

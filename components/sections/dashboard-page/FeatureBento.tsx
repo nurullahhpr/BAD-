@@ -96,7 +96,7 @@ function ReportsPreview() {
   return (
     <ul className="space-y-2">
       {reports.slice(0, 3).map((report) => (
-        <li key={report.id} className="flex items-center justify-between gap-3 rounded-lg border border-line px-3 py-2 text-xs">
+        <li key={report.id} className="flex items-center justify-between gap-3 rounded-lg bg-surface-raised px-3 py-2 text-xs">
           <span className="truncate text-fg">{report.title}</span>
           <span className="shrink-0 text-fg-subtle">{report.schedule.replace("Otomatik · ", "")}</span>
         </li>
@@ -128,11 +128,11 @@ export function FeatureBento() {
                 as="li"
                 key={item.tab}
                 className={cn(
-                  "flex flex-col rounded-card border border-line bg-surface p-5 sm:p-6",
+                  "flex flex-col rounded-card bg-surface p-5 sm:p-6",
                   index < 2 ? "md:col-span-3" : "md:col-span-2",
                 )}
               >
-                <div aria-hidden="true" className="h-40 rounded-xl border border-line bg-canvas p-4">
+                <div aria-hidden="true" className="h-40 rounded-xl bg-canvas p-4">
                   <Preview />
                 </div>
                 <h3 className="mt-6 text-lg font-medium tracking-tight text-fg">{item.title}</h3>

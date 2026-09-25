@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
+import { IconChip } from "@/components/ui/IconChip";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Glyph } from "@/components/ui/icons";
 import { contactPage } from "@/lib/content/contact";
 import { siteConfig } from "@/lib/site";
@@ -18,7 +18,6 @@ export function ContactPage() {
 
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
-      <GridBackdrop from="top" />
       <Container className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20">
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 [grid-template-areas:'intro'_'form'_'details'] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:[grid-template-areas:'intro_form'_'details_form']">
           <div className="[grid-area:intro]">
@@ -39,7 +38,7 @@ export function ContactPage() {
               <Eyebrow>{contactPage.eyebrow}</Eyebrow>
               <h1
                 id="page-title"
-                className="mt-5 text-balance text-display-sm font-medium text-fg sm:text-display-md lg:text-display-sm xl:text-display-md"
+                className="mt-5 text-balance text-display-sm font-semibold text-fg sm:text-display-md lg:text-display-sm xl:text-display-md"
               >
                 {contactPage.title}
               </h1>
@@ -50,9 +49,9 @@ export function ContactPage() {
               <ul className="space-y-5">
                 {contactPage.trust.map((note) => (
                   <li key={note.title} className="flex gap-4">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-accent/25 bg-accent/10 text-accent">
+                    <IconChip tone="accent">
                       <Glyph name={note.icon} />
-                    </span>
+                    </IconChip>
                     <span>
                       <span className="block font-medium text-fg">{note.title}</span>
                       <span className="mt-1 block text-sm leading-relaxed text-fg-muted">{note.body}</span>
@@ -91,20 +90,26 @@ export function ContactPage() {
               <address className="mt-6 space-y-3 text-sm not-italic">
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex min-h-6 items-center gap-3 text-fg-muted transition-colors hover:text-fg"
+                  className="flex items-center gap-3 text-fg-muted transition-colors hover:text-fg"
                 >
-                  <Glyph name="mail" className="text-fg-subtle" />
+                  <IconChip size="sm">
+                    <Glyph name="mail" />
+                  </IconChip>
                   {contact.email}
                 </a>
                 <a
                   href={contact.phoneHref}
-                  className="flex min-h-6 items-center gap-3 text-fg-muted transition-colors hover:text-fg"
+                  className="flex items-center gap-3 text-fg-muted transition-colors hover:text-fg"
                 >
-                  <Glyph name="phone" className="text-fg-subtle" />
+                  <IconChip size="sm">
+                    <Glyph name="phone" />
+                  </IconChip>
                   {contact.phone}
                 </a>
                 <p className="flex items-center gap-3 text-fg-muted">
-                  <Glyph name="pin" className="text-fg-subtle" />
+                  <IconChip size="sm">
+                    <Glyph name="pin" />
+                  </IconChip>
                   {contact.address}
                 </p>
               </address>

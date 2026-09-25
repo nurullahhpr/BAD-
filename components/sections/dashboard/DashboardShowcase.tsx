@@ -1,7 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
-import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { dashboardShowcase } from "@/lib/content/home";
@@ -13,7 +12,6 @@ export function DashboardShowcase() {
 
   return (
     <Section id="dashboard" aria-labelledby="dashboard-title" className="relative overflow-hidden">
-      <GridBackdrop from="top" />
       <Container className="relative">
         <SectionHeader
           eyebrow={eyebrow}

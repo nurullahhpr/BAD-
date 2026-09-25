@@ -8,7 +8,7 @@ import { processPage } from "@/lib/content/process";
 
 type Phase = (typeof processPhases)[number];
 
-const blockLabel = "font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle";
+const blockLabel = "text-xs uppercase tracking-wider font-medium text-fg-subtle";
 
 // Same layout as the service pages: sticky header left, three blocks right.
 export function PhaseDetail({ phase, index }: { phase: Phase; index: number }) {

@@ -8,12 +8,12 @@ type EyebrowProps = {
   tone?: string;
 };
 
-/** Small mono label shown above section headings. */
+/** Short sans label above section headings: tone colour, no uppercase tracking. */
 export function Eyebrow({ children, className, tone = "text-accent" }: EyebrowProps) {
   return (
     <p
       className={cn(
-        "font-mono text-xs uppercase tracking-[0.2em]",
+        "text-sm font-medium",
         tone,
         className,
       )}

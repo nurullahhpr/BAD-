@@ -14,7 +14,7 @@ type SegmentedProps<T extends string> = {
 /** Small toggle group for filtering a card's content. */
 export function Segmented<T extends string>({ label, options, value, onChange }: SegmentedProps<T>) {
   return (
-    <div role="group" aria-label={label} className="inline-flex rounded-lg border border-line bg-canvas p-0.5">
+    <div role="group" aria-label={label} className="inline-flex rounded-lg bg-canvas p-0.5">
       {options.map((option) => {
         const pressed = option.value === value;
         return (

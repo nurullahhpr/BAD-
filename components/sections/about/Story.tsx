@@ -30,7 +30,7 @@ export function Story() {
                 >
                   {index + 1}
                 </span>
-                <p className="font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle">{chapter.label}</p>
+                <p className="text-xs uppercase tracking-wider font-medium text-fg-subtle">{chapter.label}</p>
                 <h3 className="mt-2 text-xl font-medium tracking-tight text-fg">{chapter.title}</h3>
                 <p className="mt-2 text-pretty leading-relaxed text-fg-muted">{chapter.body}</p>
               </RevealItem>

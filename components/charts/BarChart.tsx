@@ -160,7 +160,7 @@ export function BarChart({
       {active !== null && width > 0 && (
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute top-0 rounded-lg border border-line-strong bg-surface-overlay px-3 py-2 shadow-window ${tooltipAlign}`}
+          className={`pointer-events-none absolute top-0 rounded-lg bg-surface-overlay px-3 py-2 ${tooltipAlign}`}
           style={{ left: activeCenter }}
         >
           <p className="text-sm font-semibold text-fg">{formatValue(values[active] ?? 0, format)}</p>

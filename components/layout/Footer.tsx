@@ -8,7 +8,7 @@ import { mainNav, siteConfig } from "@/lib/site";
 
 // py-0.5 lifts each link to a 24px tap target without breaking wrapped lines.
 const linkClass = "inline-block py-0.5 text-sm text-fg-muted transition-colors hover:text-fg";
-const headingClass = "font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle";
+const headingClass = "text-xs uppercase tracking-wider font-medium text-fg-subtle";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -29,7 +29,7 @@ export function Footer() {
                   <a
                     href={item.href}
                     aria-label={`${siteConfig.name} ${item.label}`}
-                    className="flex size-9 items-center justify-center rounded-lg border border-line text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+                    className="flex size-9 items-center justify-center rounded-lg bg-surface text-fg-muted transition-colors hover:bg-surface-raised hover:text-fg"
                   >
                     <SocialIcon network={item.network} />
                   </a>

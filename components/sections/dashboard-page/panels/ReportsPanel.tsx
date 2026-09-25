@@ -3,6 +3,7 @@
 import { AnimatePresence, m } from "framer-motion";
 import { useState } from "react";
 import { BarChart } from "@/components/charts/BarChart";
+import { IconChip } from "@/components/ui/IconChip";
 import { cn } from "@/lib/cn";
 import { reports } from "@/lib/content/dashboard-app";
 import { easeOutExpo } from "@/lib/motion";
@@ -14,7 +15,7 @@ export function ReportsPanel() {
 
   return (
     <div className="grid gap-3 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-      <div className="rounded-xl border border-line bg-surface p-2">
+      <div className="rounded-xl bg-surface p-2">
         <p className="px-3 pt-2 pb-3 text-sm font-medium text-fg">Raporlar</p>
         <ul className="space-y-1">
           {reports.map((item) => {
@@ -30,7 +31,9 @@ export function ReportsPanel() {
                     selected ? "bg-surface-overlay" : "hover:bg-surface-raised",
                   )}
                 >
-                  <AppIcon name="reports" className={cn("mt-0.5", selected ? "text-accent" : "text-fg-subtle")} />
+                  <IconChip size="sm" tone={selected ? "accent" : "neutral"}>
+                    <AppIcon name="reports" />
+                  </IconChip>
                   <span className="min-w-0">
                     <span className="block text-sm text-fg">{item.title}</span>
                     <span className="block text-xs text-fg-subtle">
@@ -44,7 +47,7 @@ export function ReportsPanel() {
         </ul>
       </div>
 
-      <div className="rounded-xl border border-line bg-surface p-4 sm:p-5" aria-live="polite">
+      <div className="rounded-xl bg-surface p-4 sm:p-5" aria-live="polite">
         <AnimatePresence mode="wait" initial={false}>
           <m.div
             key={report.id}
@@ -62,20 +65,16 @@ export function ReportsPanel() {
               </div>
               <div className="flex gap-2" title="Demo sürümünde kapalı">
                 {(["share", "download"] as const).map((icon) => (
-                  <span
-                    key={icon}
-                    aria-hidden="true"
-                    className="flex size-8 items-center justify-center rounded-lg border border-line text-fg-subtle"
-                  >
+                  <IconChip key={icon} size="sm">
                     <AppIcon name={icon} />
-                  </span>
+                  </IconChip>
                 ))}
               </div>
             </div>
 
             <dl className="mt-5 grid grid-cols-3 gap-3">
               {report.figures.map((figure) => (
-                <div key={figure.label} className="rounded-lg border border-line bg-canvas p-3">
+                <div key={figure.label} className="rounded-lg bg-canvas p-3">
                   <dt className="truncate text-xs text-fg-muted">{figure.label}</dt>
                   <dd className="mt-1 text-sm font-semibold text-fg sm:text-base">{figure.value}</dd>
                 </div>

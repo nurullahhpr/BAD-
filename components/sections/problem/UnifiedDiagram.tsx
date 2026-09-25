@@ -38,7 +38,7 @@ export function UnifiedDiagram({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-      className="rounded-card border border-line bg-surface p-5 sm:p-8"
+      className="rounded-card bg-surface p-5 sm:p-8"
     >
       <figcaption>
         <Eyebrow>{eyebrow}</Eyebrow>
@@ -49,7 +49,7 @@ export function UnifiedDiagram({
         <m.div
           variants={fadeUp}
           transition={baseTransition}
-          className="rounded-full border border-line-strong bg-surface-raised px-4 py-2 text-sm text-fg"
+          className="rounded-lg bg-surface-raised px-4 py-2 text-sm text-fg"
         >
           {input}
         </m.div>
@@ -59,11 +59,11 @@ export function UnifiedDiagram({
         <m.div
           variants={fadeUp}
           transition={baseTransition}
-          className="w-full rounded-xl border border-accent/40 bg-canvas p-3 shadow-glow sm:p-4"
+          className="w-full rounded-xl bg-canvas p-3 sm:p-4"
         >
           <div className="flex items-center justify-between px-1 pb-3">
             <span className="text-sm font-semibold tracking-tight text-fg">BADİ</span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+            <span className="text-[11px] uppercase tracking-wider font-medium text-accent">
               {roofTag}
             </span>
           </div>
@@ -74,7 +74,7 @@ export function UnifiedDiagram({
                 key={pillar.name}
                 variants={fadeUp}
                 transition={baseTransition}
-                className="rounded-lg border border-line bg-surface p-4"
+                className="rounded-lg bg-surface p-4"
               >
                 <p className="text-sm font-medium text-fg">{pillar.name}</p>
                 <p className="mt-0.5 text-xs text-fg-muted">{pillar.scope}</p>
@@ -101,7 +101,7 @@ export function UnifiedDiagram({
           {outputs.map((output) => (
             <li
               key={output}
-              className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent"
+              className="rounded-md bg-accent/15 px-2 py-1 text-xs font-medium text-accent"
             >
               {output}
             </li>
@@ -118,7 +118,7 @@ function Connector() {
       aria-hidden="true"
       variants={growDown}
       transition={{ duration: 0.4, ease: easeOutExpo }}
-      className="block h-8 w-px origin-top bg-linear-to-b from-line-strong to-accent/60"
+      className="block h-8 w-px origin-top bg-line-strong"
     />
   );
 }

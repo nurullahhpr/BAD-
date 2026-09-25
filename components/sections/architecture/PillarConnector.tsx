@@ -28,7 +28,7 @@ export function PillarConnector({ hub }: PillarConnectorProps) {
         <m.span
           variants={fadeUp}
           transition={baseTransition}
-          className="rounded-full border border-accent/40 bg-canvas px-4 py-1.5 text-sm font-semibold tracking-tight text-fg shadow-glow"
+          className="rounded-lg bg-accent/15 px-4 py-1.5 text-sm font-semibold tracking-tight text-accent"
         >
           {hub}
         </m.span>
@@ -51,7 +51,7 @@ export function PillarConnector({ hub }: PillarConnectorProps) {
             <m.span
               variants={growDown}
               transition={line(0.9)}
-              className="block h-10 w-px origin-top bg-linear-to-b from-accent/50 to-line-strong"
+              className="block h-10 w-px origin-top bg-accent/50"
             />
           </div>
         ))}

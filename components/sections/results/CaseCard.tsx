@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CountUp } from "@/components/motion/CountUp";
+import { Badge } from "@/components/ui/Badge";
 import { TrendIcon } from "@/components/ui/icons";
-import { cn } from "@/lib/cn";
 import { caseHref, type CaseMetric, type CaseStudy } from "@/lib/content/cases";
 import { formatNumber, formatSignedPercent } from "@/lib/format";
 import { CompareBars } from "./CompareBars";
@@ -21,19 +21,17 @@ export function CaseCard({ study, headingLevel = "h3" }: CaseCardProps) {
   return (
     <Link
       href={caseHref(study.slug)}
-      className="group flex h-full flex-col rounded-card border border-line bg-surface p-6 transition-colors duration-300 hover:border-line-strong sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:gap-x-10 sm:p-8 lg:flex"
+      className="group flex h-full flex-col rounded-card bg-surface p-6 transition-colors duration-300 hover:bg-surface-raised sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:gap-x-10 sm:p-8 lg:flex"
     >
       <div className="lg:flex-1">
         <div className="flex items-center justify-between gap-4">
           <div
             aria-hidden="true"
-            className="flex h-10 w-28 items-center justify-center rounded-lg border border-dashed border-line-strong font-mono text-[11px] uppercase tracking-[0.15em] text-fg-subtle"
+            className="flex h-10 w-28 items-center justify-center rounded-lg bg-surface-overlay text-[11px] font-medium tracking-wider text-fg-subtle uppercase"
           >
             Logo
           </div>
-          <span className="rounded-full border border-line px-2.5 py-1 text-xs text-fg-muted">
-            {study.sector}
-          </span>
+          <Badge>{study.sector}</Badge>
         </div>
         <p className="mt-6 text-sm text-fg-subtle">
           {study.client} · {study.period}
@@ -78,15 +76,10 @@ export function MetricRow({ metric }: { metric: CaseMetric }) {
             {suffix}
           </span>
         </div>
-        <span
-          className={cn(
-            "inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-xs",
-            improved ? "bg-positive/10 text-positive" : "bg-negative/10 text-negative",
-          )}
-        >
+        <Badge tone={improved ? "positive" : "negative"} className="gap-1 font-mono">
           <TrendIcon direction={change > 0 ? "up" : "down"} />
           {changeText}
-        </span>
+        </Badge>
       </div>
       <CompareBars before={before} after={after} />
     </div>

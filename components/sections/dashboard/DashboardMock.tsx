@@ -34,7 +34,7 @@ export function DashboardMock() {
   }
 
   return (
-    <div className="overflow-hidden rounded-panel border border-line-strong bg-surface text-left shadow-window">
+    <div className="overflow-hidden rounded-panel bg-surface text-left">
       <WindowBar />
       <div className="grid lg:grid-cols-[13rem_minmax(0,1fr)]">
         <Sidebar />
@@ -45,7 +45,7 @@ export function DashboardMock() {
               role="tablist"
               aria-label="Dashboard görünümü"
               onKeyDown={handleKey}
-              className="flex gap-1 rounded-lg border border-line bg-surface p-1"
+              className="flex gap-1 rounded-lg bg-surface p-1"
             >
               {dashboardTabs.map((item, index) => {
                 const selected = index === activeIndex;
@@ -81,7 +81,7 @@ export function DashboardMock() {
             </div>
 
             <div className="flex flex-col items-start gap-0.5 sm:items-end">
-              <span className="rounded-md border border-line bg-surface px-2.5 py-1 font-mono text-xs text-fg-muted">
+              <span className="rounded-md bg-surface px-2.5 py-1 font-mono text-xs text-fg-muted">
                 {demoPeriod.label}
               </span>
               <span className="text-[11px] text-fg-subtle">{demoPeriod.compareLabel}</span>
@@ -107,7 +107,7 @@ export function DashboardMock() {
             </m.div>
 
             <div className="grid gap-3 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
-              <div className="rounded-xl border border-line bg-surface p-4 sm:p-5">
+              <div className="rounded-xl bg-surface p-4 sm:p-5">
                 <p className="text-sm font-medium text-fg">{tab.series.title}</p>
                 <p className="text-xs text-fg-subtle">₺, günlük</p>
                 <div className="mt-4">

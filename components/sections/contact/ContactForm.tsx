@@ -94,7 +94,7 @@ export function ContactForm() {
   return (
     <div
       ref={cardRef}
-      className="scroll-mt-24 rounded-panel border border-line bg-surface p-5 shadow-window sm:p-8"
+      className="scroll-mt-24 rounded-panel bg-surface p-5 sm:p-8"
     >
       <AnimatePresence
         mode="wait"
@@ -132,7 +132,7 @@ export function ContactForm() {
                 {copy.title}
               </h2>
               {topic && (
-                <p className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent">
+                <p className="inline-flex items-center gap-2 rounded-md bg-accent/15 px-2 py-0.5 text-xs font-medium text-accent">
                   <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
                   {copy.topicPrefix}: {topicLabel(topic)}
                 </p>

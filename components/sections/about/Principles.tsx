@@ -17,7 +17,7 @@ export function Principles() {
             <RevealItem
               as="li"
               key={item.title}
-              className="rounded-card border border-line bg-surface p-6 transition-colors duration-200 hover:border-line-strong sm:p-7"
+              className="rounded-card bg-surface p-6 transition-colors duration-200 hover:bg-surface-raised sm:p-7"
             >
               <span aria-hidden="true" className="font-mono text-xs tabular-nums text-fg-subtle">
                 {String(index + 1).padStart(2, "0")}

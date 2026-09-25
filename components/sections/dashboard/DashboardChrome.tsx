@@ -1,3 +1,4 @@
+import { IconChip } from "@/components/ui/IconChip";
 import { siteConfig } from "@/lib/site";
 
 // Decorative app frame around the showcase: window bar and sidebar.
@@ -11,7 +12,7 @@ export function WindowBar() {
         ))}
       </div>
       <p className="text-xs text-fg-muted">{siteConfig.name} Dashboard</p>
-      <span className="ml-auto rounded border border-line-strong px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-fg-subtle">
+      <span className="ml-auto rounded-md bg-surface-overlay px-1.5 py-0.5 text-[10px] font-medium tracking-wider text-fg-muted uppercase">
         Demo
       </span>
     </div>
@@ -37,26 +38,28 @@ export function Sidebar() {
             key={item.label}
             className={
               index === 0
-                ? "flex items-center gap-3 rounded-md bg-surface-overlay px-3 py-2 text-sm text-fg"
-                : "flex items-center gap-3 rounded-md px-3 py-2 text-sm text-fg-subtle"
+                ? "flex items-center gap-3 rounded-lg bg-surface-overlay px-2 py-1.5 text-sm text-fg"
+                : "flex items-center gap-3 rounded-lg px-2 py-1.5 text-sm text-fg-subtle"
             }
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0">
-              <path
-                d={item.icon}
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <IconChip size="sm" tone={index === 0 ? "accent" : "neutral"}>
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d={item.icon}
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </IconChip>
             {item.label}
           </li>
         ))}
       </ul>
 
-      <div className="mt-auto rounded-lg border border-line p-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-fg-subtle">
+      <div className="mt-auto rounded-lg bg-surface-raised p-3">
+        <p className="text-[10px] uppercase tracking-wider font-medium text-fg-subtle">
           Bağlı kanallar
         </p>
         <ul className="mt-3 space-y-2">

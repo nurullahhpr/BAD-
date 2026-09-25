@@ -22,7 +22,7 @@ type LineChartProps = {
 
 const MARGIN = { top: 16, right: 12, bottom: 28, left: 56 };
 
-// Single-series line: 2px stroke, 10% wash, hairline grid, end dot with a surface
+// Single-series line: 2px stroke, no fill, hairline grid, end dot with a surface
 // ring, crosshair + tooltip on pointer and arrow keys. An optional split marks
 // a before/after boundary (e.g. the day BADİ started).
 export function LineChart({
@@ -55,7 +55,6 @@ export function LineChart({
   const split = splitIndex ?? 0;
   const accentLine = pathFor(split, count - 1);
   const greyLine = split > 0 ? pathFor(0, split) : null;
-  const area = `${accentLine} L${x(count - 1).toFixed(1)},${y(0).toFixed(1)} L${x(split).toFixed(1)},${y(0).toFixed(1)} Z`;
 
   const low = Math.min(...values);
   const summary = `${title}, ${labels[0]}–${labels[count - 1]}: en düşük ${formatValue(low, format)}, en yüksek ${formatValue(peak, format)}.`;
@@ -157,12 +156,6 @@ export function LineChart({
             </g>
           )}
 
-          <m.path
-            className="fill-accent/10"
-            initial={false}
-            animate={{ d: area }}
-            transition={{ duration: 0.6, ease: easeOutExpo }}
-          />
           {greyLine && (
             <m.path
               className="fill-none stroke-fg-subtle"
@@ -220,7 +213,7 @@ export function LineChart({
       {active !== null && width > 0 && (
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute top-0 rounded-lg border border-line-strong bg-surface-overlay px-3 py-2 shadow-window ${tooltipAlign}`}
+          className={`pointer-events-none absolute top-0 rounded-lg bg-surface-overlay px-3 py-2 ${tooltipAlign}`}
           style={{ left: activeX }}
         >
           <p className="text-sm font-semibold text-fg">{formatValue(values[active] ?? 0, format)}</p>

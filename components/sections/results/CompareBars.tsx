@@ -21,7 +21,7 @@ export function CompareBars({ before, after }: CompareBarsProps) {
     <div aria-hidden="true" className="mt-4 space-y-2">
       {bars.map((bar, index) => (
         <div key={bar.label} className="flex items-center gap-3">
-          <span className="w-10 shrink-0 font-mono text-[10px] uppercase tracking-[0.1em] text-fg-subtle">
+          <span className="w-10 shrink-0 text-[10px] uppercase tracking-wider font-medium text-fg-subtle">
             {bar.label}
           </span>
           <div className="h-1.5 flex-1">

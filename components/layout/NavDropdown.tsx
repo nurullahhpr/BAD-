@@ -111,7 +111,7 @@ export function NavDropdown({ label, href, items }: NavDropdownProps) {
             transition={{ duration: 0.2, ease: easeOutExpo }}
             className="absolute top-full left-1/2 z-50 w-80 -translate-x-1/2 pt-4"
           >
-            <div className="rounded-card border border-line-strong bg-surface p-2 shadow-window">
+            <div className="rounded-card bg-surface p-2">
               <ul>
                 {items.map((item) => (
                   <li key={item.href}>

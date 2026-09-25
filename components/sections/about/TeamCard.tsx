@@ -9,7 +9,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
   const pillar = member.pillar ? pillars.find((item) => item.id === member.pillar) : undefined;
 
   return (
-    <div className="group h-full overflow-hidden rounded-card border border-line bg-surface transition-colors duration-200 hover:border-line-strong">
+    <div className="group h-full overflow-hidden rounded-card bg-surface transition-colors duration-200 hover:bg-surface-raised">
       <div className="relative aspect-[4/5] overflow-hidden bg-surface-raised">
         {member.photo ? (
           <Image
@@ -31,7 +31,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
           <p
             lang="en"
             className={cn(
-              "mt-3 inline-flex items-center gap-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.12em]",
+              "mt-3 inline-flex items-center gap-1.5 text-[0.6875rem] uppercase tracking-wider font-medium",
               pillarTheme[pillar.id].text,
             )}
           >
@@ -47,7 +47,6 @@ export function TeamCard({ member }: { member: TeamMember }) {
 function PortraitPlaceholder() {
   return (
     <div aria-hidden="true" className="absolute inset-0">
-      <div className="absolute inset-0 bg-grid bg-size-[1.5rem_1.5rem] opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       <svg viewBox="0 0 120 150" fill="none" className="absolute inset-x-0 bottom-0 mx-auto w-3/4 text-line-strong">
         <circle cx="60" cy="58" r="24" fill="currentColor" />
         <path d="M14 150c0-30 20-50 46-50s46 20 46 50" fill="currentColor" />

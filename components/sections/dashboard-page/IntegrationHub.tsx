@@ -2,6 +2,7 @@
 
 import { m, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+import { IconChip } from "@/components/ui/IconChip";
 import { cn } from "@/lib/cn";
 import { dashboardPage, type Integration } from "@/lib/content/dashboard-page";
 import { AppIcon } from "./AppIcon";
@@ -26,15 +27,15 @@ export function IntegrationHub() {
       <SourceGroup label={groups[0]!.label} items={groups[0]!.items} side="left" animate={animate} />
 
       <div className="order-first lg:order-none">
-        <div className="flex h-full flex-col items-center justify-center rounded-panel border border-accent/30 bg-surface p-8 text-center shadow-glow">
-          <span className="flex size-14 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 text-sm font-semibold tracking-tight text-fg">
+        <div className="flex h-full flex-col items-center justify-center rounded-panel bg-surface p-8 text-center">
+          <span className="flex size-14 items-center justify-center rounded-2xl bg-accent/15 text-sm font-semibold tracking-tight text-accent">
             BADİ
           </span>
           <p className="mt-5 text-lg font-medium tracking-tight text-fg">{hubTitle}</p>
           <p className="mt-1 text-sm text-fg-muted">{hubBody}</p>
           <ul className="mt-5 flex flex-wrap justify-center gap-1.5">
             {hubModules.map((module) => (
-              <li key={module} className="rounded-full border border-line px-2.5 py-1 text-xs text-fg-muted">
+              <li key={module} className="rounded-md bg-surface-overlay px-2 py-0.5 text-xs font-medium text-fg-muted">
                 {module}
               </li>
             ))}
@@ -60,7 +61,7 @@ function SourceGroup({ label, items, side, animate }: SourceGroupProps) {
     <div className="flex flex-col">
       <h3
         className={cn(
-          "mb-4 font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle",
+          "mb-4 text-xs uppercase tracking-wider font-medium text-fg-subtle",
           side === "left" ? "lg:pr-14" : "lg:pl-14 lg:text-right",
         )}
       >
@@ -69,10 +70,10 @@ function SourceGroup({ label, items, side, animate }: SourceGroupProps) {
       <ul className="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-cols-1 lg:content-around">
         {items.map((item, index) => (
           <li key={item.name} className={cn("flex items-center", side === "right" && "lg:flex-row-reverse")}>
-            <div className="flex flex-1 items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-line bg-canvas text-fg-muted">
+            <div className="flex flex-1 items-center gap-3 rounded-xl bg-surface px-4 py-3">
+              <IconChip>
                 <AppIcon name={item.icon} />
-              </span>
+              </IconChip>
               <span className="min-w-0">
                 <span className="block truncate text-sm font-medium text-fg">{item.name}</span>
                 <span className="block truncate text-xs text-fg-subtle">{item.detail}</span>

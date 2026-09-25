@@ -2,6 +2,7 @@
 
 import { AnimatePresence, m } from "framer-motion";
 import { useId, useRef, type KeyboardEvent, type ReactNode } from "react";
+import { IconChip } from "@/components/ui/IconChip";
 import { cn } from "@/lib/cn";
 import { appMeta, appTabs, connectedSources, type AppTabId } from "@/lib/content/dashboard-app";
 import { easeOutExpo } from "@/lib/motion";
@@ -55,7 +56,7 @@ export function DashboardApp() {
   }
 
   return (
-    <div className="overflow-hidden rounded-panel border border-line-strong bg-surface text-left shadow-window">
+    <div className="overflow-hidden rounded-panel bg-surface text-left">
       {/* Window bar */}
       <div className="flex h-12 items-center gap-3 border-b border-line px-4">
         <div aria-hidden="true" className="flex gap-1.5">
@@ -69,13 +70,13 @@ export function DashboardApp() {
         </p>
         <div
           aria-hidden="true"
-          className="ml-auto hidden w-56 items-center gap-2 rounded-md border border-line bg-canvas px-2.5 py-1 text-xs text-fg-subtle md:flex"
+          className="ml-auto hidden w-56 items-center gap-2 rounded-md bg-canvas px-2.5 py-1 text-xs text-fg-subtle md:flex"
         >
           <AppIcon name="search" className="size-3.5" />
           Ara
           <kbd className="ml-auto font-mono text-[10px]">⌘K</kbd>
         </div>
-        <span className="ml-auto rounded border border-line-strong px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-fg-subtle md:ml-0">
+        <span className="ml-auto rounded-md bg-surface-overlay px-1.5 py-0.5 text-[10px] uppercase tracking-wider font-medium text-fg-muted md:ml-0">
           Demo
         </span>
         <span
@@ -91,7 +92,7 @@ export function DashboardApp() {
         {/* Sidebar */}
         <div className="flex min-w-0 flex-col border-b border-line lg:border-r lg:border-b-0">
           <div aria-hidden="true" className="hidden items-center gap-3 px-4 pt-5 pb-3 lg:flex">
-            <span className="flex size-8 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 font-mono text-[10px] text-accent">
+            <span className="flex size-8 items-center justify-center rounded-lg bg-accent/15 font-mono text-[10px] text-accent">
               {appMeta.initials}
             </span>
             <span className="min-w-0 flex-1">
@@ -135,10 +136,12 @@ export function DashboardApp() {
                       transition={{ duration: 0.3, ease: easeOutExpo }}
                     />
                   )}
-                  <AppIcon name={tabIcons[item.id]} className={cn("relative", selected && "text-accent")} />
+                  <IconChip size="sm" tone={selected ? "accent" : "neutral"} className="relative">
+                    <AppIcon name={tabIcons[item.id]} />
+                  </IconChip>
                   <span className="relative">{item.label}</span>
                   {item.badge !== undefined && (
-                    <span className="relative ml-auto rounded-full bg-negative/15 px-1.5 font-mono text-[10px] text-negative">
+                    <span className="relative ml-auto rounded-md bg-negative/15 px-1.5 font-mono text-[10px] text-negative">
                       {item.badge}
                       <span className="sr-only"> kritik ürün</span>
                     </span>
@@ -149,8 +152,8 @@ export function DashboardApp() {
           </div>
 
           <div className="mt-auto hidden p-4 lg:block">
-            <div className="rounded-lg border border-line p-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-fg-subtle">Bağlı kaynaklar</p>
+            <div className="rounded-lg bg-surface-raised p-3">
+              <p className="text-[10px] uppercase tracking-wider font-medium text-fg-subtle">Bağlı kaynaklar</p>
               <ul className="mt-3 space-y-2">
                 {connectedSources.map((source) => (
                   <li key={source} className="flex items-center gap-2 text-xs text-fg-muted">
@@ -176,7 +179,7 @@ export function DashboardApp() {
               <p className="text-sm text-fg-subtle">{active.summary}</p>
             </div>
             <div className="flex flex-col items-start gap-0.5 sm:items-end">
-              <span className="rounded-md border border-line bg-surface px-2.5 py-1 font-mono text-xs text-fg-muted">
+              <span className="rounded-md bg-surface px-2.5 py-1 font-mono text-xs text-fg-muted">
                 {appMeta.period}
               </span>
               <span className="text-[11px] text-fg-subtle">{appMeta.compareLabel}</span>

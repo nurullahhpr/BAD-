@@ -41,11 +41,20 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 ## Tasarım
 
 - Referans: Linear, Ramp, Stripe, Vercel seviyesinde sadelik ve motion kalitesi.
-- Koyu tema ağırlıklı. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
+- Koyu tema ağırlıklı. Zemin saf siyah değil, lacivert/mor katkılı koyu ton. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
+- Görsel dil: düz/mat yüzeyler, bol iç boşluk (referans: "Maglo" UI kit).
+  - Katmanlar kenarlıkla değil ton farkıyla ayrılır: `canvas` üstünde `bg-surface` kart, içinde `bg-canvas` veya `bg-surface-raised` kutu. Kart kenarlığı yok.
+  - Glow, blur, glassmorphism, gradient, ızgara arka plan, ışık topu ve ağır gölge yok.
+  - Radius: kart `rounded-card` (20px), büyük panel `rounded-panel` (24px), buton `rounded-xl`. Pill (tam yuvarlak) buton ve rozet yok; `rounded-full` yalnız noktalar için.
+  - Butonlar düz tek renk (`ButtonLink` / `buttonClass`): primary `accent`, secondary `surface-raised`.
+  - İkonlar `IconChip` içinde: yumuşak köşeli kare, tonun soft zemini, ikon üstte tonun rengi. Sütun ikonları `ServiceIcon`.
+  - Rozet/durum: `Badge` (soft zemin + okunur metin, `rounded-md`). Durumda kelime + nokta (`StatusPill`).
+  - Etiketler sans, küçük; başlıklar `font-semibold`. Geist Mono yalnız rakam ve kod için. Gradient metin yok.
+  - Grafikler: ince tek renk çizgi, alan dolgusu yok, sade tooltip.
 - Vurgu azla kullanılır (CTA, kritik rakam, aktif durum).
 - Sütun tonları `lib/pillarTheme.ts`'de: Administration `accent-300`, Development `accent`, Infrastructure `accent-500`. Ton, aynı vurgunun basamağıdır; yeni renk değildir.
-- Sütun ikon setleri çerçeveyle ayrılır: Administration kare, Development daire, Infrastructure altıgen (`ServiceIcon`).
-- Font: Geist (sans) ve Geist Mono (rakam, etiket, kod). Rakam sütunlarında `tabular-nums`.
+- Sütun ikonları `ServiceIcon`: sütunun ton chip'i içinde. Hizmetin kendi işareti vardır; tek başına sütun işareti şekildir (Administration kare, Development daire, Infrastructure altıgen).
+- Font: Geist (sans) ve Geist Mono (rakam, kod). Rakam sütunlarında `tabular-nums`.
 - Renk token'ları `lib/tokens.ts` içinde; `tailwind.config.ts` oradan okur. Sabit hex kodu komponente yazılmaz; token kullanılır (paylaşım görselleri de `colors`'u import eder).
   - Arka plan: `canvas` → `surface` → `surface-raised` → `surface-overlay`
   - Çizgi: `line`, `line-strong`
@@ -85,7 +94,7 @@ components/
   ui/         Temel yapı taşları (Container, Button...)
 lib/          Site ayarları, yardımcılar, motion preset'leri
   content/    Sayfa bölümlerinin metinleri ve rakamları (Türkçe)
-assets/fonts/ Paylaşım görselleri için Geist TTF (SIL OFL, `OFL.txt`)
+assets/fonts/ Paylaşım görselleri için Geist Medium TTF (SIL OFL, `OFL.txt`)
 public/       Statik dosyalar
 ```
 

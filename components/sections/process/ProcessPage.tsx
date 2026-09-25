@@ -25,9 +25,9 @@ export function ProcessPage() {
             <li key={phase.id}>
               <a
                 href={`#${phase.id}`}
-                className="flex h-full flex-col rounded-card border border-line bg-surface/70 p-5 transition-colors hover:border-line-strong"
+                className="flex h-full flex-col rounded-card bg-surface p-5 transition-colors hover:bg-surface-raised"
               >
-                <span className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
+                <span className="text-xs uppercase tracking-wider font-medium text-accent">
                   Faz {index + 1} · Gün {phase.startDay}–{phase.endDay}
                 </span>
                 <span className="mt-2 text-lg font-medium tracking-tight text-fg">{phase.name}</span>

@@ -35,7 +35,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
       >
         <div className="grid gap-4 md:grid-cols-2">
           {study.metrics.map((metric) => (
-            <div key={metric.label} className="rounded-card border border-line bg-surface p-6">
+            <div key={metric.label} className="rounded-card bg-surface p-6">
               <MetricRow metric={metric} />
             </div>
           ))}
@@ -47,7 +47,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
           <SectionHeader eyebrow="Vaka" title="Problem ve çözüm" titleId="case-story-title" />
           <RevealGroup className="mt-12 grid gap-6 sm:mt-16 md:grid-cols-2">
             <RevealItem className="rounded-card border border-dashed border-line-strong p-6 sm:p-8">
-              <h3 className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle">
+              <h3 className="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-fg-subtle">
                 <MinusIcon /> Problem
               </h3>
               <div className="mt-5 space-y-3 leading-relaxed text-fg-muted">
@@ -56,8 +56,8 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
                 ))}
               </div>
             </RevealItem>
-            <RevealItem className="rounded-card border border-accent/30 bg-accent/[0.04] p-6 sm:p-8">
-              <h3 className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-accent">
+            <RevealItem className="rounded-card bg-accent/[0.07] p-6 sm:p-8">
+              <h3 className="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-accent">
                 <CheckIcon /> Çözüm
               </h3>
               <div className="mt-5 space-y-3 leading-relaxed text-fg">
@@ -82,14 +82,14 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
             {study.strategy.map((step, index) => {
               const pillar = pillars.find((item) => item.id === step.pillar);
               return (
-                <RevealItem as="li" key={step.title} className="rounded-card border border-line bg-surface p-6 sm:p-8">
+                <RevealItem as="li" key={step.title} className="rounded-card bg-surface p-6 sm:p-8">
                   <div className="flex items-center justify-between">
                     <ServiceIcon pillar={step.pillar} />
                     <span className="font-mono text-xs text-fg-subtle">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <p lang="en" className={`mt-6 font-mono text-xs uppercase tracking-[0.15em] ${pillarTheme[step.pillar].text}`}>
+                  <p lang="en" className={`mt-6 text-xs uppercase tracking-wider font-medium ${pillarTheme[step.pillar].text}`}>
                     {pillar?.name}
                   </p>
                   <h3 className="mt-2 text-lg font-medium tracking-tight text-fg">{step.title}</h3>
@@ -120,7 +120,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
             </li>
           </ul>
           <RevealGroup className="mt-6 grid gap-6 lg:grid-cols-2">
-            <RevealItem className="rounded-card border border-line bg-surface p-5 sm:p-6">
+            <RevealItem className="rounded-card bg-surface p-5 sm:p-6">
               <h3 className="text-sm font-medium text-fg">Aylık ciro</h3>
               <p className="text-xs text-fg-subtle">₺, BADİ başlangıcına göre ay</p>
               <div className="mt-4">
@@ -135,7 +135,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
                 />
               </div>
             </RevealItem>
-            <RevealItem className="rounded-card border border-line bg-surface p-5 sm:p-6">
+            <RevealItem className="rounded-card bg-surface p-5 sm:p-6">
               <h3 className="text-sm font-medium text-fg">Aylık sipariş</h3>
               <p className="text-xs text-fg-subtle">Adet, BADİ başlangıcına göre ay</p>
               <div className="mt-4">

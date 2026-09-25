@@ -1,7 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
-import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { CheckIcon } from "@/components/ui/icons";
 import { Section } from "@/components/ui/Section";
 
@@ -21,12 +20,11 @@ export function CtaPanel({ id, title, body, cta, href, fineprint = [] }: CtaPane
   return (
     <Section id={id} aria-labelledby={titleId}>
       <Container>
-        <Reveal className="relative overflow-hidden rounded-panel border border-line bg-surface px-6 py-20 text-center sm:px-12 sm:py-28">
-          <GridBackdrop from="bottom" />
+        <Reveal className="relative overflow-hidden rounded-panel bg-surface px-6 py-20 text-center sm:px-12 sm:py-28">
           <div className="relative">
             <h2
               id={titleId}
-              className="mx-auto max-w-3xl text-balance text-display-sm font-medium text-fg sm:text-display-md"
+              className="mx-auto max-w-3xl text-balance text-display-sm font-semibold text-fg sm:text-display-md"
             >
               {title}
             </h2>

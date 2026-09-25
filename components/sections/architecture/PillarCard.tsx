@@ -19,8 +19,8 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
 
   return (
     <RevealItem className="lg:row-span-4 lg:grid lg:grid-rows-subgrid">
-      <article className="flex h-full flex-col rounded-card border border-line bg-surface p-6 transition-[translate,border-color] duration-300 ease-out-expo hover:border-accent/30 motion-safe:hover:-translate-y-1.5 sm:p-8 lg:row-span-4 lg:grid lg:grid-rows-subgrid">
-        <div className="h-28 overflow-hidden rounded-xl border border-line bg-canvas px-4 py-3">
+      <article className="flex h-full flex-col rounded-card bg-surface p-6 transition-[translate,background-color] duration-300 ease-out-expo hover:bg-surface-raised motion-safe:hover:-translate-y-1.5 sm:p-8 lg:row-span-4 lg:grid lg:grid-rows-subgrid">
+        <div className="h-28 overflow-hidden rounded-xl bg-canvas px-4 py-3">
           <PillarGlyph id={pillar.id} />
         </div>
 
@@ -31,7 +31,7 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
-          <p className={`mt-1 font-mono text-xs uppercase tracking-[0.15em] ${tone.text}`}>
+          <p className={`mt-1 text-xs uppercase tracking-wider font-medium ${tone.text}`}>
             {pillar.scope}
           </p>
         </div>

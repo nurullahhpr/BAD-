@@ -96,7 +96,7 @@ export function ProgramTimeline({ phases, totalDays }: ProgramTimelineProps) {
                 animate={{ opacity: active ? 1 : INACTIVE_OPACITY }}
                 transition={{ duration: 0.5, ease: easeOutExpo }}
               >
-                <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
+                <p className="text-xs uppercase tracking-wider font-medium text-accent">
                   {String(index + 1).padStart(2, "0")} · Gün {phase.startDay}–{phase.endDay}
                 </p>
                 <h3 className="mt-3 text-xl font-medium tracking-tight text-fg">{phase.name}</h3>

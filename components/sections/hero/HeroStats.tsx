@@ -4,10 +4,10 @@ import { formatNumber } from "@/lib/format";
 
 export function HeroStats() {
   return (
-    <div className="rounded-card border border-line bg-surface/80 backdrop-blur-sm">
+    <div className="rounded-card bg-surface">
       <div className="flex items-center gap-2 border-b border-line px-5 py-4 sm:px-6">
         <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-fg-muted">
+        <p className="text-xs uppercase tracking-wider font-medium text-fg-muted">
           {hero.statsTitle}
         </p>
       </div>

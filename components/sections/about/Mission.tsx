@@ -21,7 +21,7 @@ export function Mission() {
         />
         <RevealGroup
           as="ul"
-          className="mx-auto mt-12 grid max-w-3xl grid-cols-3 divide-x divide-line rounded-panel border border-line bg-surface sm:mt-16"
+          className="mx-auto mt-12 grid max-w-3xl grid-cols-3 divide-x divide-line rounded-panel bg-surface sm:mt-16"
         >
           {mission.facts.map((fact) => (
             <RevealItem as="li" key={fact.label} className="px-3 py-8 text-center sm:px-6 sm:py-10">

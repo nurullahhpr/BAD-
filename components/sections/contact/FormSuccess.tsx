@@ -50,40 +50,26 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
   return (
     <div className="py-4 sm:py-8">
       <div className="text-center">
-        <div className="relative mx-auto size-16">
-          <m.span
-            aria-hidden="true"
-            className="absolute inset-0 rounded-full bg-accent/25"
-            initial={{ scale: 0.6, opacity: 0.9 }}
-            animate={{ scale: 1.9, opacity: 0 }}
-            transition={timing(0.4, 0.9)}
-          />
-          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="relative size-16">
-            <circle cx="32" cy="32" r="30" className="fill-accent/10" />
-            <g transform="rotate(-90 32 32)">
-              <m.circle
-                cx="32"
-                cy="32"
-                r="30"
-                strokeWidth="2"
-                className="stroke-accent"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={timing(0, 0.6)}
-              />
-            </g>
+        {/* Flat success chip: the tick draws itself in, no ring or glow. */}
+        <m.div
+          className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-accent/15"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={timing(0, 0.4)}
+        >
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="size-10">
             <m.path
-              d="M21 33l7.5 7.5L44 25"
-              strokeWidth="3"
+              d="M18 33l9.5 9.5L46 23"
+              strokeWidth="4"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="stroke-accent"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={timing(0.35, 0.45)}
+              transition={timing(0.2, 0.45)}
             />
           </svg>
-        </div>
+        </m.div>
 
         <h2
           id="iletisim-success-title"
@@ -100,9 +86,9 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={timing(0.5, 0.5)}
-        className="mt-8 rounded-card border border-line bg-canvas p-5"
+        className="mt-8 rounded-card bg-canvas p-5"
       >
-        <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle">{success.summaryTitle}</h3>
+        <h3 className="text-xs uppercase tracking-wider font-medium text-fg-subtle">{success.summaryTitle}</h3>
         <dl className="mt-4 grid gap-x-6 gap-y-3 text-sm sm:grid-cols-[10rem_minmax(0,1fr)]">
           {rows.map(([label, value]) => (
             <div key={label} className="contents">

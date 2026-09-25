@@ -14,7 +14,7 @@ type ServiceDetailProps = {
   index: number;
 };
 
-const blockLabel = "font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle";
+const blockLabel = "text-xs uppercase tracking-wider font-medium text-fg-subtle";
 
 // lg: header sticks on the left while the three blocks scroll past on the right.
 export function ServiceDetail({ pillarId, service, index }: ServiceDetailProps) {
@@ -25,7 +25,7 @@ export function ServiceDetail({ pillarId, service, index }: ServiceDetailProps) 
     <Section id={service.slug} aria-labelledby={titleId}>
       <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <ServiceIcon pillar={pillarId} service={service.slug} className="mb-6 size-12" />
+          <ServiceIcon pillar={pillarId} service={service.slug} size="lg" className="mb-6" />
           <SectionHeader
             eyebrow={`Hizmet ${String(index + 1).padStart(2, "0")}`}
             title={service.title}
@@ -75,7 +75,7 @@ export function ServiceDetail({ pillarId, service, index }: ServiceDetailProps) 
               <h3 className={blockLabel}>Araçlar</h3>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {service.tools.map((tool) => (
-                  <li key={tool.name} className="rounded-xl border border-line bg-surface p-4">
+                  <li key={tool.name} className="rounded-xl bg-surface p-4">
                     <p className="flex items-center gap-2 text-sm font-medium text-fg">
                       <span aria-hidden="true" className={`size-1.5 rounded-full ${tone.dot}`} />
                       {tool.name}

@@ -29,7 +29,7 @@ export function SectionHeader({
       <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
       <h2
         id={titleId}
-        className="mt-5 text-balance text-3xl font-medium tracking-tight text-fg sm:text-4xl"
+        className="mt-4 text-balance text-3xl font-semibold tracking-tight text-fg sm:text-4xl"
       >
         {title}
       </h2>

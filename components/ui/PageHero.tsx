@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { GridBackdrop } from "@/components/ui/GridBackdrop";
 
 export type Crumb = {
   label: string;
@@ -28,7 +27,6 @@ type PageHeroProps = {
 export function PageHero({ crumbs, eyebrow, title, body, tone, children }: PageHeroProps) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
-      <GridBackdrop from="top" />
       <Container className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20">
         <nav aria-label="Sayfa konumu">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-fg-subtle">
@@ -52,7 +50,7 @@ export function PageHero({ crumbs, eyebrow, title, body, tone, children }: PageH
           <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
           <h1
             id="page-title"
-            className="mt-5 text-balance text-display-sm font-medium text-fg sm:text-display-md"
+            className="mt-5 text-balance text-display-sm font-semibold text-fg sm:text-display-md"
           >
             {title}
           </h1>

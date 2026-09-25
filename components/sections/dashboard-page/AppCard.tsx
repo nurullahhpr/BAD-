@@ -13,7 +13,7 @@ type AppCardProps = {
 /** Card inside the dashboard mockup: title row, optional actions, content. */
 export function AppCard({ title, subtitle, actions, className, children }: AppCardProps) {
   return (
-    <div className={cn("rounded-xl border border-line bg-surface p-4 sm:p-5", className)}>
+    <div className={cn("rounded-xl bg-surface p-4 sm:p-5", className)}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-sm font-medium text-fg">{title}</p>

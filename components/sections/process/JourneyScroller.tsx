@@ -33,7 +33,7 @@ export function JourneyScroller({ steps, phaseNames, totalDays }: JourneyScrolle
     <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
       <div className="hidden lg:block">
         <div className="sticky top-28" aria-live="polite">
-          <div className="rounded-panel border border-line bg-surface p-8">
+          <div className="rounded-panel bg-surface p-8">
             <div className="flex items-center justify-between font-mono text-xs text-fg-subtle">
               <span>
                 Adım {String(active + 1).padStart(2, "0")} / {String(steps.length).padStart(2, "0")}
@@ -50,7 +50,7 @@ export function JourneyScroller({ steps, phaseNames, totalDays }: JourneyScrolle
                 transition={{ duration: 0.25, ease: easeOutExpo }}
                 className="mt-8 min-h-44"
               >
-                <p className="font-mono text-display-sm font-medium tracking-tight text-accent">
+                <p className="font-mono text-display-sm font-semibold tracking-tight text-accent">
                   {step.day}
                 </p>
                 <p className="mt-4 text-xl font-medium tracking-tight text-fg">{step.title}</p>
@@ -148,7 +148,7 @@ function JourneyItem({ step, phaseName, active, reached, onActive }: JourneyItem
           active ? "border-accent/30 bg-surface" : "border-line bg-transparent",
         )}
       >
-        <p className="flex flex-wrap items-center gap-x-3 font-mono text-xs uppercase tracking-[0.15em]">
+        <p className="flex flex-wrap items-center gap-x-3 text-xs uppercase tracking-wider font-medium">
           <span className="text-accent">{step.day}</span>
           <span className="text-fg-muted">{phaseName}</span>
         </p>
