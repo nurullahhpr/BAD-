@@ -41,8 +41,8 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 ## Tasarım
 
 - Referans: Linear, Ramp, Stripe, Vercel seviyesinde sadelik ve motion kalitesi.
-- Koyu tema ağırlıklı. Zemin saf siyah değil, lacivert/mor katkılı koyu ton. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
-- Görsel dil: düz/mat yüzeyler, bol iç boşluk (referans: "Maglo" UI kit).
+- Koyu tema ağırlıklı. Zemin ve nötr tonlar siyah paletteki gibi kalır (`lib/tokens.ts`); değiştirilmez. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
+- UI öğeleri (buton, ikon chip'i, kart detayı, rozet, kenarlık) "Maglo" UI kit diline yakındır: düz/mat yüzeyler, bol iç boşluk.
   - Katmanlar kenarlıkla değil ton farkıyla ayrılır: `canvas` üstünde `bg-surface` kart, içinde `bg-canvas` veya `bg-surface-raised` kutu. Kart kenarlığı yok.
   - Glow, blur, glassmorphism, gradient, ızgara arka plan, ışık topu ve ağır gölge yok.
   - Radius: kart `rounded-card` (20px), büyük panel `rounded-panel` (24px), buton `rounded-xl`. Pill (tam yuvarlak) buton ve rozet yok; `rounded-full` yalnız noktalar için.
