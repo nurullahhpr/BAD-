@@ -16,6 +16,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
             src={member.photo.src}
             alt={member.photo.alt}
             fill
+            placeholder="blur"
             sizes="(min-width: 1024px) 18rem, 50vw"
             className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
           />

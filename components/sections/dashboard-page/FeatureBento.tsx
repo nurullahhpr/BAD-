@@ -27,7 +27,7 @@ function ChannelsPreview() {
   return (
     <ul className="space-y-3">
       {overview.channels.items.map((item) => (
-        <li key={item.label} className="grid grid-cols-[6.5rem_1fr_auto] items-center gap-3 text-xs">
+        <li key={item.label} className="grid grid-cols-[6.5rem_minmax(0,1fr)_auto] items-center gap-3 text-xs">
           <span className="text-fg-muted">{item.label}</span>
           <span className="h-1.5 rounded-full bg-line">
             <span className="block h-full rounded-r-full bg-accent" style={{ width: `${(item.value / max) * 100}%` }} />
@@ -120,7 +120,7 @@ export function FeatureBento() {
     <Section id="ozellikler" aria-labelledby="features-title">
       <Container>
         <SectionHeader eyebrow={eyebrow} title={title} titleId="features-title" body={body} />
-        <RevealGroup as="ul" gap={0.08} className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-6">
+        <RevealGroup as="ul" gap={0.08} className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-4 sm:mt-16 md:grid-cols-6">
           {items.map((item, index) => {
             const Preview = previews[item.tab];
             return (

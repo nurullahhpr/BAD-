@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, type RefObject } from "react";
 import { buttonClass } from "@/components/ui/ButtonLink";
 import type { ContactRequest } from "@/lib/contactForm";
@@ -51,7 +51,7 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
     <div className="py-4 sm:py-8">
       <div className="text-center">
         <div className="relative mx-auto size-16">
-          <motion.span
+          <m.span
             aria-hidden="true"
             className="absolute inset-0 rounded-full bg-accent/25"
             initial={{ scale: 0.6, opacity: 0.9 }}
@@ -61,7 +61,7 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
           <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="relative size-16">
             <circle cx="32" cy="32" r="30" className="fill-accent/10" />
             <g transform="rotate(-90 32 32)">
-              <motion.circle
+              <m.circle
                 cx="32"
                 cy="32"
                 r="30"
@@ -72,7 +72,7 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
                 transition={timing(0, 0.6)}
               />
             </g>
-            <motion.path
+            <m.path
               d="M21 33l7.5 7.5L44 25"
               strokeWidth="3"
               strokeLinecap="round"
@@ -96,7 +96,7 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
         <p className="mx-auto mt-3 max-w-sm text-pretty text-fg-muted">{success.body}</p>
       </div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={timing(0.5, 0.5)}
@@ -111,7 +111,7 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
             </div>
           ))}
         </dl>
-      </motion.div>
+      </m.div>
 
       <div className="mt-8 flex justify-center">
         <button type="button" onClick={onReset} className={buttonClass("secondary")}>

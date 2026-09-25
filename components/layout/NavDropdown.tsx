@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useEffect, useId, useRef, useState, type FocusEvent } from "react";
 import { cn } from "@/lib/cn";
 import { easeOutExpo } from "@/lib/motion";
@@ -103,7 +103,7 @@ export function NavDropdown({ label, href, items }: NavDropdownProps) {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             id={panelId}
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ export function NavDropdown({ label, href, items }: NavDropdownProps) {
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

@@ -6,12 +6,15 @@ import { pillars } from "@/lib/content/home";
 import { pillarHref } from "@/lib/content/services";
 import { mainNav, siteConfig } from "@/lib/site";
 
-const linkClass = "text-sm text-fg-muted transition-colors hover:text-fg";
+// py-0.5 lifts each link to a 24px tap target without breaking wrapped lines.
+const linkClass = "inline-block py-0.5 text-sm text-fg-muted transition-colors hover:text-fg";
 const headingClass = "font-mono text-xs uppercase tracking-[0.15em] text-fg-subtle";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { contact, social } = siteConfig;
+  const { contact } = siteConfig;
+  // PLACEHOLDER hrefs ("#") stay hidden; icons appear once real profile URLs are set.
+  const social = siteConfig.social.filter((item) => item.href.startsWith("http"));
 
   return (
     <footer className="border-t border-line">
@@ -19,19 +22,21 @@ export function Footer() {
         <div className="max-w-sm space-y-5">
           <Logo />
           <p className="text-sm leading-relaxed text-fg-muted">{siteConfig.description}</p>
-          <ul className="flex gap-2">
-            {social.map((item) => (
-              <li key={item.network}>
-                <a
-                  href={item.href}
-                  aria-label={`${siteConfig.name} ${item.label}`}
-                  className="flex size-9 items-center justify-center rounded-lg border border-line text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
-                >
-                  <SocialIcon network={item.network} />
-                </a>
-              </li>
-            ))}
-          </ul>
+          {social.length > 0 && (
+            <ul className="flex gap-2">
+              {social.map((item) => (
+                <li key={item.network}>
+                  <a
+                    href={item.href}
+                    aria-label={`${siteConfig.name} ${item.label}`}
+                    className="flex size-9 items-center justify-center rounded-lg border border-line text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+                  >
+                    <SocialIcon network={item.network} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <nav aria-labelledby="footer-links">

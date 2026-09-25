@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import type { Pillar } from "@/lib/content/home";
 import { baseTransition, easeOutExpo, fadeUp, growDown, stagger } from "@/lib/motion";
@@ -33,7 +33,7 @@ export function UnifiedDiagram({
   outputs,
 }: UnifiedDiagramProps) {
   return (
-    <motion.figure
+    <m.figure
       variants={root}
       initial="hidden"
       whileInView="visible"
@@ -46,17 +46,17 @@ export function UnifiedDiagram({
       </figcaption>
 
       <div className="mt-8 flex flex-col items-center">
-        <motion.div
+        <m.div
           variants={fadeUp}
           transition={baseTransition}
           className="rounded-full border border-line-strong bg-surface-raised px-4 py-2 text-sm text-fg"
         >
           {input}
-        </motion.div>
+        </m.div>
 
         <Connector />
 
-        <motion.div
+        <m.div
           variants={fadeUp}
           transition={baseTransition}
           className="w-full rounded-xl border border-accent/40 bg-canvas p-3 shadow-glow sm:p-4"
@@ -68,9 +68,9 @@ export function UnifiedDiagram({
             </span>
           </div>
 
-          <motion.ul variants={stagger(0.1)} className="grid gap-2 sm:grid-cols-3">
+          <m.ul variants={stagger(0.1)} className="grid gap-2 sm:grid-cols-3">
             {pillars.map((pillar) => (
-              <motion.li
+              <m.li
                 key={pillar.name}
                 variants={fadeUp}
                 transition={baseTransition}
@@ -86,14 +86,14 @@ export function UnifiedDiagram({
                     </li>
                   ))}
                 </ul>
-              </motion.li>
+              </m.li>
             ))}
-          </motion.ul>
-        </motion.div>
+          </m.ul>
+        </m.div>
 
         <Connector />
 
-        <motion.ul
+        <m.ul
           variants={fadeUp}
           transition={baseTransition}
           className="flex flex-wrap justify-center gap-2"
@@ -106,15 +106,15 @@ export function UnifiedDiagram({
               {output}
             </li>
           ))}
-        </motion.ul>
+        </m.ul>
       </div>
-    </motion.figure>
+    </m.figure>
   );
 }
 
 function Connector() {
   return (
-    <motion.span
+    <m.span
       aria-hidden="true"
       variants={growDown}
       transition={{ duration: 0.4, ease: easeOutExpo }}

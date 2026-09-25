@@ -12,7 +12,7 @@ export function Logo({ className }: LogoProps) {
     <Link
       href="/"
       aria-label={`${siteConfig.name} ana sayfa`}
-      className={cn("text-lg font-semibold tracking-tight text-fg", className)}
+      className={cn("inline-flex min-h-8 items-center text-lg font-semibold tracking-tight text-fg", className)}
     >
       {siteConfig.name}
     </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useRef, useState, type FormEvent } from "react";
 import { buttonClass } from "@/components/ui/ButtonLink";
 import { controlClass, describedBy, FormField } from "@/components/ui/FormField";
@@ -106,7 +106,7 @@ export function ContactForm() {
         }}
       >
         {status === "success" && sent ? (
-          <motion.div
+          <m.div
             key="success"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,9 +114,9 @@ export function ContactForm() {
             transition={swap}
           >
             <FormSuccess request={sent} scrollTarget={cardRef} onReset={reset} />
-          </motion.div>
+          </m.div>
         ) : (
-          <motion.form
+          <m.form
             key="form"
             noValidate
             aria-labelledby="iletisim-form-title"
@@ -259,7 +259,7 @@ export function ContactForm() {
                 <p className="mt-4 text-sm text-negative">{copy.errors.summary}</p>
               )}
             </div>
-          </motion.form>
+          </m.form>
         )}
       </AnimatePresence>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Transition } from "framer-motion";
+import { m, type Transition } from "framer-motion";
 import type { ComponentType } from "react";
 import type { PillarId } from "@/lib/content/home";
 import { pillarTheme, type PillarTone } from "@/lib/pillarTheme";
@@ -23,7 +23,7 @@ function OperationsGlyph({ tone }: GlyphProps) {
     <>
       {rows.map((y, i) => (
         <g key={y}>
-          <motion.rect
+          <m.rect
             x="48"
             y={y}
             width="144"
@@ -33,7 +33,7 @@ function OperationsGlyph({ tone }: GlyphProps) {
             variants={draw}
             transition={stroke(i)}
           />
-          <motion.path
+          <m.path
             d={`M72 ${y + 8} H${i === 2 ? 112 : 140}`}
             className="fill-none stroke-fg-subtle"
             strokeLinecap="round"
@@ -41,7 +41,7 @@ function OperationsGlyph({ tone }: GlyphProps) {
             transition={stroke(i + 0.5)}
           />
           {i < 2 ? (
-            <motion.path
+            <m.path
               d={`M56.5 ${y + 8} l2.5 2.5 l4.5 -5`}
               className={`fill-none ${tone.stroke}`}
               strokeLinecap="round"
@@ -51,7 +51,7 @@ function OperationsGlyph({ tone }: GlyphProps) {
             />
           ) : (
             // Partially drawn ring reads as "in progress".
-            <motion.circle
+            <m.circle
               cx="60"
               cy={y + 8}
               r="3.5"
@@ -73,19 +73,19 @@ function GrowthGlyph({ tone }: GlyphProps) {
   const line = "M24 74 L60 66 L92 70 L124 50 L156 54 L188 32 L216 18";
   return (
     <>
-      <motion.path
+      <m.path
         d="M24 82 H216"
         className={base}
         variants={draw}
         transition={stroke(0)}
       />
-      <motion.path
+      <m.path
         d={`${line} L216 82 L24 82 Z`}
         className={tone.wash}
         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
         transition={{ duration: 0.8, delay: 1 }}
       />
-      <motion.path
+      <m.path
         d={line}
         className={`fill-none ${tone.stroke}`}
         strokeWidth="1.5"
@@ -94,7 +94,7 @@ function GrowthGlyph({ tone }: GlyphProps) {
         variants={draw}
         transition={{ duration: 1.2, ease: easeOutExpo, delay: 0.4 }}
       />
-      <motion.circle
+      <m.circle
         cx="216"
         cy="18"
         r="3"
@@ -117,13 +117,13 @@ function InfrastructureGlyph({ tone }: GlyphProps) {
     <>
       {nodes.map((node, i) => (
         <g key={node.d}>
-          <motion.path
+          <m.path
             d={node.d}
             className={base}
             variants={draw}
             transition={stroke(i * 0.5 + 1)}
           />
-          <motion.circle
+          <m.circle
             cx={node.x}
             cy={node.y}
             r="6"
@@ -133,7 +133,7 @@ function InfrastructureGlyph({ tone }: GlyphProps) {
           />
         </g>
       ))}
-      <motion.rect
+      <m.rect
         x="110"
         y="38"
         width="20"
@@ -144,7 +144,7 @@ function InfrastructureGlyph({ tone }: GlyphProps) {
         variants={draw}
         transition={stroke(0)}
       />
-      <motion.circle
+      <m.circle
         cx="120"
         cy="48"
         r="2.5"
@@ -171,7 +171,7 @@ type PillarGlyphProps = {
 export function PillarGlyph({ id, standalone = false }: PillarGlyphProps) {
   const Glyph = glyphs[id];
   return (
-    <motion.svg
+    <m.svg
       viewBox="0 0 240 96"
       aria-hidden="true"
       className="h-full w-full"
@@ -180,6 +180,6 @@ export function PillarGlyph({ id, standalone = false }: PillarGlyphProps) {
         : {})}
     >
       <Glyph tone={pillarTheme[id]} />
-    </motion.svg>
+    </m.svg>
   );
 }

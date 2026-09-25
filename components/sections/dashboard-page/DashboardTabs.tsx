@@ -3,6 +3,7 @@
 import { useReducedMotion } from "framer-motion";
 import { createContext, useContext, useState, type ReactNode } from "react";
 import type { AppTabId } from "@/lib/content/dashboard-app";
+import { PANEL_ID } from "@/lib/content/dashboard-page";
 
 type TabState = {
   tab: AppTabId;
@@ -23,8 +24,6 @@ export function useDashboardTab(): TabState {
   return state;
 }
 
-export const PANEL_ID = "panel";
-
 /** Switches the mockup to `tab` and scrolls it into view. */
 export function ShowInPanelButton({ tab, label }: { tab: AppTabId; label: string }) {
   const { setTab } = useDashboardTab();
@@ -39,7 +38,7 @@ export function ShowInPanelButton({ tab, label }: { tab: AppTabId; label: string
           .getElementById(PANEL_ID)
           ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       }}
-      className="inline-flex items-center gap-2 text-sm font-medium text-fg transition-colors hover:text-accent"
+      className="inline-flex min-h-6 items-center gap-2 text-sm font-medium text-fg transition-colors hover:text-accent"
     >
       {label}
       <span aria-hidden="true">↑</span>

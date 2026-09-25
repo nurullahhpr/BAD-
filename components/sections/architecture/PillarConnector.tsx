@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Transition } from "framer-motion";
+import { m, type Transition } from "framer-motion";
 import { baseTransition, easeOutExpo, fadeUp, growDown, growX } from "@/lib/motion";
 
 type PillarConnectorProps = {
@@ -17,7 +17,7 @@ function line(delay: number): Transition {
  */
 export function PillarConnector({ hub }: PillarConnectorProps) {
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="hidden lg:block"
       initial="hidden"
@@ -25,14 +25,14 @@ export function PillarConnector({ hub }: PillarConnectorProps) {
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
     >
       <div className="flex flex-col items-center">
-        <motion.span
+        <m.span
           variants={fadeUp}
           transition={baseTransition}
           className="rounded-full border border-accent/40 bg-canvas px-4 py-1.5 text-sm font-semibold tracking-tight text-fg shadow-glow"
         >
           {hub}
-        </motion.span>
-        <motion.span
+        </m.span>
+        <m.span
           variants={growDown}
           transition={line(0.3)}
           className="block h-10 w-px origin-top bg-accent/50"
@@ -41,14 +41,14 @@ export function PillarConnector({ hub }: PillarConnectorProps) {
 
       <div className="relative grid grid-cols-3 gap-6">
         {/* Spans from the first card center to the last: half a column in from each side. */}
-        <motion.span
+        <m.span
           variants={growX}
           transition={line(0.6)}
           className="absolute inset-x-[calc((100%_-_3rem)/6)] top-0 h-px bg-accent/50"
         />
         {[0, 1, 2].map((column) => (
           <div key={column} className="flex justify-center">
-            <motion.span
+            <m.span
               variants={growDown}
               transition={line(0.9)}
               className="block h-10 w-px origin-top bg-linear-to-b from-accent/50 to-line-strong"
@@ -56,6 +56,6 @@ export function PillarConnector({ hub }: PillarConnectorProps) {
           </div>
         ))}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

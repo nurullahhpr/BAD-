@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useId, useRef, useState, type KeyboardEvent } from "react";
 import { cn } from "@/lib/cn";
 import { dashboardTabs, demoPeriod } from "@/lib/content/dashboard-demo";
@@ -68,7 +68,7 @@ export function DashboardMock() {
                     )}
                   >
                     {selected && (
-                      <motion.span
+                      <m.span
                         layoutId={`${baseId}-indicator`}
                         className="absolute inset-0 rounded-md bg-surface-overlay"
                         transition={{ duration: 0.3, ease: easeOutExpo }}
@@ -94,7 +94,7 @@ export function DashboardMock() {
             aria-labelledby={`${baseId}-tab-${tab.id}`}
             className="mt-5 space-y-3"
           >
-            <motion.div
+            <m.div
               key={tab.id}
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export function DashboardMock() {
               {tab.kpis.map((kpi) => (
                 <KpiTile key={kpi.label} kpi={kpi} />
               ))}
-            </motion.div>
+            </m.div>
 
             <div className="grid gap-3 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
               <div className="rounded-xl border border-line bg-surface p-4 sm:p-5">

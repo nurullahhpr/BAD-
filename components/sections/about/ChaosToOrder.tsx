@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Segmented } from "@/components/sections/dashboard-page/Segmented";
 import { cn } from "@/lib/cn";
@@ -114,7 +114,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
         {width > 0 && (
           <svg viewBox={`0 0 ${layout.width} ${layout.height}`} role="img" aria-label={description} className="block w-full">
             {/* Hub and pillar headers exist only in the ordered state. */}
-            <motion.g initial={false} animate={{ opacity: ordered ? 1 : 0 }} transition={fade}>
+            <m.g initial={false} animate={{ opacity: ordered ? 1 : 0 }} transition={fade}>
               {layout.headers.map(([hx, hy], k) => {
                 // Stacked: start under the previous group's middle label, not at the hub.
                 const [sx, sy] =
@@ -158,7 +158,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
                   {pillars[k]!.name.toLocaleUpperCase("en-US")}
                 </text>
               ))}
-            </motion.g>
+            </m.g>
 
             {/* Wires: tangled between nodes, then each to its pillar header. */}
             {layout.order.map((_, i) => {
@@ -168,7 +168,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
                 ? [layout.headers[pillar]![0], layout.headers[pillar]![1] + 14]
                 : layout.chaos[layout.tangle[i]!]!;
               return (
-                <motion.line
+                <m.line
                   key={`wire-${i}`}
                   initial={false}
                   animate={{ x1, y1, x2, y2 }}
@@ -183,7 +183,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
               const pillar = pillars[Math.floor(i / 3)]!;
               const [cx, cy] = ordered ? layout.order[i]! : layout.chaos[i]!;
               return (
-                <motion.g key={`node-${i}`} initial={false} animate={{ x: cx, y: cy }} transition={move(i)}>
+                <m.g key={`node-${i}`} initial={false} animate={{ x: cx, y: cy }} transition={move(i)}>
                   <circle
                     r={7}
                     strokeWidth={2}
@@ -201,7 +201,7 @@ export function ChaosToOrder({ labels, toggle, captions, description }: ChaosToO
                   >
                     {labels[i]}
                   </text>
-                </motion.g>
+                </m.g>
               );
             })}
           </svg>

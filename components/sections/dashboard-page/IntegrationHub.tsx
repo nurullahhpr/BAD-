@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/cn";
 import { dashboardPage, type Integration } from "@/lib/content/dashboard-page";
@@ -97,7 +97,7 @@ function Connector({ side, animate, delay }: { side: Side; animate: boolean; del
   return (
     <span aria-hidden="true" className="relative hidden h-px shrink-0 bg-line-strong lg:block" style={{ width: LINE }}>
       {animate && (
-        <motion.span
+        <m.span
           className="absolute top-1/2 left-0 size-1.5 -translate-y-1/2 rounded-full bg-accent"
           initial={{ x: x[0], opacity: 0 }}
           animate={{ x, opacity: [0, 1, 1, 0] }}

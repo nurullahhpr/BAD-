@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { ReactNode } from "react";
 import { baseTransition, fadeUp, stagger } from "@/lib/motion";
 
@@ -20,7 +20,7 @@ export function RevealGroup({
   gap = 0.1,
   delay = 0,
 }: RevealGroupProps) {
-  const Tag = motion[as];
+  const Tag = m[as];
 
   return (
     <Tag
@@ -38,11 +38,11 @@ export function RevealGroup({
 type RevealItemProps = {
   children: ReactNode;
   className?: string;
-  as?: "div" | "li";
+  as?: "div" | "li" | "article";
 };
 
 export function RevealItem({ children, className, as = "div" }: RevealItemProps) {
-  const Tag = motion[as];
+  const Tag = m[as];
 
   return (
     <Tag className={className} variants={fadeUp} transition={baseTransition}>

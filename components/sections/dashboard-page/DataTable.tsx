@@ -73,7 +73,7 @@ export function DataTable<T>({ caption, columns, rows, rowKey, initialSort }: Da
                       type="button"
                       onClick={() => toggle(column.key)}
                       className={cn(
-                        "inline-flex items-center gap-1 transition-colors hover:text-fg",
+                        "inline-flex min-h-6 items-center gap-1 transition-colors hover:text-fg",
                         right && "flex-row-reverse",
                         active && "text-fg",
                       )}

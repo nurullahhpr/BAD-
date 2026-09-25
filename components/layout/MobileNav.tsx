@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useEffect, useId, useState } from "react";
 import { cn } from "@/lib/cn";
 import { easeOutExpo } from "@/lib/motion";
@@ -39,7 +39,7 @@ export function MobileNav({ items }: MobileNavProps) {
 
       <AnimatePresence>
         {open && (
-          <motion.nav
+          <m.nav
             id={panelId}
             aria-label="Mobil menü"
             initial={{ opacity: 0, y: -8 }}
@@ -78,7 +78,7 @@ export function MobileNav({ items }: MobileNavProps) {
                 </li>
               ))}
             </ul>
-          </motion.nav>
+          </m.nav>
         )}
       </AnimatePresence>
     </div>
@@ -88,7 +88,7 @@ export function MobileNav({ items }: MobileNavProps) {
 function MenuIcon({ open }: { open: boolean }) {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <motion.path
+      <m.path
         d="M3 6L17 6"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -96,7 +96,7 @@ function MenuIcon({ open }: { open: boolean }) {
         animate={open ? { d: "M5 5L15 15" } : { d: "M3 6L17 6" }}
         transition={{ duration: 0.2, ease: easeOutExpo }}
       />
-      <motion.path
+      <m.path
         d="M3 14L17 14"
         stroke="currentColor"
         strokeWidth="1.5"

@@ -81,3 +81,9 @@ export const dashboardPage = {
 };
 
 export const demoRequestHref = contactHref("dashboard");
+
+/**
+ * Id of the live mockup. Lives here, not in a "use client" module: a server component
+ * importing a plain constant from a client module gets a client reference, not the string.
+ */
+export const PANEL_ID = "panel";

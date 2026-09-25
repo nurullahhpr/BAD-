@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useState } from "react";
 import { BarChart } from "@/components/charts/BarChart";
 import { cn } from "@/lib/cn";
@@ -46,7 +46,7 @@ export function ReportsPanel() {
 
       <div className="rounded-xl border border-line bg-surface p-4 sm:p-5" aria-live="polite">
         <AnimatePresence mode="wait" initial={false}>
-          <motion.div
+          <m.div
             key={report.id}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export function ReportsPanel() {
                 height={200}
               />
             </div>
-          </motion.div>
+          </m.div>
         </AnimatePresence>
       </div>
     </div>

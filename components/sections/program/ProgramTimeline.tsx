@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  motion,
+  m,
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
@@ -10,7 +10,7 @@ import {
 import { useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import type { ProgramPhase } from "@/lib/content/home";
-import { easeOutExpo } from "@/lib/motion";
+import { easeOutExpo, INACTIVE_OPACITY } from "@/lib/motion";
 
 type ProgramTimelineProps = {
   phases: ProgramPhase[];
@@ -45,7 +45,7 @@ export function ProgramTimeline({ phases, totalDays }: ProgramTimelineProps) {
       {/* Horizontal track, lg+. Day 0/30/60/90 dots sit on the column dividers (no column gap). */}
       <div aria-hidden="true" className="relative hidden pb-8 lg:block">
         <div className="relative h-px bg-line-strong">
-          <motion.div className="absolute inset-0 origin-left bg-accent" style={{ scaleX: fill }} />
+          <m.div className="absolute inset-0 origin-left bg-accent" style={{ scaleX: fill }} />
           {ticks.map((day) => (
             <span
               key={day}
@@ -62,7 +62,7 @@ export function ProgramTimeline({ phases, totalDays }: ProgramTimelineProps) {
 
       {/* Vertical track, below lg. */}
       <div aria-hidden="true" className="absolute top-3 bottom-3 left-[11px] w-px bg-line-strong lg:hidden">
-        <motion.div className="absolute inset-0 origin-top bg-accent" style={{ scaleY: fill }} />
+        <m.div className="absolute inset-0 origin-top bg-accent" style={{ scaleY: fill }} />
       </div>
 
       <ol className="grid gap-12 lg:grid-cols-3 lg:gap-0">
@@ -91,9 +91,9 @@ export function ProgramTimeline({ phases, totalDays }: ProgramTimelineProps) {
                 />
               </span>
 
-              <motion.div
+              <m.div
                 initial={false}
-                animate={{ opacity: active ? 1 : 0.45 }}
+                animate={{ opacity: active ? 1 : INACTIVE_OPACITY }}
                 transition={{ duration: 0.5, ease: easeOutExpo }}
               >
                 <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
@@ -101,7 +101,7 @@ export function ProgramTimeline({ phases, totalDays }: ProgramTimelineProps) {
                 </p>
                 <h3 className="mt-3 text-xl font-medium tracking-tight text-fg">{phase.name}</h3>
                 <p className="mt-3 leading-relaxed text-fg-muted">{phase.summary}</p>
-              </motion.div>
+              </m.div>
             </li>
           );
         })}

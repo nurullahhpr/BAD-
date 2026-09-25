@@ -19,4 +19,14 @@
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-accent;
   }
+
+  /* Browser autofill keeps the dark field: the UA background is held off by a long
+     transition (a box-shadow fill would hide the focus ring), text stays on the fg token. */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: theme(colors.fg.DEFAULT);
+    caret-color: theme(colors.fg.DEFAULT);
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
 }

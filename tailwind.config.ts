@@ -1,33 +1,10 @@
 import type { Config } from "tailwindcss";
+import { accent, colors, line } from "./lib/tokens";
 
 /**
- * BADİ design tokens.
- *
- * Dark-first palette with a single strong accent.
+ * BADİ design tokens. Colours live in lib/tokens.ts.
  * Loaded by Tailwind v4 through `@config` in app/globals.css.
  */
-
-// Electric green — growth, conversion, "positive delta" on numbers. Approved brand accent.
-const accent = {
-  50: "#EAFFF3",
-  100: "#CCFFE3",
-  200: "#9CFDC9",
-  300: "#5FF8A8",
-  400: "#2EF08A",
-  500: "#12D673",
-  600: "#07AE5C",
-  700: "#0A884B",
-  800: "#0E6B3E",
-  900: "#0E5835",
-  950: "#01321B",
-  DEFAULT: "#2EF08A",
-  foreground: "#04140B",
-} as const;
-
-const line = {
-  DEFAULT: "#1E2228",
-  strong: "#2B3038",
-} as const;
 
 const config: Config = {
   content: [
@@ -37,31 +14,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        // Page and layer backgrounds, darkest to lightest.
-        canvas: "#07080A",
-        surface: {
-          DEFAULT: "#0C0E11",
-          raised: "#121519",
-          overlay: "#181C21",
-        },
-        // Borders and dividers.
-        line,
-        // Text.
-        fg: {
-          DEFAULT: "#F4F5F7",
-          muted: "#A1A8B3",
-          subtle: "#6B7380",
-        },
-        // Occasional light sections.
-        paper: "#F6F7F9",
-        ink: "#0B0D10",
-        accent,
-        // Data states for metrics and dashboards.
-        positive: "#2EF08A",
-        negative: "#FF5C5C",
-        warning: "#FFB547",
-      },
+      colors,
       fontFamily: {
         sans: [
           "var(--font-geist-sans)",

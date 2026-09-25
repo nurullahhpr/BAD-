@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { easeOutExpo } from "@/lib/motion";
 
 type CompareBarsProps = {
@@ -25,7 +25,7 @@ export function CompareBars({ before, after }: CompareBarsProps) {
             {bar.label}
           </span>
           <div className="h-1.5 flex-1">
-            <motion.div
+            <m.div
               className={`h-full origin-left rounded-r-full ${bar.className}`}
               style={{ width: `${(bar.value / max) * 100}%` }}
               initial={{ scaleX: 0 }}

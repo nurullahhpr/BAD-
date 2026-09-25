@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState, type KeyboardEvent } from "react";
 import { easeOutExpo } from "@/lib/motion";
 import { useElementWidth } from "@/lib/useElementWidth";
@@ -80,7 +80,7 @@ export function BarChart({
       style={{ height }}
     >
       {width > 0 && (
-        <motion.svg
+        <m.svg
           width={width}
           height={height}
           className="block touch-pan-y"
@@ -111,7 +111,7 @@ export function BarChart({
             const after = i >= splitIndex;
             return (
               <g key={labels[i]}>
-                <motion.path
+                <m.path
                   d={columnPath(barX(i), top, barWidth, baseline - top)}
                   className={
                     active === i
@@ -154,7 +154,7 @@ export function BarChart({
               {formatValue(values[last] ?? 0, format)}
             </text>
           )}
-        </motion.svg>
+        </m.svg>
       )}
 
       {active !== null && width > 0 && (

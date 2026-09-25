@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import type { PillarId } from "@/lib/content/home";
 
 // /hakkimizda. The founding idea ("karmaşayı sona erdirmek için kuruldu") comes from the
@@ -14,8 +15,11 @@ export type TeamMember = {
   role: string;
   /** Pillar the person leads or works in, for the tone tag. */
   pillar?: PillarId;
-  /** Real portrait later; rendered with next/image when present. */
-  photo?: { src: string; alt: string };
+  /**
+   * Real portrait later. Import the file (`import ayse from "@/assets/team/ayse.jpg"`)
+   * rather than using a /public path: next/image then knows its size and adds a blur placeholder.
+   */
+  photo?: { src: StaticImageData; alt: string };
 };
 
 // DRAFT: story, mission and principles await client approval.

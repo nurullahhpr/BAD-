@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useId, useRef, type KeyboardEvent, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { appMeta, appTabs, connectedSources, type AppTabId } from "@/lib/content/dashboard-app";
@@ -129,7 +129,7 @@ export function DashboardApp() {
                   )}
                 >
                   {selected && (
-                    <motion.span
+                    <m.span
                       layoutId={`${baseId}-active`}
                       className="absolute inset-0 rounded-lg bg-surface-overlay"
                       transition={{ duration: 0.3, ease: easeOutExpo }}
@@ -184,7 +184,7 @@ export function DashboardApp() {
           </div>
 
           <AnimatePresence mode="wait" initial={false}>
-            <motion.div
+            <m.div
               key={tab}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -192,7 +192,7 @@ export function DashboardApp() {
               transition={{ duration: 0.3, ease: easeOutExpo }}
             >
               {panels[tab]()}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
       </div>

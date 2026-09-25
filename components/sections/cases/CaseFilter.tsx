@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useState } from "react";
 import { CaseCard } from "@/components/sections/results/CaseCard";
 import { cn } from "@/lib/cn";
@@ -63,7 +63,7 @@ export function CaseFilter({ cases, sectors, label, allLabel }: CaseFilterProps)
       <ul className="mt-6 grid gap-6 lg:grid-cols-3">
         <AnimatePresence mode="popLayout" initial={false}>
           {visible.map((study) => (
-            <motion.li
+            <m.li
               key={study.slug}
               layout
               initial={{ opacity: 0, y: 12 }}
@@ -72,7 +72,7 @@ export function CaseFilter({ cases, sectors, label, allLabel }: CaseFilterProps)
               transition={baseTransition}
             >
               <CaseCard study={study} headingLevel="h2" />
-            </motion.li>
+            </m.li>
           ))}
         </AnimatePresence>
       </ul>

@@ -24,7 +24,7 @@ export function PhaseDetail({ phase, index }: { phase: Phase; index: number }) {
     <Section id={phase.id} aria-labelledby={titleId}>
       <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="mb-6 font-mono text-5xl font-medium tracking-tight text-line-strong">
+          <p aria-hidden="true" className="mb-6 font-mono text-5xl font-medium tracking-tight text-fg-muted/55">
             {String(index + 1).padStart(2, "0")}
           </p>
           <SectionHeader

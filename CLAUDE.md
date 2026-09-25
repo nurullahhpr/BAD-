@@ -46,13 +46,14 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 - Sütun tonları `lib/pillarTheme.ts`'de: Administration `accent-300`, Development `accent`, Infrastructure `accent-500`. Ton, aynı vurgunun basamağıdır; yeni renk değildir.
 - Sütun ikon setleri çerçeveyle ayrılır: Administration kare, Development daire, Infrastructure altıgen (`ServiceIcon`).
 - Font: Geist (sans) ve Geist Mono (rakam, etiket, kod). Rakam sütunlarında `tabular-nums`.
-- Token'lar `tailwind.config.ts` içinde. Sabit hex kodu komponente yazılmaz; token kullanılır.
+- Renk token'ları `lib/tokens.ts` içinde; `tailwind.config.ts` oradan okur. Sabit hex kodu komponente yazılmaz; token kullanılır (paylaşım görselleri de `colors`'u import eder).
   - Arka plan: `canvas` → `surface` → `surface-raised` → `surface-overlay`
   - Çizgi: `line`, `line-strong`
-  - Metin: `fg`, `fg-muted`, `fg-subtle`
+  - Metin: `fg`, `fg-muted`, `fg-subtle` (hepsi her arka planda ≥4,5:1 kontrast; `fg-subtle`'ı opaklıkla soldurma)
   - Vurgu: `accent` (50–950), `accent-foreground`
   - Veri durumu: `positive`, `negative`, `warning`
 - Motion: kısa (0.2–0.6 sn), `easeOutExpo`. Süs değil, yön gösterir. `prefers-reduced-motion` her zaman desteklenir (`MotionProvider`).
+- Hero başlığı ve giriş metni (LCP öğesi) animasyonsuz, görünür render edilir. Giriş animasyonu JS yüklenene kadar metni gizler ve mobil LCP'yi bozar.
 
 ## Teknik kurallar
 
@@ -62,6 +63,11 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 - Varsayılan Server Component. `"use client"` sadece etkileşim veya animasyon gereken yaprak komponentte.
 - Tüm görseller `next/image` ile. `<img>` kullanılmaz.
 - Tüm animasyonlar Framer Motion ile. Ortak ayarlar `lib/motion.ts`'de.
+  - `motion.*` değil `m.*` kullanılır. Özellikler `LazyMotion` ile hidrasyondan sonra yüklenir (`MotionProvider`, `strict`).
+  - Hover gibi basit durumlar CSS geçişiyle yapılabilir; böylece komponent server'da kalır.
+- `"use client"` dosyasından sabit veya fonksiyon export edip server komponentte kullanma; server'a değer değil client referansı gider. Paylaşılan sabitler `lib/`'de durur.
+- SEO: her sayfa `pageMetadata()` (`lib/seo.ts`) ile title, description, canonical ve Open Graph alır. Paylaşım görseli route'un `opengraph-image.tsx`'i (`lib/og.tsx`). Yapısal veri `lib/schema.ts` + `JsonLd`.
+- Site adresi `NEXT_PUBLIC_SITE_URL`'den gelir (bkz. `.env.example`). Yayından önce gerçek alan adı girilmeli.
 - Kodda İngilizce (isimler, yorumlar, commit mesajları). Sitede kullanıcıya görünen içerik Türkçe.
 - Erişilebilirlik: anlamlı HTML, `aria-*` etiketleri Türkçe, klavye ile gezinme, görünür focus.
 
@@ -74,10 +80,12 @@ components/
   charts/     Kod tabanlı grafikler (LineChart, BarChart)
   layout/     Header, Footer, navigasyon
   motion/     Framer Motion sarmalayıcıları
+  seo/        JSON-LD çıktısı
   sections/   Sayfa bölümleri (Hero, Hizmetler...)
   ui/         Temel yapı taşları (Container, Button...)
 lib/          Site ayarları, yardımcılar, motion preset'leri
   content/    Sayfa bölümlerinin metinleri ve rakamları (Türkçe)
+assets/fonts/ Paylaşım görselleri için Geist TTF (SIL OFL, `OFL.txt`)
 public/       Statik dosyalar
 ```
 

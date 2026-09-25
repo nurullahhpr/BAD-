@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { BreakdownItem } from "@/lib/content/dashboard-demo";
 import { formatLiraCompact, formatNumber } from "@/lib/format";
 import { easeOutExpo } from "@/lib/motion";
@@ -29,7 +29,7 @@ export function Breakdown({ title, items }: BreakdownProps) {
               </span>
             </div>
             <div className="mt-2 h-1.5 rounded-full bg-line/70">
-              <motion.div
+              <m.div
                 className="h-full rounded-r-full bg-accent"
                 initial={{ width: 0 }}
                 whileInView={{ width: `${(item.value / max) * 100}%` }}

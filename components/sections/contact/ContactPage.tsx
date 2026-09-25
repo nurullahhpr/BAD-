@@ -11,6 +11,7 @@ import { ContactForm } from "./ContactForm";
 /**
  * /iletisim page body. Desktop: intro and next steps on the left, form on the right.
  * Mobile: intro, form, then the details, so the form comes right after the promise.
+ * Intro text and form render visible; only the supporting notes fade in.
  */
 export function ContactPage() {
   const { contact } = siteConfig;
@@ -21,22 +22,20 @@ export function ContactPage() {
       <Container className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20">
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 [grid-template-areas:'intro'_'form'_'details'] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:[grid-template-areas:'intro_form'_'details_form']">
           <div className="[grid-area:intro]">
-            <Reveal>
-              <nav aria-label="Sayfa konumu">
-                <ol className="flex items-center gap-2 text-xs text-fg-subtle">
-                  <li>
-                    <Link href="/" className="transition-colors hover:text-fg">
-                      Ana sayfa
-                    </Link>
-                  </li>
-                  <li aria-hidden="true">/</li>
-                  <li aria-current="page" className="text-fg-muted">
-                    {contactPage.eyebrow}
-                  </li>
-                </ol>
-              </nav>
-            </Reveal>
-            <Reveal delay={0.06} className="mt-10">
+            <nav aria-label="Sayfa konumu">
+              <ol className="flex items-center gap-2 text-xs text-fg-subtle">
+                <li>
+                  <Link href="/" className="inline-block py-1 transition-colors hover:text-fg">
+                    Ana sayfa
+                  </Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li aria-current="page" className="text-fg-muted">
+                  {contactPage.eyebrow}
+                </li>
+              </ol>
+            </nav>
+            <div className="mt-10">
               <Eyebrow>{contactPage.eyebrow}</Eyebrow>
               <h1
                 id="page-title"
@@ -45,9 +44,9 @@ export function ContactPage() {
                 {contactPage.title}
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-fg-muted">{contactPage.body}</p>
-            </Reveal>
+            </div>
 
-            <Reveal delay={0.12} className="mt-10">
+            <Reveal delay={0.06} className="mt-10">
               <ul className="space-y-5">
                 {contactPage.trust.map((note) => (
                   <li key={note.title} className="flex gap-4">
@@ -64,12 +63,10 @@ export function ContactPage() {
             </Reveal>
           </div>
 
-          <Reveal
-            delay={0.1}
-            className="[grid-area:form] lg:self-start lg:pt-2 lg:[@media(min-height:56rem)]:sticky lg:[@media(min-height:56rem)]:top-20"
-          >
+          {/* The form is the page's main content: visible at first paint, no entrance fade. */}
+          <div className="[grid-area:form] lg:self-start lg:pt-2 lg:[@media(min-height:56rem)]:sticky lg:[@media(min-height:56rem)]:top-20">
             <ContactForm />
-          </Reveal>
+          </div>
 
           <div className="space-y-12 [grid-area:details] lg:border-t lg:border-line lg:pt-10">
             <Reveal>
@@ -94,14 +91,14 @@ export function ContactPage() {
               <address className="mt-6 space-y-3 text-sm not-italic">
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex items-center gap-3 text-fg-muted transition-colors hover:text-fg"
+                  className="flex min-h-6 items-center gap-3 text-fg-muted transition-colors hover:text-fg"
                 >
                   <Glyph name="mail" className="text-fg-subtle" />
                   {contact.email}
                 </a>
                 <a
                   href={contact.phoneHref}
-                  className="flex items-center gap-3 text-fg-muted transition-colors hover:text-fg"
+                  className="flex min-h-6 items-center gap-3 text-fg-muted transition-colors hover:text-fg"
                 >
                   <Glyph name="phone" className="text-fg-subtle" />
                   {contact.phone}

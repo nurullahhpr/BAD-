@@ -3,6 +3,12 @@ import type { Transition, Variants } from "framer-motion";
 /** Shared easing: fast start, soft landing. Mirrors `ease-out-expo` in Tailwind. */
 export const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * Opacity for not-yet-reached steps in scroll timelines. At 0.75, fg-muted text keeps
+ * 5:1 contrast on the canvas, so dimmed steps stay readable. Avoid fg-subtle inside them.
+ */
+export const INACTIVE_OPACITY = 0.75;
+
 export const baseTransition: Transition = {
   duration: 0.6,
   ease: easeOutExpo,

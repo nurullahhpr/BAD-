@@ -6,9 +6,9 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { dashboardPage, demoRequestHref } from "@/lib/content/dashboard-page";
+import { dashboardPage, demoRequestHref, PANEL_ID } from "@/lib/content/dashboard-page";
 import { DashboardApp } from "./DashboardApp";
-import { DashboardTabProvider, PANEL_ID } from "./DashboardTabs";
+import { DashboardTabProvider } from "./DashboardTabs";
 import { FeatureBento } from "./FeatureBento";
 import { IntegrationHub } from "./IntegrationHub";
 
@@ -21,7 +21,8 @@ export function DashboardPage() {
       <section aria-labelledby="page-title" className="relative overflow-hidden">
         <GridBackdrop from="top" />
         <Container className="relative pt-16 pb-24 sm:pt-24 sm:pb-32">
-          <Reveal className="mx-auto max-w-3xl text-center">
+          {/* Hero text is the LCP element: visible at first paint, no entrance fade. */}
+          <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>{hero.eyebrow}</Eyebrow>
             <h1
               id="page-title"
@@ -40,7 +41,7 @@ export function DashboardPage() {
                 {hero.secondary}
               </ButtonLink>
             </div>
-          </Reveal>
+          </div>
 
           <div id={PANEL_ID} className="mt-16 scroll-mt-24 sm:mt-20">
             <h2 className="sr-only">{dashboardPage.panelHeading}</h2>

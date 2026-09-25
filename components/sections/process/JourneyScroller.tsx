@@ -2,7 +2,7 @@
 
 import {
   AnimatePresence,
-  motion,
+  m,
   useInView,
   useReducedMotion,
   useScroll,
@@ -11,7 +11,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import type { JourneyStep } from "@/lib/content/process";
-import { easeOutExpo } from "@/lib/motion";
+import { easeOutExpo, INACTIVE_OPACITY } from "@/lib/motion";
 
 type JourneyScrollerProps = {
   steps: JourneyStep[];
@@ -42,7 +42,7 @@ export function JourneyScroller({ steps, phaseNames, totalDays }: JourneyScrolle
             </div>
 
             <AnimatePresence mode="wait" initial={false}>
-              <motion.div
+              <m.div
                 key={active}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -55,12 +55,12 @@ export function JourneyScroller({ steps, phaseNames, totalDays }: JourneyScrolle
                 </p>
                 <p className="mt-4 text-xl font-medium tracking-tight text-fg">{step.title}</p>
                 <p className="mt-2 leading-relaxed text-fg-muted">{step.body}</p>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
 
             <div aria-hidden="true" className="mt-8">
               <div className="relative h-1.5 rounded-full bg-line">
-                <motion.div
+                <m.div
                   className="absolute inset-y-0 left-0 rounded-full bg-accent"
                   animate={{ width: `${(step.dayValue / totalDays) * 100}%` }}
                   transition={{ duration: 0.5, ease: easeOutExpo }}
@@ -84,7 +84,7 @@ export function JourneyScroller({ steps, phaseNames, totalDays }: JourneyScrolle
 
       <div className="relative">
         <div aria-hidden="true" className="absolute top-3 bottom-3 left-[11px] w-px bg-line-strong">
-          <motion.div
+          <m.div
             className="absolute inset-0 origin-top bg-accent"
             style={{ scaleY: reduceMotion ? 1 : fill }}
           />
@@ -139,9 +139,9 @@ function JourneyItem({ step, phaseName, active, reached, onActive }: JourneyItem
           )}
         />
       </span>
-      <motion.div
+      <m.div
         initial={false}
-        animate={{ opacity: active ? 1 : 0.55 }}
+        animate={{ opacity: active ? 1 : INACTIVE_OPACITY }}
         transition={{ duration: 0.3, ease: easeOutExpo }}
         className={cn(
           "w-full rounded-card border p-5 transition-colors duration-300 sm:p-6",
@@ -150,11 +150,11 @@ function JourneyItem({ step, phaseName, active, reached, onActive }: JourneyItem
       >
         <p className="flex flex-wrap items-center gap-x-3 font-mono text-xs uppercase tracking-[0.15em]">
           <span className="text-accent">{step.day}</span>
-          <span className="text-fg-subtle">{phaseName}</span>
+          <span className="text-fg-muted">{phaseName}</span>
         </p>
         <h3 className="mt-2 text-lg font-medium tracking-tight text-fg">{step.title}</h3>
         <p className="mt-1.5 leading-relaxed text-fg-muted">{step.body}</p>
-      </motion.div>
+      </m.div>
     </li>
   );
 }

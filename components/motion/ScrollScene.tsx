@@ -1,11 +1,11 @@
 "use client";
 
 import {
-  motion,
+  m,
+  type MotionValue,
   useReducedMotion,
   useScroll,
   useTransform,
-  type MotionValue,
 } from "framer-motion";
 import {
   createContext,
@@ -63,8 +63,8 @@ export function Parallax({ children, className, y = 0, fade = false }: ParallaxP
   if (reduceMotion) return <div className={className}>{children}</div>;
 
   return (
-    <motion.div className={className} style={{ y: translateY, opacity }}>
+    <m.div className={className} style={{ y: translateY, opacity }}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }

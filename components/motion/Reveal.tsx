@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { AriaRole, ReactNode } from "react";
 import { baseTransition, fadeUp } from "@/lib/motion";
 
@@ -14,7 +14,7 @@ type RevealProps = {
 /** Fades content up once when it enters the viewport. */
 export function Reveal({ children, className, delay = 0, role }: RevealProps) {
   return (
-    <motion.div
+    <m.div
       role={role}
       className={className}
       variants={fadeUp}
@@ -24,6 +24,6 @@ export function Reveal({ children, className, delay = 0, role }: RevealProps) {
       transition={{ ...baseTransition, delay }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

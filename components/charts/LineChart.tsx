@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState, type KeyboardEvent, type PointerEvent } from "react";
 import { easeOutExpo } from "@/lib/motion";
 import { useElementWidth } from "@/lib/useElementWidth";
@@ -157,14 +157,14 @@ export function LineChart({
             </g>
           )}
 
-          <motion.path
+          <m.path
             className="fill-accent/10"
             initial={false}
             animate={{ d: area }}
             transition={{ duration: 0.6, ease: easeOutExpo }}
           />
           {greyLine && (
-            <motion.path
+            <m.path
               className="fill-none stroke-fg-subtle"
               strokeWidth={2}
               strokeLinecap="round"
@@ -176,7 +176,7 @@ export function LineChart({
               transition={lineTransition}
             />
           )}
-          <motion.path
+          <m.path
             className="fill-none stroke-accent"
             strokeWidth={2}
             strokeLinecap="round"
