@@ -13,7 +13,6 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { caseMonths, caseSeries, caseSplitIndex, type CaseStudy } from "@/lib/content/cases";
 import { finalCta, pillars } from "@/lib/content/home";
 import { pillarTheme } from "@/lib/pillarTheme";
-import { siteConfig } from "@/lib/site";
 
 const MONTH_TICKS = { wide: [0, 1, 2, 3, 4, 5], narrow: [0, 2, 3, 5] };
 const monthLabels = caseMonths.map((month) => `Ay ${month}`);
@@ -90,7 +89,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <p className={`mt-6 font-mono text-xs uppercase tracking-[0.15em] ${pillarTheme[step.pillar].text}`}>
+                  <p lang="en" className={`mt-6 font-mono text-xs uppercase tracking-[0.15em] ${pillarTheme[step.pillar].text}`}>
                     {pillar?.name}
                   </p>
                   <h3 className="mt-2 text-lg font-medium tracking-tight text-fg">{step.title}</h3>
@@ -165,7 +164,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
         title={finalCta.title}
         body={finalCta.body}
         cta={finalCta.cta}
-        href={siteConfig.ctaHref}
+        href={finalCta.href}
         fineprint={finalCta.fineprint}
       />
     </>

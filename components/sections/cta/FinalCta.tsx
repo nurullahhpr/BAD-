@@ -1,6 +1,5 @@
 import { CtaPanel } from "@/components/ui/CtaPanel";
 import { finalCta } from "@/lib/content/home";
-import { siteConfig } from "@/lib/site";
 
 export function FinalCta() {
   return (
@@ -9,7 +8,7 @@ export function FinalCta() {
       title={finalCta.title}
       body={finalCta.body}
       cta={finalCta.cta}
-      href={siteConfig.ctaHref}
+      href={finalCta.href}
       fineprint={finalCta.fineprint}
     />
   );

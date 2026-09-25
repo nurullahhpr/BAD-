@@ -1,3 +1,4 @@
+import { contactHref } from "@/lib/contactHref";
 import { cases } from "@/lib/content/cases";
 
 // User-facing copy for the home page. Turkish only.
@@ -108,7 +109,7 @@ export const hero = {
     trail: "Dışarıdan yönetilir, içeriden çalışır.",
   } satisfies Headline,
   subtitle: "Operasyonu, büyümeyi ve altyapıyı tek ekip ve tek raporla yönetiyoruz.",
-  cta: { label: "Ücretsiz Dijital Röntgen Al", href: "/#iletisim" },
+  cta: { label: "Ücretsiz Dijital Röntgen Al", href: contactHref("rontgen") },
   statsTitle: "Rakamlarla BADİ",
   // PLACEHOLDER: replace with verified figures before launch.
   stats: [
@@ -245,5 +246,6 @@ export const finalCta = {
   title: "Dijital Ticaretinizi Hızlandırmaya Hazır mısınız?",
   body: "Dijital Röntgen ile kanallarınızı, maliyetlerinizi ve büyüme fırsatlarınızı rakamlarla görün.",
   cta: "Ücretsiz Dijital Röntgen Al",
+  href: contactHref("rontgen"),
   fineprint: ["Ücretsiz", "Bağlayıcı değil"],
 };

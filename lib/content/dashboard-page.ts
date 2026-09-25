@@ -1,5 +1,5 @@
 import type { AppTabId } from "@/lib/content/dashboard-app";
-import { siteConfig } from "@/lib/site";
+import { contactHref } from "@/lib/contactHref";
 
 // Copy for /dashboard. The product scope follows the approved Infrastructure text
 // (channels, ad spend with ROAS/CPA, stock, one screen) and the approved
@@ -80,6 +80,4 @@ export const dashboardPage = {
   },
 };
 
-export const demoRequestHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-  "BADİ Dashboard demo talebi",
-)}`;
+export const demoRequestHref = contactHref("dashboard");

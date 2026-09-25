@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { Container } from "@/components/ui/Container";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { NavDropdown } from "@/components/layout/NavDropdown";
-import { mainNav } from "@/lib/site";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { Container } from "@/components/ui/Container";
+import { mainNav, siteConfig } from "@/lib/site";
 
 export function Header() {
   return (
@@ -12,7 +13,7 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Ana menü" className="hidden lg:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-6 xl:gap-8">
             {mainNav.map((item) => (
               <li key={item.href}>
                 {item.children ? (
@@ -30,7 +31,12 @@ export function Header() {
           </ul>
         </nav>
 
-        <MobileNav items={mainNav} />
+        <div className="flex items-center gap-2">
+          <ButtonLink href={siteConfig.cta.href} size="sm">
+            {siteConfig.cta.label}
+          </ButtonLink>
+          <MobileNav items={mainNav} />
+        </div>
       </Container>
     </header>
   );

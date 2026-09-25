@@ -3,7 +3,6 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { cases, casesPage, sectors } from "@/lib/content/cases";
 import { finalCta } from "@/lib/content/home";
-import { siteConfig } from "@/lib/site";
 import { CaseFilter } from "./CaseFilter";
 
 /** /sonuclar page body. */
@@ -31,7 +30,7 @@ export function CasesIndex() {
         title={finalCta.title}
         body={finalCta.body}
         cta={finalCta.cta}
-        href={siteConfig.ctaHref}
+        href={finalCta.href}
         fineprint={finalCta.fineprint}
       />
     </>

@@ -3,8 +3,8 @@ import { CtaPanel } from "@/components/ui/CtaPanel";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { contactHref } from "@/lib/contactHref";
 import { journey, processPage, processPhases } from "@/lib/content/process";
-import { siteConfig } from "@/lib/site";
 import { JourneyScroller } from "./JourneyScroller";
 import { PhaseDetail } from "./PhaseDetail";
 
@@ -60,7 +60,7 @@ export function ProcessPage() {
         title={processPage.cta.title}
         body={processPage.cta.body}
         cta={processPage.cta.label}
-        href={siteConfig.ctaHref}
+        href={contactHref("rontgen")}
       />
     </>
   );

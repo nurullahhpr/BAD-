@@ -1,3 +1,4 @@
+import { contactHref } from "@/lib/contactHref";
 import { pillars } from "@/lib/content/home";
 import { pillarTheme } from "@/lib/pillarTheme";
 
@@ -38,8 +39,8 @@ export const siteConfig = {
     "BADİ, Türkiye pazarına adapte edilmiş global modelle e-ticaret markalarının operasyonunu, büyümesini ve altyapısını hızlandırır.",
   locale: "tr_TR",
   contact,
-  // Primary conversion target until a dedicated form exists.
-  ctaHref: `mailto:${contact.email}?subject=${encodeURIComponent("Dijital Röntgen talebi")}`,
+  /** Header call to action; every conversion ends on the contact form. */
+  cta: { label: "Teklif Al", href: contactHref() },
   social: [
     { network: "linkedin", label: "LinkedIn", href: "#" },
     { network: "instagram", label: "Instagram", href: "#" },
@@ -48,7 +49,6 @@ export const siteConfig = {
   ] satisfies readonly SocialLink[],
 } as const;
 
-// Pages where they exist, homepage section anchors for the rest.
 export const mainNav: NavItem[] = [
   {
     label: "Hizmetler",
@@ -63,6 +63,6 @@ export const mainNav: NavItem[] = [
   { label: "Nasıl Çalışıyoruz", href: "/nasil-calisiyoruz" },
   { label: "Sonuçlar", href: "/sonuclar" },
   { label: "Dashboard", href: "/dashboard" },
-  { label: "Hakkımızda", href: "/#hakkimizda" },
-  { label: "İletişim", href: "/#iletisim" },
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  { label: "İletişim", href: contactHref() },
 ];

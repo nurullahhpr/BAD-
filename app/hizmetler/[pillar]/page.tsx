@@ -5,7 +5,7 @@ import { ServiceDetail } from "@/components/sections/services/ServiceDetail";
 import { ServiceHero } from "@/components/sections/services/ServiceHero";
 import { CtaPanel } from "@/components/ui/CtaPanel";
 import { getPillarPage, pillarIds, serviceCta } from "@/lib/content/services";
-import { siteConfig } from "@/lib/site";
+import { contactHref } from "@/lib/contactHref";
 
 // Only the three pillars exist; anything else is a 404.
 export const dynamicParams = false;
@@ -30,10 +30,6 @@ export default async function PillarPage({ params }: PageProps<"/hizmetler/[pill
   if (!page) notFound();
 
   const { pillar, services } = page;
-  const ctaHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-    `${pillar.name} hizmeti hakkında görüşme`,
-  )}`;
-
   return (
     <>
       <ServiceHero page={page} />
@@ -46,7 +42,7 @@ export default async function PillarPage({ params }: PageProps<"/hizmetler/[pill
         title={serviceCta.title}
         body={serviceCta.body}
         cta={serviceCta.cta}
-        href={ctaHref}
+        href={contactHref(pillar.id)}
       />
     </>
   );
