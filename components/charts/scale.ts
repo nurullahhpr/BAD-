@@ -1,7 +1,7 @@
 import { formatLiraCompact, formatNumber } from "@/lib/format";
 
 /** How chart values are printed. Passed as a name so server components can choose it. */
-export type ValueFormat = "lira" | "number";
+export type ValueFormat = "lira" | "number" | "ratio";
 
 /** Rounds a raw step up to 1, 2, 2.5 or 5 × 10ⁿ so axis ticks stay clean. */
 export function niceStep(raw: number): number {
@@ -20,13 +20,16 @@ export function niceScale(peak: number): { max: number; ticks: number[] } {
 }
 
 export function formatValue(value: number, format: ValueFormat): string {
-  return format === "lira" ? formatLiraCompact(value) : formatNumber(Math.round(value));
+  if (format === "lira") return formatLiraCompact(value);
+  if (format === "ratio") return `${formatNumber(value, 1)}x`;
+  return formatNumber(Math.round(value));
 }
 
 /** Short axis tick: "50 bin", "1,5 Mn" for lira; grouped digits for counts. */
 export function formatTick(value: number, format: ValueFormat): string {
   if (value === 0) return "0";
   if (format === "number") return formatNumber(value);
+  if (format === "ratio") return `${formatNumber(value, Number.isInteger(value) ? 0 : 1)}x`;
   if (value >= 1_000_000) {
     const m = value / 1_000_000;
     return `${formatNumber(m, Number.isInteger(m) ? 0 : 1)} Mn`;

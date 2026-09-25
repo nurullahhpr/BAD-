@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Section } from "@/components/ui/Section";
@@ -6,7 +7,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { dashboardShowcase } from "@/lib/content/home";
 import { DashboardMock } from "./DashboardMock";
 
-// Short homepage version. The full dashboard gets its own page later.
+// Short homepage version; the full product page lives at /dashboard.
 export function DashboardShowcase() {
   const { eyebrow, title, body, note } = dashboardShowcase;
 
@@ -25,6 +26,11 @@ export function DashboardShowcase() {
           <DashboardMock />
         </Reveal>
         <p className="mt-6 text-center text-xs text-fg-subtle">{note}</p>
+        <div className="mt-10 flex justify-center">
+          <ButtonLink href="/dashboard" variant="secondary" withArrow>
+            Dashboard&apos;u keşfedin
+          </ButtonLink>
+        </div>
       </Container>
     </Section>
   );

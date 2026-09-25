@@ -20,6 +20,7 @@
 - Placeholder rakamlar kodda `// PLACEHOLDER` yorumuyla işaretlenir. Yayından önce doğrulanmış veriyle değiştirilir.
 - Müşteri onayı bekleyen taslak metinler `// DRAFT` yorumuyla işaretlenir.
 - Vaka çalışmaları tek kaynaktan gelir: `lib/content/cases.ts`. Grafik serileri kart rakamlarından türetilir.
+- Dashboard demo verisi `lib/content/dashboard-demo.ts` ve `dashboard-app.ts`'de. Toplamlar, ROAS/CPA ve oranlar hesapla türetilir; elle rakam yazılmaz.
 
 ## BADİ Mimarisi
 
@@ -64,7 +65,7 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 ## Klasör yapısı
 
 ```
-app/          Route'lar, layout, global CSS (`/hizmetler/[pillar]`, `/nasil-calisiyoruz`, `/sonuclar/[slug]`)
+app/          Route'lar, layout, global CSS (`/hizmetler/[pillar]`, `/nasil-calisiyoruz`, `/sonuclar/[slug]`, `/dashboard`)
 components/
   brand/      Logo ve marka öğeleri
   charts/     Kod tabanlı grafikler (LineChart, BarChart)

@@ -62,7 +62,7 @@ export const mainNav: NavItem[] = [
   },
   { label: "Nasıl Çalışıyoruz", href: "/nasil-calisiyoruz" },
   { label: "Sonuçlar", href: "/sonuclar" },
-  { label: "Dashboard", href: "/#dashboard" },
+  { label: "Dashboard", href: "/dashboard" },
   { label: "Hakkımızda", href: "/#hakkimizda" },
   { label: "İletişim", href: "/#iletisim" },
 ];

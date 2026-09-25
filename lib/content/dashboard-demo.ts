@@ -8,9 +8,11 @@ export type Direction = "higher" | "lower" | "neutral";
 export type Kpi = {
   label: string;
   display: string;
-  delta: { value: number; unit: "%" | "puan" | "x" };
+  delta: { value: number; unit: "%" | "puan" | "x" | "adet" | "gün" };
   /** Which direction counts as good; neutral deltas stay grey. */
   better: Direction;
+  /** Optional recent values for a sparkline, oldest first. */
+  trend?: number[];
 };
 
 export type BreakdownItem = {
@@ -34,7 +36,7 @@ export const demoPeriod = {
 };
 
 /** Deterministic 30-day series (same on server and client) that sums to `total`. */
-function dailySeries(total: number, seed: number, growth: number): number[] {
+export function dailySeries(total: number, seed: number, growth: number): number[] {
   const raw = Array.from({ length: 30 }, (_, i) => {
     const weekly = 1 + 0.12 * Math.sin(((i + seed) / 7) * Math.PI * 2);
     const noise = 1 + 0.07 * Math.sin(i * 12.9898 + seed * 78.233);
@@ -45,7 +47,7 @@ function dailySeries(total: number, seed: number, growth: number): number[] {
   return raw.map((value) => (value / sum) * total);
 }
 
-function lira(label: string, value: number): BreakdownItem {
+export function lira(label: string, value: number): BreakdownItem {
   return { label, value, display: formatLiraCompact(value) };
 }
 
