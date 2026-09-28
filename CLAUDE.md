@@ -6,6 +6,7 @@
 
 - **BADİ**: dijital ticaret hızlandırıcı (E-Commerce Accelerator).
 - Türkiye pazarına adapte edilmiş global model.
+- Logo: siyah köşeli kare içinde üç yeşil çubuk + "badi" yazısı. Koyu zeminde `public/brand/badi-logo-light.png` (beyaz yazı, `Logo` komponenti), açık zeminde `badi-logo-dark.png`. Tek başına ikon: `app/icon.png`, `app/apple-icon.png`, `app/favicon.ico`. Logo yeniden çizilmez, renkleri değiştirilmez.
 
 ## Ton
 

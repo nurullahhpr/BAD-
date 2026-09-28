@@ -25,6 +25,8 @@ export function localBusinessSchema(): SchemaNode {
     slogan: siteConfig.tagline,
     url: absoluteUrl("/"),
     image: absoluteUrl("/opengraph-image"),
+    // Dark lettering: search engines show logos on white.
+    logo: absoluteUrl("/brand/badi-logo-dark.png"),
     email: contact.email,
     telephone: contact.phone,
     address: {

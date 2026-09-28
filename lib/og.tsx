@@ -11,6 +11,10 @@ export const ogContentType = "image/png";
 
 // TTF files (next/og cannot read woff2). Geist, SIL OFL 1.1: assets/fonts/OFL.txt.
 const font = readFile(join(process.cwd(), "assets/fonts/Geist-Medium.ttf"));
+// White-lettered lockup, inlined so the renderer needs no network.
+const logo = readFile(join(process.cwd(), "public/brand/badi-logo-light.png")).then(
+  (data) => `data:image/png;base64,${data.toString("base64")}`,
+);
 
 const pillarTone: Record<PillarId, string> = {
   administration: colors.accent[300],
@@ -26,7 +30,7 @@ type OgInput = {
 };
 
 export async function renderOgImage({ eyebrow, title, pillar }: OgInput) {
-  const sans = await font;
+  const [sans, logoSrc] = await Promise.all([font, logo]);
   // The home eyebrow is the tagline itself; show it once.
   const showTagline = eyebrow.toLocaleLowerCase("tr-TR") !== siteConfig.tagline.toLocaleLowerCase("tr-TR");
 
@@ -49,7 +53,9 @@ export async function renderOgImage({ eyebrow, title, pillar }: OgInput) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ fontSize: 44, letterSpacing: "-0.03em" }}>{siteConfig.name}</div>
+          {/* Satori renders plain <img>; next/image does not apply here. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoSrc} alt={siteConfig.name} width={170} height={64} />
           {showTagline && (
             <div style={{ fontSize: 22, color: colors.fg.muted }}>
               {siteConfig.tagline}

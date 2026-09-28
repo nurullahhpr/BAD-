@@ -10,7 +10,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/60 bg-canvas">
       <Container className="flex h-16 items-center justify-between">
-        <Logo />
+        <Logo priority />
 
         <nav aria-label="Ana menü" className="hidden lg:block">
           <ul className="flex items-center gap-6 xl:gap-8">
