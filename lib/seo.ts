@@ -6,12 +6,24 @@ import { siteConfig } from "@/lib/site";
  * PLACEHOLDER: set NEXT_PUBLIC_SITE_URL to the production domain before launch.
  * On Vercel the production domain is used automatically until then.
  */
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000")
-).replace(/\/$/, "");
+export const siteUrl = resolveSiteUrl();
+
+// Empty or malformed values (e.g. an env var added on Vercel but left blank) fall through
+// to the next candidate instead of breaking the build with "Invalid URL".
+function resolveSiteUrl(): string {
+  const candidates = [process.env.NEXT_PUBLIC_SITE_URL, process.env.VERCEL_PROJECT_PRODUCTION_URL];
+  for (const raw of candidates) {
+    const value = raw?.trim();
+    if (!value) continue;
+    const withProtocol = /^https?:\/\//.test(value) ? value : `https://${value}`;
+    try {
+      return new URL(withProtocol).origin;
+    } catch {
+      // Not a usable URL; try the next candidate.
+    }
+  }
+  return "http://localhost:3000";
+}
 
 export function absoluteUrl(path: string): string {
   return new URL(path, `${siteUrl}/`).href;
