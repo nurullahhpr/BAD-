@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { PillarGlyph } from "@/components/sections/architecture/PillarGlyph";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { pillars } from "@/lib/content/home";
 import type { PillarPage } from "@/lib/content/services";
 import { pillarTheme } from "@/lib/pillarTheme";
@@ -14,6 +15,7 @@ export function ServiceHero({ page }: { page: PillarPage }) {
 
   return (
     <section aria-labelledby="service-hero-title" className="relative overflow-hidden">
+      <GridBackdrop from="top" />
       <Container className="relative grid gap-12 pt-12 pb-20 sm:pt-16 sm:pb-24 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16 lg:pt-20">
         <div>
           <nav aria-label="Sayfa konumu">

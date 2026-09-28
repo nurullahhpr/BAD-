@@ -40,8 +40,10 @@ export async function renderOgImage({ eyebrow, title, pillar }: OgInput) {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          // Flat canvas: no grid, no glow, same as the site.
+          // Same backdrop as the site heroes: hairline grid and a soft accent glow.
           backgroundColor: colors.canvas,
+          backgroundImage: `radial-gradient(circle at 85% 0%, ${colors.accent[900]} 0%, transparent 45%), linear-gradient(to right, ${colors.line.DEFAULT} 1px, transparent 1px), linear-gradient(to bottom, ${colors.line.DEFAULT} 1px, transparent 1px)`,
+          backgroundSize: "100% 100%, 64px 64px, 64px 64px",
           fontFamily: "Geist",
           color: colors.fg.DEFAULT,
         }}

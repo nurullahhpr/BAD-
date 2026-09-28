@@ -44,7 +44,8 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
 - Koyu tema ağırlıklı. Zemin ve nötr tonlar siyah paletteki gibi kalır (`lib/tokens.ts`); değiştirilmez. Tek güçlü vurgu rengi: `accent` = elektrik yeşili `#2EF08A` (onaylandı). İkinci bir vurgu rengi eklenmez.
 - UI öğeleri (buton, ikon chip'i, kart detayı, rozet, kenarlık) "Maglo" UI kit diline yakındır: düz/mat yüzeyler, bol iç boşluk.
   - Katmanlar kenarlıkla değil ton farkıyla ayrılır: `canvas` üstünde `bg-surface` kart, içinde `bg-canvas` veya `bg-surface-raised` kutu. Kart kenarlığı yok.
-  - Glow, blur, glassmorphism, gradient, ızgara arka plan, ışık topu ve ağır gölge yok.
+  - UI öğelerinde glow, blur, glassmorphism, gradient ve ağır gölge yok.
+  - Sayfa arka planı istisnadır: hero ve CTA bölümlerinde ızgara + yumuşak yeşil ışıma kalır (`GridBackdrop`, `HeroBackdrop`).
   - Radius: kart `rounded-card` (20px), büyük panel `rounded-panel` (24px), buton `rounded-xl`. Pill (tam yuvarlak) buton ve rozet yok; `rounded-full` yalnız noktalar için.
   - Butonlar düz tek renk (`ButtonLink` / `buttonClass`): primary `accent`, secondary `surface-raised`.
   - İkonlar `IconChip` içinde: yumuşak köşeli kare, tonun soft zemini, ikon üstte tonun rengi. Sütun ikonları `ServiceIcon`.

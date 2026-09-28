@@ -38,6 +38,12 @@ const config: Config = {
         card: "1.25rem",
         panel: "1.5rem",
       },
+      backgroundImage: {
+        // Hairline grid and accent glow behind hero and CTA sections (GridBackdrop, HeroBackdrop).
+        // Pair the grid with `bg-size-[4rem_4rem]`: Tailwind v4 does not read `backgroundSize` here.
+        grid: `linear-gradient(to right, ${colors.line.DEFAULT} 1px, transparent 1px), linear-gradient(to bottom, ${colors.line.DEFAULT} 1px, transparent 1px)`,
+        "accent-glow": `radial-gradient(closest-side, color-mix(in srgb, ${colors.accent.DEFAULT} 18%, transparent), transparent)`,
+      },
       transitionTimingFunction: {
         "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
       },

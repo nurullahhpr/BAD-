@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
 import { IconChip } from "@/components/ui/IconChip";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Glyph } from "@/components/ui/icons";
 import { contactPage } from "@/lib/content/contact";
 import { siteConfig } from "@/lib/site";
@@ -18,6 +19,7 @@ export function ContactPage() {
 
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
+      <GridBackdrop from="top" />
       <Container className="relative pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20">
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 [grid-template-areas:'intro'_'form'_'details'] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:gap-x-16 lg:[grid-template-areas:'intro_form'_'details_form']">
           <div className="[grid-area:intro]">
