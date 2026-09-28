@@ -61,7 +61,7 @@ function SourceGroup({ label, items, side, animate }: SourceGroupProps) {
     <div className="flex flex-col">
       <h3
         className={cn(
-          "mb-4 text-xs uppercase tracking-wider font-medium text-fg-subtle",
+          "mb-4 text-xs font-medium text-fg-subtle",
           side === "left" ? "lg:pr-14" : "lg:pl-14 lg:text-right",
         )}
       >

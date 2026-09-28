@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GridBackdrop } from "@/components/ui/GridBackdrop";
 
 export type Crumb = {
@@ -12,20 +11,17 @@ export type Crumb = {
 
 type PageHeroProps = {
   crumbs: Crumb[];
-  eyebrow: string;
   title: string;
   body: string;
-  /** Eyebrow colour class. */
-  tone?: string;
   /** Extra content under the intro (chips, metrics). */
   children?: ReactNode;
 };
 
 /**
- * Opening block for inner pages: breadcrumb, eyebrow, h1 and intro.
+ * Opening block for inner pages: breadcrumb, h1 and intro.
  * The text renders visible (it is the LCP element); only `children` fade in.
  */
-export function PageHero({ crumbs, eyebrow, title, body, tone, children }: PageHeroProps) {
+export function PageHero({ crumbs, title, body, children }: PageHeroProps) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
       <GridBackdrop from="top" />
@@ -49,10 +45,9 @@ export function PageHero({ crumbs, eyebrow, title, body, tone, children }: PageH
           </ol>
         </nav>
         <div className="mt-10 max-w-3xl">
-          <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
           <h1
             id="page-title"
-            className="mt-5 text-balance text-display-sm font-semibold text-fg sm:text-display-md"
+            className="text-balance text-display-sm font-semibold text-fg sm:text-display-md"
           >
             {title}
           </h1>

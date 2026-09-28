@@ -120,7 +120,6 @@ export const hero = {
 };
 
 export const problemSolution = {
-  eyebrow: "Geleneksel yaklaşım",
   title: "Üç ayrı ekip. Üç ayrı rapor. Tek sorumlu yok.",
   body: "Çoğu marka e-ticareti parça parça yönetir. Herkes kendi işine bakar. Bütün resmi gören kimse yoktur.",
   painPoints: [
@@ -141,17 +140,14 @@ export const problemSolution = {
     },
   ] satisfies PainPoint[],
   diagram: {
-    eyebrow: "BADİ Mimarisi",
     title: "Üç iş, tek çatı altında.",
     input: "Markanız",
-    roofTag: "Tek çatı",
     pillars,
     outputs: ["Tek ekip", "Tek rapor", "Tek sorumlu"],
   },
 };
 
 export const architecture = {
-  eyebrow: "Hizmetler",
   title: "BADİ Mimarisi",
   body: "Üç sütun, tek ekip. Her sütun kendi işini yapar, hepsi aynı hedefe bağlanır.",
   hub: "BADİ",
@@ -159,7 +155,6 @@ export const architecture = {
 };
 
 export const comparison = {
-  eyebrow: "Karşılaştırma",
   title: "Neden Geleneksel Ajanslar Değil de BADİ?",
   criterionLabel: "Kriter",
   traditionalLabel: "Geleneksel Ajanslar",
@@ -196,7 +191,6 @@ export type ProgramPhase = {
 };
 
 export const program = {
-  eyebrow: "Nasıl çalışıyoruz",
   title: "90 Günlük Program",
   body: "Üç faz, net çıktılar. Her fazın sonunda neyin değiştiğini rakamla görürsünüz.",
   totalDays: 90,
@@ -226,7 +220,6 @@ export const program = {
 };
 
 export const results = {
-  eyebrow: "Sonuçlar",
   title: "Önce ve sonra, rakamlarla.",
   body: "Her vaka aynı soruyu cevaplar: 90 günün sonunda ne değişti?",
   // PLACEHOLDER cases live in lib/content/cases.ts; the home page shows the first three.
@@ -236,7 +229,6 @@ export const results = {
 };
 
 export const dashboardShowcase = {
-  eyebrow: "BADİ Dashboard",
   title: "Tüm kanallarınız tek ekranda",
   body: "Pazar yerleri, web sitesi ve reklam hesapları tek panelde. Herkes aynı rakama bakar.",
   note: "Görseldeki veriler örnektir.",

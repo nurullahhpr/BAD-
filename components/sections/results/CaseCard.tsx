@@ -27,7 +27,7 @@ export function CaseCard({ study, headingLevel = "h3" }: CaseCardProps) {
         <div className="flex items-center justify-between gap-4">
           <div
             aria-hidden="true"
-            className="flex h-10 w-28 items-center justify-center rounded-lg bg-surface-overlay text-[11px] font-medium tracking-wider text-fg-subtle uppercase"
+            className="flex h-10 w-28 items-center justify-center rounded-lg bg-surface-overlay text-[11px] font-medium text-fg-subtle"
           >
             Logo
           </div>

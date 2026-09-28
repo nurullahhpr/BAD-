@@ -45,8 +45,8 @@ export default async function PillarPage({ params }: PageProps<"/hizmetler/[pill
         ]}
       />
       <ServiceHero page={page} />
-      {services.map((service, index) => (
-        <ServiceDetail key={service.slug} pillarId={pillar.id} service={service} index={index} />
+      {services.map((service) => (
+        <ServiceDetail key={service.slug} pillarId={pillar.id} service={service} />
       ))}
       <OtherPillars currentId={pillar.id} />
       <CtaPanel

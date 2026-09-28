@@ -148,7 +148,7 @@ function JourneyItem({ step, phaseName, active, reached, onActive }: JourneyItem
           active ? "border-accent/30 bg-surface" : "border-line bg-transparent",
         )}
       >
-        <p className="flex flex-wrap items-center gap-x-3 text-xs uppercase tracking-wider font-medium">
+        <p className="flex flex-wrap items-center gap-x-3 text-xs font-medium">
           <span className="text-accent">{step.day}</span>
           <span className="text-fg-muted">{phaseName}</span>
         </p>

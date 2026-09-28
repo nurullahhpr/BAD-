@@ -76,7 +76,7 @@ export function DashboardApp() {
           Ara
           <kbd className="ml-auto font-mono text-[10px]">⌘K</kbd>
         </div>
-        <span className="ml-auto rounded-md bg-surface-overlay px-1.5 py-0.5 text-[10px] uppercase tracking-wider font-medium text-fg-muted md:ml-0">
+        <span className="ml-auto rounded-md bg-surface-overlay px-1.5 py-0.5 text-[10px] font-medium text-fg-muted md:ml-0">
           Demo
         </span>
         <span
@@ -153,7 +153,7 @@ export function DashboardApp() {
 
           <div className="mt-auto hidden p-4 lg:block">
             <div className="rounded-lg bg-surface-raised p-3">
-              <p className="text-[10px] uppercase tracking-wider font-medium text-fg-subtle">Bağlı kaynaklar</p>
+              <p className="text-[10px] font-medium text-fg-subtle">Bağlı kaynaklar</p>
               <ul className="mt-3 space-y-2">
                 {connectedSources.map((source) => (
                   <li key={source} className="flex items-center gap-2 text-xs text-fg-muted">

@@ -1,15 +1,12 @@
 "use client";
 
 import { m, type Variants } from "framer-motion";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import type { Pillar } from "@/lib/content/home";
 import { baseTransition, easeOutExpo, fadeUp, growDown, stagger } from "@/lib/motion";
 
 type UnifiedDiagramProps = {
-  eyebrow: string;
   title: string;
   input: string;
-  roofTag: string;
   pillars: Pillar[];
   outputs: string[];
 };
@@ -25,10 +22,8 @@ const root: Variants = {
 };
 
 export function UnifiedDiagram({
-  eyebrow,
   title,
   input,
-  roofTag,
   pillars,
   outputs,
 }: UnifiedDiagramProps) {
@@ -41,8 +36,7 @@ export function UnifiedDiagram({
       className="rounded-card bg-surface p-5 sm:p-8"
     >
       <figcaption>
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <p className="mt-3 text-xl font-medium tracking-tight text-fg">{title}</p>
+        <p className="text-xl font-medium tracking-tight text-fg">{title}</p>
       </figcaption>
 
       <div className="mt-8 flex flex-col items-center">
@@ -61,11 +55,8 @@ export function UnifiedDiagram({
           transition={baseTransition}
           className="w-full rounded-xl bg-canvas p-3 sm:p-4"
         >
-          <div className="flex items-center justify-between px-1 pb-3">
+          <div className="px-1 pb-3">
             <span className="text-sm font-semibold tracking-tight text-fg">BADİ</span>
-            <span className="text-[11px] uppercase tracking-wider font-medium text-accent">
-              {roofTag}
-            </span>
           </div>
 
           <m.ul variants={stagger(0.1)} className="grid gap-2 sm:grid-cols-3">

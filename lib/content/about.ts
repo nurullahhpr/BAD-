@@ -30,22 +30,18 @@ export const aboutPage = {
     body: "E-ticaret markalarının yazılımcı, reklam ajansı ve pazar yeri yönetimi arasında kaybolduğunu gördük. BADİ, bu işleri tek ekipte toplamak için kuruldu.",
   },
   story: {
-    eyebrow: "Hikayemiz",
     title: "Üç ayrı tedarikçi, tek bir sorun",
     body: "Sorun hizmetlerin kalitesi değildi. Sorun, bütün resmi gören kimsenin olmamasıydı.",
     chapters: [
       {
-        label: "Gördüğümüz",
         title: "Parça parça yönetim",
         body: "Site bir yazılımcıda, reklam bir ajansta, pazar yerleri şirket içinde birinde. Herkes kendi rakamını raporluyordu.",
       },
       {
-        label: "Fark ettiğimiz",
         title: "Sorumlu yoktu",
         body: "Satış düştüğünde herkes diğerini işaret ediyordu. Marka, ekiplerin arasındaki boşlukta para kaybediyordu.",
       },
       {
-        label: "Kurduğumuz",
         title: "Tek ekip, tek rapor",
         body: "Operasyon, pazarlama ve altyapıyı tek çatı altında topladık. Global modeli Türkiye pazarına uyarladık.",
       },
@@ -64,7 +60,6 @@ export const aboutPage = {
     diagramLabel: "Dağınık tedarikçilerin BADİ Mimarisi altında üç sütunda toplanmasını gösteren diyagram",
   },
   mission: {
-    eyebrow: "Misyonumuz",
     statement:
       "Türkiye'deki e-ticaret markalarına, dışarıdan yönetilen tam kapsamlı bir dijital ticaret departmanı sunmak.",
     body: "Ayrı ayrı tedarikçi yerine tek ekip. Ayrı ayrı rapor yerine tek rakam seti.",
@@ -75,7 +70,6 @@ export const aboutPage = {
     ],
   },
   principles: {
-    eyebrow: "İlkelerimiz",
     title: "Nasıl çalıştığımızı belirleyen kurallar",
     items: [
       { title: "Rakamla konuşuruz", body: "Her karar ve her rapor ölçülebilir veriye dayanır. Soyut iddia yok." },
@@ -87,7 +81,6 @@ export const aboutPage = {
     ] satisfies Principle[],
   },
   team: {
-    eyebrow: "Ekip",
     title: "Her sütunun arkasında bir uzman",
     body: "Operasyon, pazarlama ve teknoloji aynı ekipte, aynı hedefe çalışır.",
     // PLACEHOLDER: names, roles and photos until the real team is provided.

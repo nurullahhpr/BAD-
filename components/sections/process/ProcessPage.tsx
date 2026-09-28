@@ -16,7 +16,6 @@ export function ProcessPage() {
     <>
       <PageHero
         crumbs={[{ label: "Ana sayfa", href: "/" }, { label: processPage.eyebrow }]}
-        eyebrow={processPage.eyebrow}
         title={processPage.title}
         body={processPage.body}
       >
@@ -27,7 +26,7 @@ export function ProcessPage() {
                 href={`#${phase.id}`}
                 className="flex h-full flex-col rounded-card bg-surface p-5 transition-colors hover:bg-surface-raised"
               >
-                <span className="text-xs uppercase tracking-wider font-medium text-accent">
+                <span className="text-xs font-medium text-accent">
                   Faz {index + 1} · Gün {phase.startDay}–{phase.endDay}
                 </span>
                 <span className="mt-2 text-lg font-medium tracking-tight text-fg">{phase.name}</span>
@@ -44,7 +43,6 @@ export function ProcessPage() {
       <Section id="musteri-yolculugu" aria-labelledby="journey-title">
         <Container>
           <SectionHeader
-            eyebrow={processPage.journey.eyebrow}
             title={processPage.journey.title}
             titleId="journey-title"
             body={processPage.journey.body}

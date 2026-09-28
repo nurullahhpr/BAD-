@@ -31,7 +31,7 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
-          <p className={`mt-1 text-xs uppercase tracking-wider font-medium ${tone.text}`}>
+          <p className={`mt-1 text-xs font-medium ${tone.text}`}>
             {pillar.scope}
           </p>
         </div>

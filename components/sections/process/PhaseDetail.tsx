@@ -1,4 +1,5 @@
 import { RevealGroup, RevealItem } from "@/components/motion/RevealGroup";
+import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { CheckIcon } from "@/components/ui/icons";
 import { Section } from "@/components/ui/Section";
@@ -8,7 +9,7 @@ import { processPage } from "@/lib/content/process";
 
 type Phase = (typeof processPhases)[number];
 
-const blockLabel = "text-xs uppercase tracking-wider font-medium text-fg-subtle";
+const blockLabel = "text-xs font-medium text-fg-subtle";
 
 // Same layout as the service pages: sticky header left, three blocks right.
 export function PhaseDetail({ phase, index }: { phase: Phase; index: number }) {
@@ -28,11 +29,13 @@ export function PhaseDetail({ phase, index }: { phase: Phase; index: number }) {
             {String(index + 1).padStart(2, "0")}
           </p>
           <SectionHeader
-            eyebrow={`Faz ${index + 1} · Gün ${phase.startDay}–${phase.endDay}`}
             title={phase.name}
             titleId={titleId}
             body={phase.summary}
           />
+          <Badge className="mt-5">
+            Gün {phase.startDay}–{phase.endDay}
+          </Badge>
         </div>
 
         <RevealGroup className="divide-y divide-line border-y border-line">

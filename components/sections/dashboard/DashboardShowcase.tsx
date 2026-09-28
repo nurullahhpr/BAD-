@@ -9,14 +9,13 @@ import { DashboardMock } from "./DashboardMock";
 
 // Short homepage version; the full product page lives at /dashboard.
 export function DashboardShowcase() {
-  const { eyebrow, title, body, note } = dashboardShowcase;
+  const { title, body, note } = dashboardShowcase;
 
   return (
     <Section id="dashboard" aria-labelledby="dashboard-title" className="relative overflow-hidden">
       <GridBackdrop from="top" />
       <Container className="relative">
         <SectionHeader
-          eyebrow={eyebrow}
           title={title}
           titleId="dashboard-title"
           body={body}

@@ -11,7 +11,7 @@ export function Principles() {
   return (
     <Section id="ilkeler" aria-labelledby="principles-title">
       <Container>
-        <SectionHeader eyebrow={principles.eyebrow} title={principles.title} titleId="principles-title" />
+        <SectionHeader title={principles.title} titleId="principles-title" />
         <RevealGroup as="ol" gap={0.06} className="mt-12 grid gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {principles.items.map((item, index) => (
             <RevealItem

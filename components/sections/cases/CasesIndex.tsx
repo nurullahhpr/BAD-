@@ -11,7 +11,6 @@ export function CasesIndex() {
     <>
       <PageHero
         crumbs={[{ label: "Ana sayfa", href: "/" }, { label: casesPage.title }]}
-        eyebrow={casesPage.eyebrow}
         title={casesPage.title}
         body={casesPage.body}
       />

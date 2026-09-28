@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
 import { IconChip } from "@/components/ui/IconChip";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Glyph } from "@/components/ui/icons";
 import { contactPage } from "@/lib/content/contact";
@@ -37,10 +36,9 @@ export function ContactPage() {
               </ol>
             </nav>
             <div className="mt-10">
-              <Eyebrow>{contactPage.eyebrow}</Eyebrow>
               <h1
                 id="page-title"
-                className="mt-5 text-balance text-display-sm font-semibold text-fg sm:text-display-md lg:text-display-sm xl:text-display-md"
+                className="text-balance text-display-sm font-semibold text-fg sm:text-display-md lg:text-display-sm xl:text-display-md"
               >
                 {contactPage.title}
               </h1>

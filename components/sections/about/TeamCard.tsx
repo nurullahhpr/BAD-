@@ -31,7 +31,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
           <p
             lang="en"
             className={cn(
-              "mt-3 inline-flex items-center gap-1.5 text-[0.6875rem] uppercase tracking-wider font-medium",
+              "mt-3 inline-flex items-center gap-1.5 text-[0.6875rem] font-medium",
               pillarTheme[pillar.id].text,
             )}
           >

@@ -2,7 +2,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { CtaPanel } from "@/components/ui/CtaPanel";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GridBackdrop } from "@/components/ui/GridBackdrop";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -23,10 +22,9 @@ export function DashboardPage() {
         <Container className="relative pt-16 pb-24 sm:pt-24 sm:pb-32">
           {/* Hero text is the LCP element: visible at first paint, no entrance fade. */}
           <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>{hero.eyebrow}</Eyebrow>
             <h1
               id="page-title"
-              className="mt-6 text-balance text-display-sm font-semibold text-fg sm:text-display-md xl:text-display-lg"
+              className="text-balance text-display-sm font-semibold text-fg sm:text-display-md xl:text-display-lg"
             >
               {hero.title}
             </h1>
@@ -66,7 +64,6 @@ export function DashboardPage() {
       <Section id="entegrasyonlar" aria-labelledby="integrations-title">
         <Container>
           <SectionHeader
-            eyebrow={integrations.eyebrow}
             title={integrations.title}
             titleId="integrations-title"
             body={integrations.body}

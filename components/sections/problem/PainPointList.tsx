@@ -1,4 +1,5 @@
 import { RevealGroup, RevealItem } from "@/components/motion/RevealGroup";
+import { Badge } from "@/components/ui/Badge";
 import type { PainPoint } from "@/lib/content/home";
 
 type PainPointListProps = {
@@ -21,9 +22,9 @@ export function PainPointList({ items }: PainPointListProps) {
           <div>
             <h3 className="font-medium text-fg">{item.title}</h3>
             <p className="mt-1 text-sm leading-relaxed text-fg-muted">{item.body}</p>
-            <p className="mt-3 font-mono text-xs text-fg-subtle">
-              BADİ&apos;de: <span className="text-accent">{item.pillar}</span>
-            </p>
+            <Badge tone="accent" className="mt-3">
+              <span lang="en">{item.pillar}</span>
+            </Badge>
           </div>
         </RevealItem>
       ))}

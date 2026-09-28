@@ -3,6 +3,7 @@ import { LineChart } from "@/components/charts/LineChart";
 import { RevealGroup, RevealItem } from "@/components/motion/RevealGroup";
 import { MetricRow } from "@/components/sections/results/CaseCard";
 import { ServiceIcon } from "@/components/sections/services/ServiceIcon";
+import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { CtaPanel } from "@/components/ui/CtaPanel";
@@ -29,10 +30,13 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
           { label: "Sonuçlar", href: "/sonuclar" },
           { label: study.client },
         ]}
-        eyebrow={`${study.sector} · ${study.period}`}
         title={study.title}
         body={study.summary}
       >
+        <div className="mb-6 flex flex-wrap gap-2">
+          <Badge>{study.sector}</Badge>
+          <Badge>{study.period}</Badge>
+        </div>
         <div className="grid gap-4 md:grid-cols-2">
           {study.metrics.map((metric) => (
             <div key={metric.label} className="rounded-card bg-surface p-6">
@@ -44,10 +48,10 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
 
       <Section aria-labelledby="case-story-title">
         <Container>
-          <SectionHeader eyebrow="Vaka" title="Problem ve çözüm" titleId="case-story-title" />
+          <SectionHeader title="Problem ve çözüm" titleId="case-story-title" />
           <RevealGroup className="mt-12 grid gap-6 sm:mt-16 md:grid-cols-2">
             <RevealItem className="rounded-card border border-dashed border-line-strong p-6 sm:p-8">
-              <h3 className="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-fg-subtle">
+              <h3 className="flex items-center gap-2 text-xs font-medium text-fg-subtle">
                 <MinusIcon /> Problem
               </h3>
               <div className="mt-5 space-y-3 leading-relaxed text-fg-muted">
@@ -57,7 +61,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
               </div>
             </RevealItem>
             <RevealItem className="rounded-card bg-accent/[0.07] p-6 sm:p-8">
-              <h3 className="flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-accent">
+              <h3 className="flex items-center gap-2 text-xs font-medium text-accent">
                 <CheckIcon /> Çözüm
               </h3>
               <div className="mt-5 space-y-3 leading-relaxed text-fg">
@@ -73,7 +77,6 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
       <Section aria-labelledby="case-strategy-title">
         <Container>
           <SectionHeader
-            eyebrow="BADİ Mimarisi"
             title="Uygulanan strateji"
             titleId="case-strategy-title"
             body="Her adım bir hizmet sütunundan geldi."
@@ -89,7 +92,7 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <p lang="en" className={`mt-6 text-xs uppercase tracking-wider font-medium ${pillarTheme[step.pillar].text}`}>
+                  <p lang="en" className={`mt-6 text-xs font-medium ${pillarTheme[step.pillar].text}`}>
                     {pillar?.name}
                   </p>
                   <h3 className="mt-2 text-lg font-medium tracking-tight text-fg">{step.title}</h3>
@@ -104,7 +107,6 @@ export function CaseDetail({ study }: { study: CaseStudy }) {
       <Section aria-labelledby="case-results-title">
         <Container>
           <SectionHeader
-            eyebrow="Sonuç"
             title="Rakamlarla sonuç"
             titleId="case-results-title"
             body="BADİ başlangıcından önceki üç ay ile programın üç ayı."

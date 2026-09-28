@@ -114,12 +114,12 @@ const previews: Record<AppTabId, () => ReactNode> = {
 };
 
 export function FeatureBento() {
-  const { eyebrow, title, body, cta, items } = dashboardPage.features;
+  const { title, body, cta, items } = dashboardPage.features;
 
   return (
     <Section id="ozellikler" aria-labelledby="features-title">
       <Container>
-        <SectionHeader eyebrow={eyebrow} title={title} titleId="features-title" body={body} />
+        <SectionHeader title={title} titleId="features-title" body={body} />
         <RevealGroup as="ul" gap={0.08} className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-4 sm:mt-16 md:grid-cols-6">
           {items.map((item, index) => {
             const Preview = previews[item.tab];

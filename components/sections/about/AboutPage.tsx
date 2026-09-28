@@ -16,7 +16,6 @@ export function AboutPage() {
     <>
       <PageHero
         crumbs={[{ label: "Ana sayfa", href: "/" }, { label: hero.eyebrow }]}
-        eyebrow={hero.eyebrow}
         title={hero.title}
         body={hero.body}
       />

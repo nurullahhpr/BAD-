@@ -50,7 +50,8 @@ Hizmetler üç sütundan oluşur. Onaylı alt hizmet metinleri `lib/content/home
   - Butonlar düz tek renk (`ButtonLink` / `buttonClass`): primary `accent`, secondary `surface-raised`.
   - İkonlar `IconChip` içinde: yumuşak köşeli kare, tonun soft zemini, ikon üstte tonun rengi. Sütun ikonları `ServiceIcon`.
   - Rozet/durum: `Badge` (soft zemin + okunur metin, `rounded-md`). Durumda kelime + nokta (`StatusPill`).
-  - Etiketler sans, küçük; başlıklar `font-semibold`. Geist Mono yalnız rakam ve kod için. Gradient metin yok.
+  - Başlık üstünde küçük etiket (eyebrow/kicker) yok. Büyük harf + geniş harf aralıklı etiket yok. Bilgi gerekiyorsa (sektör, süre, kapsam) `Badge` kullanılır.
+  - Başlıklar `font-semibold`. Geist Mono yalnız rakam ve kod için. Gradient metin yok.
   - Grafikler: ince tek renk çizgi, alan dolgusu yok, sade tooltip.
 - Vurgu azla kullanılır (CTA, kritik rakam, aktif durum).
 - Sütun tonları `lib/pillarTheme.ts`'de: Administration `accent-300`, Development `accent`, Infrastructure `accent-500`. Ton, aynı vurgunun basamağıdır; yeni renk değildir.

@@ -12,7 +12,6 @@ export function Mission() {
     <Section id="misyon" aria-labelledby="mission-title">
       <Container>
         <SectionHeader
-          eyebrow={mission.eyebrow}
           title={mission.statement}
           titleId="mission-title"
           body={mission.body}

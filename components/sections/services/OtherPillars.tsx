@@ -14,7 +14,7 @@ export function OtherPillars({ currentId }: { currentId: PillarId }) {
   return (
     <Section aria-labelledby="other-pillars-title">
       <Container>
-        <SectionHeader eyebrow="BADİ Mimarisi" title="Diğer hizmet sütunları" titleId="other-pillars-title" />
+        <SectionHeader title="Diğer hizmet sütunları" titleId="other-pillars-title" />
         <RevealGroup as="ul" className="mt-12 grid gap-6 sm:mt-16 md:grid-cols-2">
           {others.map((pillar) => (
             <RevealItem as="li" key={pillar.id}>
@@ -25,7 +25,7 @@ export function OtherPillars({ currentId }: { currentId: PillarId }) {
                 <ServiceIcon pillar={pillar.id} />
                 <div className="flex-1">
                   <p className="text-xl font-medium tracking-tight text-fg">{pillar.name}</p>
-                  <p className={`mt-1 text-xs uppercase tracking-wider font-medium ${pillarTheme[pillar.id].text}`}>
+                  <p className={`mt-1 text-xs font-medium ${pillarTheme[pillar.id].text}`}>
                     {pillar.scope}
                   </p>
                   <p className="mt-4 text-sm text-fg-muted">

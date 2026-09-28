@@ -31,7 +31,6 @@ export const dashboardPage = {
   },
   panelHeading: "Etkileşimli panel önizlemesi",
   features: {
-    eyebrow: "Modüller",
     title: "Her ekip aynı rakama bakar",
     body: "Beş modül, tek veri kaynağı. Her kart panelde ilgili modülü açar.",
     cta: "Panelde göster",
@@ -44,7 +43,6 @@ export const dashboardPage = {
     ] satisfies Feature[],
   },
   integrations: {
-    eyebrow: "Entegrasyonlar",
     title: "Kullandığınız sistemlere bağlanır",
     body: "Pazar yeri, reklam, ERP, CRM, ödeme ve kargo verisi tek panelde birleşir.",
     hubTitle: "BADİ Dashboard",

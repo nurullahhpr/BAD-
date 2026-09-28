@@ -88,7 +88,7 @@ export function FormSuccess({ request, scrollTarget, onReset }: FormSuccessProps
         transition={timing(0.5, 0.5)}
         className="mt-8 rounded-card bg-canvas p-5"
       >
-        <h3 className="text-xs uppercase tracking-wider font-medium text-fg-subtle">{success.summaryTitle}</h3>
+        <h3 className="text-xs font-medium text-fg-subtle">{success.summaryTitle}</h3>
         <dl className="mt-4 grid gap-x-6 gap-y-3 text-sm sm:grid-cols-[10rem_minmax(0,1fr)]">
           {rows.map(([label, value]) => (
             <div key={label} className="contents">

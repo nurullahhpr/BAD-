@@ -5,14 +5,10 @@ import { formatNumber } from "@/lib/format";
 export function HeroStats() {
   return (
     <div className="rounded-card bg-surface">
-      <div className="flex items-center gap-2 border-b border-line px-5 py-4 sm:px-6">
-        <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
-        <p className="text-xs uppercase tracking-wider font-medium text-fg-muted">
-          {hero.statsTitle}
-        </p>
-      </div>
-
-      <dl className="grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:grid-cols-1 lg:divide-x-0 lg:divide-y">
+      <dl
+        aria-label={hero.statsTitle}
+        className="grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:grid-cols-1 lg:divide-x-0 lg:divide-y"
+      >
         {hero.stats.map((stat, index) => (
           <StatItem key={stat.label} stat={stat} delay={0.5 + index * 0.15} />
         ))}

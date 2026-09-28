@@ -1,17 +1,14 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { PillarGlyph } from "@/components/sections/architecture/PillarGlyph";
+import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GridBackdrop } from "@/components/ui/GridBackdrop";
-import { pillars } from "@/lib/content/home";
 import type { PillarPage } from "@/lib/content/services";
-import { pillarTheme } from "@/lib/pillarTheme";
 import { ServiceIcon } from "./ServiceIcon";
 
 export function ServiceHero({ page }: { page: PillarPage }) {
-  const { pillar, index, intro, services } = page;
-  const tone = pillarTheme[pillar.id];
+  const { pillar, intro, services } = page;
 
   return (
     <section aria-labelledby="service-hero-title" className="relative overflow-hidden">
@@ -38,13 +35,15 @@ export function ServiceHero({ page }: { page: PillarPage }) {
             </ol>
           </nav>
           <div className="mt-10">
-            <Eyebrow tone={tone.text}>{pillar.scope}</Eyebrow>
             <h1
               id="service-hero-title"
-              className="mt-5 text-display-sm font-semibold text-fg sm:text-display-md xl:text-display-lg"
+              className="text-display-sm font-semibold text-fg sm:text-display-md xl:text-display-lg"
             >
               {pillar.name}
             </h1>
+            <Badge tone="accent" className="mt-4">
+              {pillar.scope}
+            </Badge>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-fg-muted">{intro}</p>
           </div>
           <Reveal delay={0.08} className="mt-10">
@@ -67,13 +66,7 @@ export function ServiceHero({ page }: { page: PillarPage }) {
 
         <Reveal delay={0.12}>
           <div className="rounded-panel bg-surface p-5">
-            <div className="flex items-center justify-between font-mono text-xs text-fg-subtle">
-              <span>BADİ Mimarisi</span>
-              <span>
-                {String(index + 1).padStart(2, "0")} / {String(pillars.length).padStart(2, "0")}
-              </span>
-            </div>
-            <div className="mt-4 h-40 rounded-xl bg-canvas px-4 py-3">
+            <div className="h-40 rounded-xl bg-canvas px-4 py-3">
               <PillarGlyph id={pillar.id} standalone />
             </div>
           </div>

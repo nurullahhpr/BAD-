@@ -64,7 +64,7 @@ export function ComparisonTable({
             role="cell"
             className="mt-4 md:mt-0 md:border-t md:border-line md:px-6 md:py-6"
           >
-            <p className="mb-1.5 text-[11px] uppercase tracking-wider font-medium text-fg-subtle md:hidden">
+            <p className="mb-1.5 text-[11px] font-medium text-fg-subtle md:hidden">
               {traditionalLabel}
             </p>
             <p className="flex gap-3 text-sm leading-relaxed text-fg-subtle">
@@ -77,7 +77,7 @@ export function ComparisonTable({
             role="cell"
             className="mt-3 rounded-xl bg-accent/[0.07] p-4 md:mt-0 md:rounded-none md:border-t md:border-accent/15 md:bg-transparent md:px-6 md:py-6"
           >
-            <p className="mb-1.5 text-[11px] uppercase tracking-wider font-medium text-accent md:hidden">
+            <p className="mb-1.5 text-[11px] font-medium text-accent md:hidden">
               {badiLabel}
             </p>
             <p className="flex gap-3 text-sm leading-relaxed text-fg">

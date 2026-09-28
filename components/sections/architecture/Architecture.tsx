@@ -7,13 +7,12 @@ import { PillarCard } from "./PillarCard";
 import { PillarConnector } from "./PillarConnector";
 
 export function Architecture() {
-  const { eyebrow, title, body, hub, pillars } = architecture;
+  const { title, body, hub, pillars } = architecture;
 
   return (
     <Section id="hizmetler" aria-labelledby="architecture-title">
       <Container>
         <SectionHeader
-          eyebrow={eyebrow}
           title={title}
           titleId="architecture-title"
           body={body}

@@ -12,7 +12,7 @@ export function WindowBar() {
         ))}
       </div>
       <p className="text-xs text-fg-muted">{siteConfig.name} Dashboard</p>
-      <span className="ml-auto rounded-md bg-surface-overlay px-1.5 py-0.5 text-[10px] font-medium tracking-wider text-fg-muted uppercase">
+      <span className="ml-auto rounded-md bg-surface-overlay px-1.5 py-0.5 text-[10px] font-medium text-fg-muted">
         Demo
       </span>
     </div>
@@ -59,7 +59,7 @@ export function Sidebar() {
       </ul>
 
       <div className="mt-auto rounded-lg bg-surface-raised p-3">
-        <p className="text-[10px] uppercase tracking-wider font-medium text-fg-subtle">
+        <p className="text-[10px] font-medium text-fg-subtle">
           Bağlı kanallar
         </p>
         <ul className="mt-3 space-y-2">

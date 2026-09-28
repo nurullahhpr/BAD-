@@ -8,7 +8,7 @@ import { mainNav, siteConfig } from "@/lib/site";
 
 // py-0.5 lifts each link to a 24px tap target without breaking wrapped lines.
 const linkClass = "inline-block py-0.5 text-sm text-fg-muted transition-colors hover:text-fg";
-const headingClass = "text-xs uppercase tracking-wider font-medium text-fg-subtle";
+const headingClass = "text-xs font-medium text-fg-subtle";
 
 export function Footer() {
   const year = new Date().getFullYear();

@@ -5,12 +5,12 @@ import { comparison } from "@/lib/content/home";
 import { ComparisonTable } from "./ComparisonTable";
 
 export function Comparison() {
-  const { eyebrow, title, criterionLabel, traditionalLabel, badiLabel, rows } = comparison;
+  const { title, criterionLabel, traditionalLabel, badiLabel, rows } = comparison;
 
   return (
     <Section id="neden-badi" aria-labelledby="comparison-title">
       <Container>
-        <SectionHeader eyebrow={eyebrow} title={title} titleId="comparison-title" />
+        <SectionHeader title={title} titleId="comparison-title" />
 
         <div className="mt-12 sm:mt-16">
           <ComparisonTable

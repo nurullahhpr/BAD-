@@ -11,13 +11,12 @@ import { ServiceIcon } from "./ServiceIcon";
 type ServiceDetailProps = {
   pillarId: PillarId;
   service: PillarPage["services"][number];
-  index: number;
 };
 
-const blockLabel = "text-xs uppercase tracking-wider font-medium text-fg-subtle";
+const blockLabel = "text-xs font-medium text-fg-subtle";
 
 // lg: header sticks on the left while the three blocks scroll past on the right.
-export function ServiceDetail({ pillarId, service, index }: ServiceDetailProps) {
+export function ServiceDetail({ pillarId, service }: ServiceDetailProps) {
   const tone = pillarTheme[pillarId];
   const titleId = `${service.slug}-title`;
 
@@ -27,11 +26,9 @@ export function ServiceDetail({ pillarId, service, index }: ServiceDetailProps) 
         <div className="lg:sticky lg:top-28 lg:self-start">
           <ServiceIcon pillar={pillarId} service={service.slug} size="lg" className="mb-6" />
           <SectionHeader
-            eyebrow={`Hizmet ${String(index + 1).padStart(2, "0")}`}
             title={service.title}
             titleId={titleId}
             body={service.body}
-            tone={tone.text}
           />
         </div>
 

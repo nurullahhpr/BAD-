@@ -101,7 +101,6 @@ export const processPage = {
   totalDays: program.totalDays,
   phaseLabels: { goals: "Hedefler", outputs: "Çıktılar", clientSees: "Ne göreceksiniz" },
   journey: {
-    eyebrow: "Müşteri yolculuğu",
     title: "90 gün boyunca sizin tarafınızda ne olur?",
     body: "İlk görüşmeden sonuç raporuna kadar her adım.",
   },
